@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="final_project">
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult0" CBX_FILE_NAME="mult_r8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult1" CBX_FILE_NAME="mult_l8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult2" CBX_FILE_NAME="mult_n8t.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

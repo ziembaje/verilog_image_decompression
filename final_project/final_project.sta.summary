@@ -3,11 +3,11 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
-Slack : 2.775
+Slack : 2.527
 TNS   : 0.000
 
 Type  : Slow Model Setup 'CLOCK_50_I'
-Slack : 12.410
+Slack : 3.187
 TNS   : 0.000
 
 Type  : Slow Model Hold 'CLOCK_50_I'
@@ -15,7 +15,7 @@ Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow Model Hold 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
-Slack : 6.995
+Slack : 7.243
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
@@ -23,15 +23,15 @@ Slack : 4.000
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50_I'
-Slack : 9.000
+Slack : 8.077
 TNS   : 0.000
 
 Type  : Fast Model Setup 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
-Slack : 3.765
+Slack : 3.633
 TNS   : 0.000
 
 Type  : Fast Model Setup 'CLOCK_50_I'
-Slack : 16.505
+Slack : 13.295
 TNS   : 0.000
 
 Type  : Fast Model Hold 'CLOCK_50_I'
@@ -39,7 +39,7 @@ Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Hold 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
-Slack : 6.115
+Slack : 6.247
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'SRAM_unit|Clock_100_PLL_inst|altpll_component|pll|clk[0]'
@@ -47,7 +47,7 @@ Slack : 4.000
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50_I'
-Slack : 9.000
+Slack : 7.981
 TNS   : 0.000
 
 ------------------------------------------------------------

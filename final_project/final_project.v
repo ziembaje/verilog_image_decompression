@@ -47,17 +47,19 @@ module final_project(
 		
 		/////// UART                              ////////////
 		input logic UART_RX_I,                    // UART receive signal
-		output logic UART_TX_O                    // UART transmit signal
-
+		output logic UART_TX_O                // UART transmit signal
+		
+		//output logic done
 );
 	
 logic resetn;
 
 top_state_type top_state;
 
+logic done;
+
 // For Push button
 logic [3:0] PB_pushed;
-
 // For VGA SRAM interface
 logic VGA_enable;
 logic [17:0] VGA_base_address;
@@ -65,6 +67,8 @@ logic [17:0] VGA_SRAM_address;
 logic VGA_adjust;
 
 // For SRAM
+logic sram_wen_temp;
+logic [17:0] sram_address_temp;
 logic [17:0] SRAM_address;
 logic [15:0] SRAM_write_data;
 logic SRAM_we_n;
@@ -81,6 +85,11 @@ logic [25:0] UART_timer;
 
 logic [6:0] value_7_segment [7:0];
 
+//milestone 1
+logic [17:0] M1_SRAM_address;
+logic [15:0] M1_SRAM_write_data;
+logic M1_SRAM_we_n;
+
 // For error detection in UART
 logic [3:0] Frame_error;
 
@@ -89,6 +98,16 @@ assign UART_TX_O = 1'b1;
 
 assign resetn = ~SWITCH_I[17] && SRAM_ready;
 
+//************** New variables ************* \\
+logic [17:0] Y_sram_address;
+logic [17:0] U_sram_address;
+logic [17:0] V_sram_address;
+
+logic [17:0] RGB_sram_address;
+
+logic lead_in_begin;
+
+M1_state_type M1_current_state;
 // Push Button unit
 PB_Controller PB_unit (
 	.Clock_50(CLOCK_50_I),
@@ -156,18 +175,40 @@ SRAM_Controller SRAM_unit (
 	.SRAM_OE_N_O(SRAM_OE_N_O)
 );
 
+Milestone_1 M1_unit (
+	
+	//inputs
+	.Clock_50(CLOCK_50_I),
+	.Resetn(resetn), 
+	.Initialize(lead_in_begin),
+	.SRAM_read_data(SRAM_read_data),
+	
+	//outputs
+	.SRAM_address(M1_SRAM_address),
+	.SRAM_write_data(M1_SRAM_write_data),
+	.SRAM_we_n(M1_SRAM_we_n),
+	.M1_state(M1_current_state),
+	.sim_done(done)
+
+);
+
 always @(posedge CLOCK_50_I or negedge resetn) begin
 	if (~resetn) begin
 		top_state <= S_IDLE;
 		
 		UART_rx_initialize <= 1'b0;
 		UART_rx_enable <= 1'b0;
-		UART_timer <= 26'd0;
+		
+		// MBOBUS
+		 UART_timer <= 26'd0; //original
+		//UART_timer <= 26'd49999990; //simulation (500000000 cycles takes to long in simulation so we just increase the counter)
 		
 		VGA_enable <= 1'b1;
+		lead_in_begin <= 0;
 	end else begin
 		UART_rx_initialize <= 1'b0; 
 		UART_rx_enable <= 1'b0; 
+		UART_timer <= 26'd0;
 		
 		// Timer for timeout on UART
 		// This counter reset itself every time a new data is received on UART
@@ -176,12 +217,14 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 
 		case (top_state)
 		S_IDLE: begin
-			VGA_enable <= 1'b1;   
+			//VGA_enable <= 1'b1; NOW ENABLE MILESTONE 1 ENABLE VGA AFTER MILESTONE 1 IS COMPLETE!!!
+			lead_in_begin <= 1;
+			
 			if (~UART_RX_I | PB_pushed[0]) begin
 				// UART detected a signal, or PB0 is pressed
 				UART_rx_initialize <= 1'b1;
 				
-				VGA_enable <= 1'b0;
+				//VGA_enable <= 1'b0;
 								
 				top_state <= S_ENABLE_UART_RX;
 			end
@@ -192,33 +235,64 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 			top_state <= S_WAIT_UART_RX;
 		end
 		S_WAIT_UART_RX: begin
-			if ((UART_timer == 26'd49999999) && (UART_SRAM_address != 18'h00000)) begin
+			//MBOBUS
+			if ((UART_timer == 26'd49999999) || (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
 				// Timeout on UART
 				UART_rx_initialize <= 1'b1;
 				 				
-				VGA_enable <= 1'b1;
+				//VGA_enable <= 1'b1;
+				/*
+				To be written to 1 once we start displaying the converted RGB pixels (they are being read from SRAM, they should not be displayed as we convert from YUV)
+				*/
 				top_state <= S_IDLE;
-			end
-		end
+				lead_in_begin <= 1;
+			end 
+			
+		end			
 		default: top_state <= S_IDLE;
 		endcase
 	end
 end
 
 assign VGA_adjust = SWITCH_I[0];
-
 assign VGA_base_address = 18'd0;
 
 // Give access to SRAM for UART and VGA at appropriate time
-assign SRAM_address = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX)) 
+
+always_comb begin
+	
+	if (M1_current_state != 0)
+		sram_address_temp = M1_SRAM_address;
+	else if ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX))
+		sram_address_temp = UART_SRAM_address;
+	else
+		sram_address_temp = VGA_SRAM_address;
+
+end
+
+/*assign SRAM_address = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX)) 
 						? UART_SRAM_address 
 						: VGA_SRAM_address;
+*/
+assign SRAM_address = sram_address_temp;
 
-assign SRAM_write_data = UART_SRAM_write_data;
+assign SRAM_write_data = M1_current_state != 0 ? M1_SRAM_write_data : UART_SRAM_write_data ;
 
-assign SRAM_we_n = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX)) 
+
+always_comb begin
+	
+	if (M1_current_state != 1'b0)
+		sram_wen_temp = M1_SRAM_we_n;
+	else if ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX))
+		sram_wen_temp = UART_SRAM_we_n;
+	else sram_wen_temp = 1'b1;
+
+end
+
+assign SRAM_we_n = sram_wen_temp;
+/*assign SRAM_we_n = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX)) 
 						? UART_SRAM_we_n 
-						: 1'b1;
+						: 1;*/
 
 // 7 segment displays
 convert_hex_to_seven_segment unit7 (

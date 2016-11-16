@@ -1,0 +1,304 @@
+`timescale 1ns/100ps
+`default_nettype none
+
+`include "define_state.h"
+
+module Milestone_1 (
+   input  logic            Clock_50,
+   input  logic            Resetn, 
+
+   input  logic            Initialize,
+	input logic 	[15:0]   SRAM_read_data,
+   //input  logic            Enable,
+   
+   output logic   [17:0]   SRAM_address,
+   output logic   [15:0]   SRAM_write_data,
+   output logic            SRAM_we_n,
+	output logic   [6:0]    M1_current_state,
+	output logic 				sim_done,
+	//output M1_state_type M1_state
+);
+
+
+logic [17:0] Y_sram_address;
+logic [17:0] U_sram_address;
+logic [17:0] V_sram_address;
+
+logic [15:0] Y_data;
+logic [15:0] U_data;
+logic [15:0] V_data;
+
+logic [15:0] ee_buff;
+logic [15:0] eo_buff;
+logic [15:0] oo_buff;
+
+logic [7:0] UR[5:0]; 
+logic [7:0] VR[5:0];
+
+logic [31:0] a_result;
+logic [31:0] a_op1;
+logic [31:0] a_op2;
+logic [31:0] b_result;
+logic [31:0] b_op1;
+logic [31:0] b_op2;
+logic [31:0] c_result;
+logic [31:0] c_op1;
+logic [31:0] c_op2;
+
+logic [31:0] a_IN1;
+logic [31:0] a_IN2;
+logic [31:0] a_IN3;
+logic [31:0] a_IN4;
+
+logic [31:0] b_IN1;
+logic [31:0] b_IN2;
+logic [31:0] b_IN3;
+logic [31:0] b_IN4;
+
+logic [31:0] c_IN1;
+logic [31:0] c_IN2;
+logic [31:0] c_IN3;
+logic [31:0] c_IN4;
+
+logic [31:0] a_result_buff;
+logic [31:0] b_result_buff;
+logic [31:0] c_result_buff;
+
+logic a_select;
+logic b_select;
+logic c_select;
+
+M1_state_type M1_state;
+
+// *************Multiplier Assignments*************************
+always_comb begin
+	if (a_select == 1'b0) begin
+		a_op1 = a_IN1;
+		a_op2 = a_IN2;
+	end
+	else begin
+		a_op1 = a_IN3;
+		a_op2 = a_IN4;
+	end
+end
+assign a_result = a_op1*a_op2;
+		
+always_comb begin
+	if (b_select == 1'b0) begin
+		b_op1 = b_IN1;
+		b_op2 = b_IN2;
+	end
+	else begin
+		b_op1 = b_IN3;
+		b_op2 = b_IN4;
+	end
+end
+assign b_result = b_op1*b_op2;
+
+always_comb begin
+	if (c_select == 1'b0) begin
+		c_op1 = c_IN1;
+		c_op2 = c_IN2;
+	end
+	else begin
+		c_op1 = c_IN3;
+		c_op2 = c_IN4;
+	end
+end
+assign c_result = c_op1*c_op2;
+// ************************************************************
+		
+always @(posedge Clock_50 or negedge Resetn) begin
+	if (~Resetn) begin
+		M1_state <= S_WAIT_FOR_PREVIOUS;
+		SRAM_address <= 0;
+		SRAM_we_n <= 1;
+		Y_sram_address <= 0;
+		U_sram_address <= 0;
+		V_sram_address <= 0;
+		
+		Y_data <= 0;
+		U_data <= 0;
+		V_data <= 0;
+		
+		a_result_buff <= 0;
+		b_result_buff <= 0;
+		c_result_buff <= 0;
+		
+		VR[0]	<= 0;
+		VR[1] <= 0;
+		VR[2] <= 0;
+		VR[3] <= 0;
+		VR[4] <= 0;
+		VR[5] <= 0;
+		
+		sim_done <= 0;
+	//	VR <= 0;
+	//	UR <= 0;
+		
+	end else begin
+		case(M1_state)
+			S_WAIT_FOR_PREVIOUS: begin
+				if(Initialize == 1)
+					M1_state <= S_LEAD_IN_START_1;
+			end
+			
+			// ****************** Lead In Begin ****************** \\
+			S_LEAD_IN_START_1: begin
+				SRAM_address <= Y_sram_address;
+				Y_sram_address <= Y_sram_address + 1'b1;
+				SRAM_we_n <= 1'b1;
+				M1_state <= S_2;
+			end
+			
+			S_2: begin	// request V0, receive null
+				SRAM_address <= V_sram_address;
+				V_sram_address <= V_sram_address + 1'b1;
+				M1_state <= S_3;
+			end
+			
+			S_3: begin  // request U0, receive null
+				SRAM_address <= U_sram_address;
+				U_sram_address = U_sram_address + 1'b1;
+				M1_state <= S_4;
+			end
+			
+			S_4: begin // request V1, receive Y0
+				SRAM_address <= V_sram_address;
+				V_sram_address <= V_sram_address + 1'b1;
+				Y_data 		 <= SRAM_read_data;
+
+				M1_state <= S_5;
+			end
+			
+			S_5: begin // request U1, receive V0
+				SRAM_address <= U_sram_address;
+				U_sram_address <= U_sram_address + 1'b1;
+				V_data 		 <= SRAM_read_data;
+				VR[0]			 <= SRAM_read_data[15:8];
+				
+				M1_state <= S_6;
+			end
+			
+			S_6: begin // request null, receive U0
+				U_data <= SRAM_read_data;
+				
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[15:8] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_data[15:8];
+				
+				c_select <= 0;
+				c_IN1 <= 25624 ;
+				c_IN2 <= U_data[15:8] - 128;
+							
+				
+				VR[0]	<= V_data[15:0];
+				VR[1] <= VR[0];
+				
+				M1_state <= S_7;
+			end
+			
+			S_7: begin // request null, receive V1
+				V_data <= SRAM_read_data;
+				
+				ee_buff[15:8] <= a_result + b_result;
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_data[15:8] - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_data[15:8] - 128;
+				
+				VR[0]	<= V_data[15:0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[1];
+
+				M1_state <= S_8;
+			end
+			
+			S_8: begin
+				
+				ee_buff[7:0] <= a_result_buff - a_result - c_result_buff;
+				b_result_buff <= b_result;
+				
+				VR[0]	<= V_data[15:0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[1];
+				VR[3] <= VR[2];
+				
+				M1_state <= S_9;
+			end
+			
+			S_9: begin
+				
+				VR[0]	<= V_data[15:0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[1];
+				VR[3] <= VR[2];
+				VR[4] <= VR[3];
+
+				M1_state <= S_10;
+			end
+			
+			S_10: begin
+				
+				VR[0]	<= V_data[15:0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[1];
+				VR[3] <= VR[2];
+				VR[4] <= VR[3];
+				VR[5] <= VR[4];
+				sim_done <= 1;
+				M1_state <= S_11;
+			end
+			
+			S_11: begin
+				
+			end
+			
+			S_12: begin
+				
+			end
+			
+			S_13: begin
+				
+			end
+			
+			S_14: begin
+				
+			end
+			
+			S_15: begin
+				
+			end
+			
+			S_16: begin
+				
+			end
+			
+			S_17: begin
+				
+			end
+			
+			S_18: begin
+				
+			end
+			
+			// ****************** Lead In End ****************** \\
+			
+			//default: M1_state <= S_LEADIN_IDLE;
+		endcase
+	end
+end
+
+//assign M1_current_state = M1_state;
+
+endmodule

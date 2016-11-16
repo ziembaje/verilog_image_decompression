@@ -1,0 +1,75 @@
+<internal_error>
+<sub_system>ERR</sub_system>
+<callstack>
+	 0xe9196df3: ccl_err + 0xadf3 (_ZN15ERR_STACKWALKER15get_stack_traceEPPKviiPv + 0x8f)
+	 0xe9199706: ccl_err + 0xd706 (_Z14err_terminatorv + 0x62)
+	 0xe6b1ca0e: dinkum_alt + 0x17a0e (_ZSt9terminatev + 0x1e)
+	 0xe5c13c0a: stdc++.so.6 + 0xb4c0a
+	 0xe9199ab4: ccl_err + 0xdab4 (err_sigaction_handler + 0x82)
+	 0xffffe600:  + 0x600 (__kernel_rt_sigreturn + 0)
+	 0xe5c4b742: tbbmalloc.so.2 + 0x3742 (_ZN3rml8internalL18internalPoolMallocEPNS_10MemoryPoolEj + 0x64)
+	 0xe5c4c111: tbbmalloc.so.2 + 0x4111 (scalable_malloc + 0x18)
+	 0xe5c510fd: tbbmalloc.so.2 + 0x90fd (__TBB_internal_malloc + 0x1d)
+	 0xe6062c7c: tbbmalloc_proxy.so.2 + 0xc7c (malloc + 0x1d)
+	 0xe843483d: QtCore.so.4 + 0x6483d (_Z7qMallocj + 0x1d)
+	 0xe8459f6f: QtCore.so.4 + 0x89f6f (_ZN9QHashData12allocateNodeEi + 0x4f)
+	 0xe88316d5: QtGui.so.4 + 0x1ad6d5 (_ZN14QWidgetPrivate4initEP7QWidget6QFlagsIN2Qt10WindowTypeEE + 0x435)
+	 0xe8831963: QtGui.so.4 + 0x1ad963 (_ZN7QWidgetC2ER14QWidgetPrivatePS_6QFlagsIN2Qt10WindowTypeEE + 0x73)
+	 0xe8d29040: QtGui.so.4 + 0x6a5040 (_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE + 0x130)
+	 0xea0f2fa8: gcl_afcq + 0x83fa8 (_ZN11AFCQ_DIALOGC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE + 0x40)
+	 0xea161403: gcl_afcq + 0xf2403 (_ZN11AFCQ_IE_DLGC1Eb7QString + 0x45)
+	 0xea18e177: gcl_afcq + 0x11f177 (_ZN16AFCQ_MSG_DISPLAY22internal_error_displayEN11_Dinkum_std12basic_stringIcNS0_11char_traitsIcEE17MEM_STL_ALLOCATORIcEEE + 0x163)
+	 0xe9808bae: ccl_msg + 0x30bae (_ZN10MSG_REPORT14internal_errorERKN11_Dinkum_std12basic_stringIcNS0_11char_traitsIcEE17MEM_STL_ALLOCATORIcEEE + 0xdc)
+	 0xe982008c: ccl_msg + 0x4808c (_ZN14MSG_ERROR_INFO8finalizeEv + 0x46)
+	 0xe982022e: ccl_msg + 0x4822e (_ZN18MSG_INTERNAL_ERROR12report_fatalEPKcPv + 0x72)
+	 0xe91998b4: ccl_err + 0xd8b4 (_Z26err_report_fatal_exceptionPKcPv + 0x6e)
+	 0xe9199b7a: ccl_err + 0xdb7a (err_sigaction_handler + 0x148)
+	 0xffffe600:  + 0x600 (__kernel_rt_sigreturn + 0)
+	 0xe5c4b742: tbbmalloc.so.2 + 0x3742 (_ZN3rml8internalL18internalPoolMallocEPNS_10MemoryPoolEj + 0x64)
+	 0xe5c4c111: tbbmalloc.so.2 + 0x4111 (scalable_malloc + 0x18)
+	 0xe5c510fd: tbbmalloc.so.2 + 0x90fd (__TBB_internal_malloc + 0x1d)
+	 0xe6062c7c: tbbmalloc_proxy.so.2 + 0xc7c (malloc + 0x1d)
+	 0xe6b2e305: dinkum_alt + 0x29305 (_Znwj + 0x35)
+	 0xe854eb59: QtCore.so.4 + 0x17eb59
+	 0xe854ac29: QtCore.so.4 + 0x17ac29 (_ZN16QCoreApplication9postEventEP7QObjectP6QEventi + 0x209)
+	 0xe854ad9c: QtCore.so.4 + 0x17ad9c (_ZN16QCoreApplication9postEventEP7QObjectP6QEvent + 0x2c)
+	 0xe855b1d7: QtCore.so.4 + 0x18b1d7 (_ZN7QObject11deleteLaterEv + 0x47)
+	 0xe841c9ba: QtCore.so.4 + 0x4c9ba
+	 0xe841caec: QtCore.so.4 + 0x4caec (_ZN18QAbstractAnimation4stopEv + 0x1c)
+	 0xe841cc3f: QtCore.so.4 + 0x4cc3f (_ZN18QAbstractAnimation14setCurrentTimeEi + 0x14f)
+	 0xe841c996: QtCore.so.4 + 0x4c996
+	 0xe8cf1a72: QtGui.so.4 + 0x66da72
+	 0xe8c2eca5: QtGui.so.4 + 0x5aaca5
+	 0xe8c5ca32: QtGui.so.4 + 0x5d8a32
+	 0xe8c5e9af: QtGui.so.4 + 0x5da9af
+	 0xe8c5f12c: QtGui.so.4 + 0x5db12c
+	 0xe88051fe: QtGui.so.4 + 0x1811fe (_ZN14QLayoutPrivate8doResizeERK5QSize + 0x8e)
+	 0xe880534d: QtGui.so.4 + 0x18134d (_ZN7QLayout8activateEv + 0xed)
+	 0xe880564e: QtGui.so.4 + 0x18164e (_ZN7QLayout11widgetEventEP6QEvent + 0xbe)
+	 0xe87cc98a: QtGui.so.4 + 0x14898a (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0x7a)
+	 0xe87d3964: QtGui.so.4 + 0x14f964 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x154)
+	 0xe854947b: QtCore.so.4 + 0x17947b (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x7b)
+	 0xe854a567: QtCore.so.4 + 0x17a567 (_ZN23QCoreApplicationPrivate16sendPostedEventsEP7QObjectiP11QThreadData + 0x2b7)
+	 0xe854a74d: QtCore.so.4 + 0x17a74d (_ZN16QCoreApplication16sendPostedEventsEP7QObjecti + 0x2d)
+	 0xe888aa28: QtGui.so.4 + 0x206a28
+	 0xe854850d: QtCore.so.4 + 0x17850d (_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFlagEE + 0x4d)
+	 0xe854879a: QtCore.so.4 + 0x17879a (_ZN10QEventLoop4execE6QFlagsINS_17ProcessEventsFlagEE + 0xaa)
+	 0xe854a811: QtCore.so.4 + 0x17a811 (_ZN16QCoreApplication4execEv + 0xb1)
+	 0xe87cc317: QtGui.so.4 + 0x148317 (_ZN12QApplication4execEv + 0x27)
+	  0x804e9ed: quartus + 0x69ed (_Z8qgq_mainiPPKc + 0x9b)
+	 0xe97f7b58: ccl_msg + 0x1fb58 (_Z15msg_main_threadPv + 0x18)
+	 0xe9153b58: ccl_thr + 0x5b58 (thr_final_wrapper + 0xe)
+	 0xe97f9c42: ccl_msg + 0x21c42 (_Z18msg_thread_wrapperPFPvS_ES_ + 0x72)
+	  0x8066d61: quartus + 0x1ed61 (_Z18mem_thread_wrapperPFPvS_ES_ + 0xd1)
+	 0xe9195b30: ccl_err + 0x9b30 (_Z18err_thread_wrapperPFPvS_ES_ + 0x2a)
+	 0xe9153b8b: ccl_thr + 0x5b8b (thr_thread_wrapper + 0x2f)
+	 0xe980bd01: ccl_msg + 0x33d01 (_Z12msg_exe_mainiPPKcPFiiS1_E + 0xb7)
+	  0x804e93b: quartus + 0x693b (main + 0x4f)
+	   0x778ebc: c.so.6 + 0x15ebc (__libc_start_main + 0xdc)
+	  0x804e721: quartus + 0x6721 (__gxx_personality_v0 + 0x22d)
+</callstack>
+<error>*** Fatal Error: Unhandled Exception</error>
+<date>Mon Nov 14 00:43:01 2016
+</date>
+<version>Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version</version>
+</internal_error>

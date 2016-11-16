@@ -1,24 +1,52 @@
+// Copyright by Adam Kinsman and Henry Ko and Nicola Nicolici
+// Developed for the Digital Systems Design course (COE3DQ4)
+// Department of Electrical and Computer Engineering
+// McMaster University
+// Ontario, Canada
+
 /*
-Copyright by Henry Ko and Nicola Nicolici
-Developed for the Digital Systems Design course (COE3DQ4)
-Department of Electrical and Computer Engineering
-McMaster University
-Ontario, Canada
-*/
+Updated testbench coded by Jason Thong, 2012
+
+This testbench was adapated from experiment4a from lab 5. Make sure
+instantiation names match that of your project (e.g. replace "experiment4a"
+everywhere with "project" or whatever your top level is called).
+
+There are many debug hooks already placed in the code (messages will print
+when "something bad" happens), it is recommended you modify these as well as
+add your own.
+
+The verification strategy here is to watch data being written back to the
+SRAM. It is assumed that all values being written are the final values.
+If you are using the SRAM as temporary storage (strongly NOT advisable),
+you will get false errors, so use the original testbench instead.
+*/ 
 
 `timescale 1ns/100ps
 `default_nettype none
 
-`include "define_state.h"
-
 // This is the top testbench file
 
 `define FEOF 32'hFFFFFFFF
+`define MAX_MISMATCHES 10
 
-`define FILE_NAME "motorcycle.ppm"
-//`define FILE_NAME "chip.ppm"
+// file for output
+// this is only useful if decoding is done all the way through (e.g. milestone 1 is used)
+`define OUTPUT_FILE_NAME "motorcycle_tb.ppm"
 
-module tb_final_project;
+// file for comparison
+// to test milestone 2 independently, use the .sram_d1 file to check the output
+`define VERIFICATION_FILE_NAME "motorcycle.sram_d0"
+
+//// for milestone 1
+`define INPUT_FILE_NAME "motorcycle.sram_d1"
+
+//// for milestone 2
+//`define INPUT_FILE_NAME "motorcycle.sram_d2"
+
+//// for milestone 3 (completed project)
+//`define INPUT_FILE_NAME "motorcycle.mic10”
+
+module tb_project_v2;
 
 logic Clock_50;
 logic [17:0] Switches;
@@ -53,13 +81,22 @@ parameter VIEW_AREA_LEFT = 160,
 
 // Internal variables
 integer validation_file;
+integer validation_mismatches;
 integer VGA_temp;
 logic [7:0] VGA_file_data;
 logic [9:0] expected_red, expected_green, expected_blue;
-logic [9:0] VGA_red_buf, VGA_green_buf, VGA_blue_buf;
-logic [10:0] average_red, average_green, average_blue;
 logic [9:0] VGA_row, VGA_col;
 logic VGA_en;
+logic VGA_display_enable;
+
+
+// a very software-ish way of emulating the sram
+logic [17:0] SRAM_ARRAY[262143:0];
+integer SRAM_ARRAY_write_count[262143:0];
+integer num_mismatches;
+integer warn_writing_out_of_region;
+integer warn_multiple_writes_to_same_location;
+
 
 // Instantiate the unit under test
 final_project uut (
@@ -87,7 +124,8 @@ final_project uut (
 		.SRAM_CE_N_O(SRAM_CE_N),
 		.SRAM_OE_N_O(SRAM_OE_N),
 		
-		.UART_RX_I(1'b1)
+		.UART_RX_I(1'b1),
+		.UART_TX_O()
 );
 
 // The emulator for the external SRAM during simulation
@@ -110,6 +148,61 @@ always begin
 	Clock_50 = ~Clock_50;
 end
 
+
+task init_sram;
+	integer file_ptr, file_data, i;
+	logic [15:0] buffer;
+begin
+	$write("Opening file \"%s\" for initializing SRAM\n\n", `INPUT_FILE_NAME);
+	file_ptr = $fopen(`INPUT_FILE_NAME, "rb");
+	for (i=0; i<262144; i=i+1) begin
+		file_data = $fgetc(file_ptr);
+		buffer[15:8] = file_data & 8'hFF;
+		file_data = $fgetc(file_ptr);
+		buffer[7:0] = file_data & 8'hFF;
+		SRAM_component.SRAM_data[i] = buffer;
+	end
+	$fclose(file_ptr);
+	
+	$write("Opening file \"%s\" to get SRAM verification data\n\n", `VERIFICATION_FILE_NAME);
+	file_ptr = $fopen(`VERIFICATION_FILE_NAME, "rb");
+	for (i=0; i<262144; i=i+1) begin
+		file_data = $fgetc(file_ptr);
+		buffer[15:8] = file_data & 8'hFF;
+		file_data = $fgetc(file_ptr);
+		buffer[7:0] = file_data & 8'hFF;
+		SRAM_ARRAY[i] = buffer;
+		SRAM_ARRAY_write_count[i] = 0;
+	end
+	$fclose(file_ptr);
+	
+	num_mismatches = 0;
+	warn_writing_out_of_region = 0;
+	warn_multiple_writes_to_same_location = 0;
+end
+endtask
+
+task check_sram_write_counts;
+	integer i, error_count;
+begin
+	error_count = 0;
+	
+	//NOTE: this is for milestone 1, in different milestones we will be
+	//writing to different regions so modify as needed
+	for (i=146944; i<262144; i=i+1) begin
+		if (SRAM_ARRAY_write_count[i]==0) begin
+			if (error_count < `MAX_MISMATCHES) begin
+				$write("error: did not write to location %d (%x hex)\n", i, i);
+				error_count = error_count + 1;
+			end
+		end
+	end
+
+end
+endtask
+
+
+
 // Task for generating master reset
 task master_reset;
 begin
@@ -125,58 +218,32 @@ begin
 end
 endtask
 
-// Task for filling the SRAM directly to shorten simulation time
-task fill_SRAM;
-integer uart_file, file_data, temp, i, new_line_count;
-logic [15:0] buffer;
+task write_PPM_file; 
+	integer i, output_file;
+	logic [7:0] high_byte, low_byte;
 begin
-	$write("Opening file \"%s\" for initializing SRAM\n\n", `FILE_NAME);
-	uart_file = $fopen(`FILE_NAME, "rb");
-	file_data = $fgetc(uart_file);
-	new_line_count = 0;
-	i = 0;
-	while (file_data != `FEOF) begin
-		if (new_line_count >= 3) begin
-			// Filter out the header
-			buffer[15:8] = file_data & 8'hFF;
-			file_data = $fgetc(uart_file);			
-			buffer[7:0] = file_data & 8'hFF;
-			SRAM_component.SRAM_data[i] = buffer;
-			i++;
-		end
-		// This is for filtering out the header of PPM file
-		// Which consists of 3 lines of text
-		// So check for line feed (8'h0A in ASCII) here
+	$write("Writing SRAM contents to file \"%s\"\n\n", `OUTPUT_FILE_NAME);
+	output_file = $fopen(`OUTPUT_FILE_NAME, "wb");
+	
+	// Write file header
+	$fwrite(output_file, "P6%c320 240%c255%c", 8'h0A, 8'h0A, 8'h0A); 
 
-		if ((file_data & 8'hFF) == 8'h0A) new_line_count++;		
-		file_data = $fgetc(uart_file);
+	// Write RGB main data
+	for (i = 0; i < 3*320*240/2; i = i + 1) begin
+		high_byte = (SRAM_component.SRAM_data[i+uut.VGA_base_address] >> 8) & 8'hFF;
+		low_byte = SRAM_component.SRAM_data[i+uut.VGA_base_address] & 8'hFF;
+
+		// $fwrite can't support the 8'h00 = "\0" character, so offset it to 
+		// 8'h01. The output image will not be numerically identical, but it 
+		// will be visually indistiguishable from the software model output
+		// thus we only use this output PPM as a visual check
+		if (high_byte == 8'h00) high_byte = 8'h01;
+		if (low_byte == 8'h00) low_byte = 8'h01;
+
+		$fwrite(output_file, "%c%c", high_byte, low_byte);
 	end
 
-	$fclose(uart_file);
-
-	$write("Finish initializing SRAM\n\n");
-	uut.UART_timer = 24'h4C4B30;
-end
-endtask
-
-// Task for opening the validation file for self-checking simulation
-task open_validation_file; 
-integer temp, new_line_count;
-begin
-	$write("Opening validation file \"%s\"\n\n", `FILE_NAME);
-	validation_file = $fopen(`FILE_NAME, "rb");
-	
-	temp = $fgetc(validation_file);
-	new_line_count = 0;
-	
-	// This is for filtering out the header of PPM file
-	// Which consists of 3 lines of text
-	// So check for line feed (8'h0A in ASCII) here
-	while (temp != `FEOF && new_line_count < 3) begin
-		// Filter out the header
-		if ((temp & 8'hFF) == 8'h0A) new_line_count++;		
-		if (new_line_count < 3) temp = $fgetc(validation_file);
-	end
+	$fclose(output_file);
 end endtask
 
 // Initialize signals
@@ -186,11 +253,14 @@ initial begin
 	
 	$write("Simulation started at %t\n\n", $realtime);
 	Clock_50 = 1'b0;
-	Switches = 18'd1;
+	Switches = 18'd0;
 	SRAM_resetn = 1'b1;
+	VGA_display_enable = 1'b0;
+	validation_mismatches = 0;
 	
 	// Apply master reset
 	master_reset;
+	Push_buttons = 4'hF;
 	
 	@ (posedge Clock_50);
 	// Clear SRAM
@@ -202,99 +272,73 @@ initial begin
 	@ (posedge Clock_50);
 	@ (posedge Clock_50);	
 
-	fill_SRAM;
+	init_sram;
 	$write("SRAM is now filled at %t\n\n", $realtime);
 
-	open_validation_file;
+	//when the uart timer "times-out" after not receiving data for a while, your state machine
+	//should move out of receiving uart data to decoding the data
+	//in hardware, we would have to wait 1 second, but in simulation 50 million clocks is kind of slow
+	//so just force the timer to a value that is nearly that of the "time-out"
+	uut.UART_timer = 26'd49999990;
+	$write("TIMER INCREASED\n\n", $realtime);
+
+	//wait (uut.top_state != 0);	//this assumes S_IDLE is the first in the list where the states are enumerated
+	$write("Starting Decoder at %t\n\n", $realtime);
 	
-	wait (uut.top_state == 0);
-	$write("Start self-checking on VGA output at %t\n\n", $realtime);
-			
-	@ (negedge VGA_Vsync);
-	$write("\nFinish simulating one frame for 640x480 @ 60 Hz at %t...\n", $realtime);
+	//wait (uut.top_state == 0);	//this assumes we go back to S_IDLE when we are done
+	wait (uut.done == 1);		//otherwise change as needed, could use a done signal
+
+	@ (posedge Clock_50);		//let sram writes finish, not sure if this is really needed...
+	@ (posedge Clock_50);
+	@ (posedge Clock_50);
+	
+	check_sram_write_counts;	//this task checks that we've written to all the locations that we were supposed to
+	
+	write_PPM_file;
+
+	$write("Decoding finished at %t\n\n", $realtime);
 	$write("No mismatch found...\n\n");
-	$fclose(validation_file);
 	$stop;
 end
 
-// This always block checks to see if the RGB data obtained from the design matches with the PPM file
-always @ (posedge Clock_50) begin
-	if (~VGA_Vsync) begin
-		VGA_en <= 1'b0;
-		VGA_row <= 10'h000;
-		VGA_col <= 10'h000;
-	end else begin
-		VGA_en <= ~VGA_en;
-		// In 640x480 @ 60 Hz mode, data is provided at every other clock cycle when using 50 MHz clock
-		if (VGA_en) begin
-			if (uut.VGA_enable) begin
-				// Delay pixel_X_pos and pixel_Y_pos to match the VGA controller
-				VGA_row <= uut.VGA_unit.pixel_Y_pos;
-				VGA_col <= uut.VGA_unit.pixel_X_pos;
-				
-				if (VGA_row == VIEW_AREA_TOP && VGA_col == VIEW_AREA_LEFT) $write("Entering 320x240 display area...\n\n");
-				if (VGA_row == VIEW_AREA_BOTTOM && VGA_col == VIEW_AREA_RIGHT) $write("Leaving 320x240 display area...\n\n");
-				
-				// In display area
-				if ((VGA_row >= VIEW_AREA_TOP && VGA_row < VIEW_AREA_BOTTOM)
-	 			 && (VGA_col >= VIEW_AREA_LEFT && VGA_col < VIEW_AREA_RIGHT)) begin
-	 			
-	 				// Get expected data from PPM file
-	 				if (VGA_col == VIEW_AREA_LEFT) begin
-	 					VGA_file_data = $fgetc(validation_file);
-						expected_red = {VGA_file_data & 8'hFF, 2'b00};
-						VGA_red_buf <= {VGA_file_data & 8'hFF, 2'b00};
-						
-						VGA_file_data = $fgetc(validation_file);
-						expected_green = {VGA_file_data & 8'hFF, 2'b00};
-	 					VGA_green_buf <= {VGA_file_data & 8'hFF, 2'b00};						
-	 					
-		 				VGA_file_data = $fgetc(validation_file);
-						expected_blue = {VGA_file_data & 8'hFF, 2'b00};
-	 					VGA_blue_buf <= {VGA_file_data & 8'hFF, 2'b00};
-	 				end else begin
-	 					VGA_file_data = $fgetc(validation_file);
-	 					average_red = {1'b0, VGA_red_buf} + {1'b0, VGA_file_data & 8'hFF, 2'b00};
-	 					VGA_red_buf <= {VGA_file_data & 8'hFF, 2'b00};
-						expected_red = average_red[10:1];
-						
-		 				VGA_file_data = $fgetc(validation_file);
-	 					average_green = {1'b0, VGA_green_buf} + {1'b0, VGA_file_data & 8'hFF, 2'b00};
-	 					VGA_green_buf <= {VGA_file_data & 8'hFF, 2'b00};
-						expected_green = average_green[10:1];
 
-		 				VGA_file_data = $fgetc(validation_file);
-	 					average_blue = {1'b0, VGA_blue_buf} + {1'b0, VGA_file_data & 8'hFF, 2'b00};
-	 					VGA_blue_buf <= {VGA_file_data & 8'hFF, 2'b00};
-						expected_blue = average_blue[10:1];
-					end
-							
-					if (VGA_red != expected_red) begin
-						$write("Red   mismatch at pixel (%d, %d): expect=%x, got=%x\n", 
-							VGA_col, 
-							VGA_row, 
-							expected_red, 
-							VGA_red);
-						$stop;
-					end
-					if (VGA_green != expected_green) begin
-						$write("Green mismatch at pixel (%d, %d): expect=%x, got=%x\n", 
-							VGA_col, 
-							VGA_row, 
-							expected_green, 
-							VGA_green);
-						$stop;
-					end			
-					if (VGA_blue != expected_blue) begin
-						$write("Blue  mismatch at pixel (%d, %d): expect=%x, got=%x\n", 
-							VGA_col, 
-							VGA_row, 
-							expected_blue, 
-							VGA_blue);
-						$stop;
-					end		
-				end
-			end 
+//monitor the write enable signal on the SRAM
+//if the incoming data does not match the expected data
+//then stop simulating and print debug info
+always @ (posedge Clock_50) begin
+	
+	if(uut.done == 1'b1) $stop;
+
+	if (uut.SRAM_we_n == 1'b0) begin	//signal names within project (instantiated as uut) should match here, assuming names from experiment4a
+	
+		//IMPORTANT: this is the "no write" memory region for milestone 1, change region for different milestones
+		
+		if (uut.SRAM_address < 146944) begin
+			if (warn_writing_out_of_region < `MAX_MISMATCHES) begin
+				$write("critical warning: writing outside of the RGB data region, may corrupt source data in SRAM\n");
+				$write("  writing value %d (%x hex) to location %d (%x hex), sim time %t\n", 
+					uut.SRAM_write_data, uut.SRAM_write_data, uut.SRAM_address, uut.SRAM_address, $realtime);
+				warn_writing_out_of_region = warn_writing_out_of_region + 1;
+			end
+		end
+	
+		if (SRAM_ARRAY[uut.SRAM_address] != uut.SRAM_write_data) begin
+			$write("error: wrote value %d (%x hex) to location %d (%x hex), should be value %d (%x hex)\n",
+				uut.SRAM_write_data, uut.SRAM_write_data, uut.SRAM_address, uut.SRAM_address,
+				SRAM_ARRAY[uut.SRAM_address], SRAM_ARRAY[uut.SRAM_address]);
+			$write("sim time %t\n", $realtime);
+			$write("print some useful debug info here...\n");
+		//	$write("m1 state %d\n", uut.m1.state);
+			$write("...or take a look at the last few clock cycles in the waveforms that lead up to this error\n");
+			num_mismatches = num_mismatches + 1;
+			if (num_mismatches == `MAX_MISMATCHES) $stop;
+		end
+		
+		SRAM_ARRAY_write_count[uut.SRAM_address] = SRAM_ARRAY_write_count[uut.SRAM_address] + 1;
+		if (SRAM_ARRAY_write_count[uut.SRAM_address] != 1 && warn_multiple_writes_to_same_location < `MAX_MISMATCHES) begin
+			$write("warning: written %d times to location %d (%x hex), sim time %t\n",
+				SRAM_ARRAY_write_count[uut.SRAM_address], uut.SRAM_address, uut.SRAM_address, $realtime);
+			warn_multiple_writes_to_same_location = warn_multiple_writes_to_same_location + 1;
 		end
 	end
 end
