@@ -33,6 +33,27 @@ typedef enum logic [6:0] {
 	S_LOOP_8,
 	S_LOOP_9
 	
+	S_LO_0,
+	S_LO_1,
+	S_LO_2,
+	S_LO_3,
+	S_LO_4,
+	S_LO_5,
+	S_LO_6,
+	S_LO_7,
+	S_LO_8,
+	S_LO_9,
+	S_LO_10,
+	S_LO_11,
+	S_LO_12,
+	S_LO_13,
+	S_LO_14,
+	S_LO_15,
+	S_LO_16,
+	S_LO_17,
+	S_LO_18,
+	S_LO_19
+	
 } M1_state_type;
 
 // This defines the states

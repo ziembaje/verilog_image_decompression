@@ -27,18 +27,18 @@ you will get false errors, so use the original testbench instead.
 // This is the top testbench file
 
 `define FEOF 32'hFFFFFFFF
-`define MAX_MISMATCHES 10
+`define MAX_MISMATCHES 1
 
 // file for output
 // this is only useful if decoding is done all the way through (e.g. milestone 1 is used)
-`define OUTPUT_FILE_NAME "motorcycle_tb.ppm"
+`define OUTPUT_FILE_NAME "cat_tb.ppm"
 
 // file for comparison
 // to test milestone 2 independently, use the .sram_d1 file to check the output
-`define VERIFICATION_FILE_NAME "motorcycle.sram_d0"
+`define VERIFICATION_FILE_NAME "cat.sram_d0"
 
 //// for milestone 1
-`define INPUT_FILE_NAME "motorcycle.sram_d1"
+`define INPUT_FILE_NAME "cat.sram_d1"
 
 //// for milestone 2
 //`define INPUT_FILE_NAME "motorcycle.sram_d2"
@@ -88,6 +88,9 @@ logic [9:0] expected_red, expected_green, expected_blue;
 logic [9:0] VGA_row, VGA_col;
 logic VGA_en;
 logic VGA_display_enable;
+
+logic [20:0]temp;
+logic [20:0]temp2;
 
 
 // a very software-ish way of emulating the sram
@@ -326,6 +329,11 @@ always @ (posedge Clock_50) begin
 			$write("error: wrote value %d (%x hex) to location %d (%x hex), should be value %d (%x hex)\n",
 				uut.SRAM_write_data, uut.SRAM_write_data, uut.SRAM_address, uut.SRAM_address,
 				SRAM_ARRAY[uut.SRAM_address], SRAM_ARRAY[uut.SRAM_address]);
+			
+			temp = uut.SRAM_address - 146944;
+			temp2 = temp%3;			
+			$write("\t error_info: error while writing %d, STATE: %s\n", temp2, uut.M1_unit.M1_state);
+
 			$write("sim time %t\n", $realtime);
 			$write("print some useful debug info here...\n");
 		//	$write("m1 state %d\n", uut.m1.state);

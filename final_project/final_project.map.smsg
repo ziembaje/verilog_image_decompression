@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at Milestone_1.v(128): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at Milestone_1.v(143): always construct contains both blocking and non-blocking assignments

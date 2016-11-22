@@ -43,6 +43,7 @@ view wave
 # workaround for no block comments: call another .do file, or as many as you like
 # or just add the waveforms here like done the labs
 do add_my_waveforms.do
+do wave.do
 #do add_some_more_waveforms.do
 
 # format signal names in waveform

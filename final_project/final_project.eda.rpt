@@ -1,6 +1,6 @@
 EDA Netlist Writer report for final_project
-Wed Nov 16 17:16:18 2016
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Tue Nov 22 00:11:48 2016
+Quartus II 32-bit Version 12.0 Build 178 05/31/2012 SJ Full Version
 
 
 ---------------------
@@ -17,7 +17,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2013 Altera Corporation
+Copyright (C) 1991-2012 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Nov 16 17:16:18 2016 ;
+; EDA Netlist Writer Status ; Successful - Tue Nov 22 00:11:48 2016 ;
 ; Revision Name             ; final_project                         ;
 ; Top-level Entity Name     ; final_project                         ;
 ; Family                    ; Cyclone II                            ;
@@ -66,25 +66,25 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                         ;
-+------------------------------------------------------------------------------------+
-; Generated Files                                                                    ;
-+------------------------------------------------------------------------------------+
-; C:/Users/jack/Documents/final_project/simulation/modelsim/final_project.vo         ;
-; C:/Users/jack/Documents/final_project/simulation/modelsim/final_project_fast.vo    ;
-; C:/Users/jack/Documents/final_project/simulation/modelsim/final_project_v.sdo      ;
-; C:/Users/jack/Documents/final_project/simulation/modelsim/final_project_v_fast.sdo ;
-+------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                            ;
++---------------------------------------------------------------------------------------+
+; Generated Files                                                                       ;
++---------------------------------------------------------------------------------------+
+; /home/ECE/ziembaje/Desktop/final_project/simulation/modelsim/final_project.vo         ;
+; /home/ECE/ziembaje/Desktop/final_project/simulation/modelsim/final_project_fast.vo    ;
+; /home/ECE/ziembaje/Desktop/final_project/simulation/modelsim/final_project_v.sdo      ;
+; /home/ECE/ziembaje/Desktop/final_project/simulation/modelsim/final_project_v_fast.sdo ;
++---------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
 ; EDA Netlist Writer Messages ;
 +-----------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit EDA Netlist Writer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 16 17:16:16 2016
+Info: Running Quartus II 32-bit EDA Netlist Writer
+    Info: Version 12.0 Build 178 05/31/2012 SJ Full Version
+    Info: Processing started: Tue Nov 22 00:11:45 2016
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off final_project -c final_project
 Info (204001): Port "SEVEN_SEGMENT_N_O[0][0]" is changed into "SEVEN_SEGMENT_N_O_0_0" because it's a member of 2-D array port "SEVEN_SEGMENT_N_O"
 Info (204001): Port "SEVEN_SEGMENT_N_O[0][1]" is changed into "SEVEN_SEGMENT_N_O_0_1" because it's a member of 2-D array port "SEVEN_SEGMENT_N_O"
@@ -142,11 +142,11 @@ Info (204001): Port "SEVEN_SEGMENT_N_O[7][3]" is changed into "SEVEN_SEGMENT_N_O
 Info (204001): Port "SEVEN_SEGMENT_N_O[7][4]" is changed into "SEVEN_SEGMENT_N_O_7_4" because it's a member of 2-D array port "SEVEN_SEGMENT_N_O"
 Info (204001): Port "SEVEN_SEGMENT_N_O[7][5]" is changed into "SEVEN_SEGMENT_N_O_7_5" because it's a member of 2-D array port "SEVEN_SEGMENT_N_O"
 Info (204001): Port "SEVEN_SEGMENT_N_O[7][6]" is changed into "SEVEN_SEGMENT_N_O_7_6" because it's a member of 2-D array port "SEVEN_SEGMENT_N_O"
-Info (204026): Generated files "final_project.vo", "final_project_fast.vo", "final_project_v.sdo" and "final_project_v_fast.sdo" in directory "C:/Users/jack/Documents/final_project/simulation/modelsim/" for EDA simulation tool
-Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 430 megabytes
-    Info: Processing ended: Wed Nov 16 17:16:18 2016
-    Info: Elapsed time: 00:00:02
+Info (204026): Generated files "final_project.vo", "final_project_fast.vo", "final_project_v.sdo" and "final_project_v_fast.sdo" in directory "/home/ECE/ziembaje/Desktop/final_project/simulation/modelsim/" for EDA simulation tool
+Info: Quartus II 32-bit EDA Netlist Writer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 340 megabytes
+    Info: Processing ended: Tue Nov 22 00:11:48 2016
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -22,9 +22,9 @@ add wave -decimal uut/M1_unit/a_IN2
 add wave -decimal uut/M1_unit/b_IN2
 add wave -decimal uut/M1_unit/c_IN2
 
-add wave -hexadecimal uut/M1_unit/a_result
-add wave -hexadecimal uut/M1_unit/b_result
-add wave -hexadecimal uut/M1_unit/c_result
+add wave -unsigned uut/M1_unit/a_result
+add wave -unsigned uut/M1_unit/b_result
+add wave -unsigned uut/M1_unit/c_result
 
 add wave -hexadecimal uut/M1_unit/ee_high
 add wave -hexadecimal uut/M1_unit/ee_low
@@ -41,6 +41,10 @@ add wave -hexadecimal uut/M1_unit/V_prime
 add wave -hexadecimal uut/M1_unit/U_MAC
 add wave -hexadecimal uut/M1_unit/U_prime
 
+add wave -unsigned uut/M1_unit/pixel_row_count
+add wave uut/M1_unit/data_req_flag
+add wave uut/M1_unit/UV_byte_flag
+
 add wave -hexadecimal uut/done
 
 
@@ -49,3 +53,5 @@ add wave -hexadecimal uut/done
 
 
 add wave -unsigned uut/UART_timer
+
+
