@@ -31,7 +31,7 @@ typedef enum logic [6:0] {
 	S_LOOP_6,
 	S_LOOP_7,
 	S_LOOP_8,
-	S_LOOP_9
+	S_LOOP_9,
 	
 	S_LO_0,
 	S_LO_1,
@@ -52,7 +52,12 @@ typedef enum logic [6:0] {
 	S_LO_16,
 	S_LO_17,
 	S_LO_18,
-	S_LO_19
+	S_LO_19,
+	S_LO_20,
+	S_LO_21,
+	S_LO_22,
+	S_LO_23,
+	S_LO_24
 	
 } M1_state_type;
 

@@ -635,12 +635,8 @@ always @(posedge Clock_50 or negedge Resetn) begin
 			
 			S_LOOP_1: begin
 			
-			
-			
 				//store Red even pixel
 				ee_high <= ((a_result + b_result) >> 16);
-			
-	
 			
 				// write previos EO values to SRAM
 				SRAM_we_n <= 0;
@@ -654,14 +650,14 @@ always @(posedge Clock_50 or negedge Resetn) begin
 					//buffer Vdata
 					V_data_buff <= V_data;
 					
+					// buffer in new V data
+					VR[0]	<= SRAM_read_data[15:8];
+					VR[1] <= VR[0];
+					VR[2] <= VR[1];
+					VR[3] <= VR[2];
+					VR[4] <= VR[3];
+					VR[5] <= VR[4];
 					
-				// buffer in new V data
-				VR[0]	<= SRAM_read_data[15:8];
-				VR[1] <= VR[0];
-				VR[2] <= VR[1];
-				VR[3] <= VR[2];
-				VR[4] <= VR[3];
-				VR[5] <= VR[4];
 				end
 
 				//store multiplier results
@@ -884,13 +880,13 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				data_req_flag <= ~data_req_flag;
 				
 				
-				if(pixel_row_count < PIXEL_ROW_END) begin
+				if(pixel_row_count < 313) begin
 					
 					M1_state <= S_LOOP_0;
 					
 				end else begin
 				
-					M1_state <= S_LEAD_IN_START_1;
+					M1_state <= S_LO_0;
 					//sim_done <= 1;
 
 				end
@@ -902,9 +898,12 @@ always @(posedge Clock_50 or negedge Resetn) begin
 			
 			//LEAD OUT
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////// DAMN, SON ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//	//
+			
+			
 			
 			S_LO_0: begin
 			
@@ -935,7 +934,7 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				VR[4] <= VR[3];
 				VR[5] <= VR[4];
 			
-				M1_state <= S_LOOP_1;
+				M1_state <= S_LO_1;
 			
 			end
 			
@@ -956,16 +955,7 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				write_address <= write_address + 1;
 				SRAM_write_data <= {eo_high_writeout, eo_low_writeout};
 				pixel_row_count <= pixel_row_count + 1;
-				
-					
-				// buffer in new V data
-				VR[0]	<= SRAM_read_data[15:8];
-				VR[1] <= VR[0];
-				VR[2] <= VR[1];
-				VR[3] <= VR[2];
-				VR[4] <= VR[3];
-				VR[5] <= VR[4];
-				end
+	
 
 				//store multiplier results
 				a_result_buff <= a_result;
@@ -979,117 +969,450 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				b_IN1 <= 132251;
 				b_IN2 <= U_data_buff[15:8] - 128;
 				
-				M1_state <= S_LOOP_2;
+				M1_state <= S_LO_2;
+				
 			
 			
 			end
 			
 			S_LO_2: begin
+				
+				ee_low <= (a_result_buff - a_result - c_result_buff) >> 16;
 			
+				eo_high <= (a_result_buff + b_result) >> 16;
 			
-			
+				// write previous odd pixel to SRAM
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {oo_high_writeout, oo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				
+
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= VR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= VR[3];		
+				
+				
+				M1_state <= S_LO_3;
+
+
+				
 			end
 			
 			S_LO_3: begin
 			
+				
+				V_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= VR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= VR[0];
 			
-			
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {ee_high_writeout, ee_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+
+
+				M1_state <= S_LO_4;
 			end
 			
 			S_LO_4: begin
 			
+				SRAM_we_n <= 1;
+
+				V_prime <= (V_MAC + a_result - b_result + c_result + 128) >> 8;				
+				
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= UR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= UR[3];
 			
+
+			
+				SRAM_address <= Y_sram_address;
+				Y_sram_address <= Y_sram_address + 1;
+				
+				M1_state <= S_LO_5;
 			
 			end
 			
 			S_LO_5: begin
 			
 			
+				U_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= UR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= UR[0];
+
 			
+			
+				M1_state <= S_LO_6;
 			end
 			
 			S_LO_6: begin
+				
+				U_prime <= (U_MAC + a_result - b_result + c_result + 128) >> 8;			
+	
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[7:0] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_prime - 128;
+				
+				c_select <= 0;
+				c_IN1 <= 25624 ;
+				//grab data from bus instead of buffer for U
+				c_IN2 <= ((U_MAC + a_result - b_result + c_result + 128) >> 8) - 128;	
 			
-			
-			
+				M1_state <= S_LO_7;
 			end
 			
 			S_LO_7: begin
 			
+				Y_data <= SRAM_read_data;
+			
+				eo_low <= ((a_result + b_result) >> 16);
+				
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_prime - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_prime - 128;
+			
+			
+				M1_state <= S_LO_8;
+				
+			end
+			
+			///////////////////////////////////////////////////////////////////////////////////////////RELOOP////////////////////////////////////////////
+			
+			S_LO_8: begin //0
+			
+				oo_high <= (a_result_buff - a_result - c_result_buff) >> 16;
+				oo_low <= (a_result_buff + b_result) >> 16;
+				
+				
+				
+				//////////////////////// check buffer position
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[15:8] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_data_buff[15:8] - 128;
+
+			
+				c_select <= 0;
+				c_IN1 <= 25624;
+				c_IN2 <= U_data_buff[15:8] - 128;	
+				
+			
+				VR[0]	<= VR[0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[0];
+				VR[3] <= VR[2];
+				VR[4] <= VR[3];
+				VR[5] <= VR[4];
+			
+			
+				M1_state <= S_LO_9;
+			
+			end
+			
+			S_LO_9: begin // 1
+				
+				ee_high <= ((a_result + b_result) >> 16);	
+			
+				// write previos EO values to SRAM
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {eo_high_writeout, eo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+					
+				a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_data_buff[15:8] - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_data_buff[15:8] - 128;
+				
+			
+				UR[0]	<= UR[0];
+				UR[1] <= UR[0];
+				UR[2] <= UR[0];
+				UR[3] <= UR[2];
+				UR[4] <= UR[3];
+				UR[5] <= UR[4];
+				
+				M1_state <= S_LO_10;
+			
+			end
+			
+			S_LO_10: begin // 2
+			
+				//store green even
+				ee_low <= (a_result_buff - a_result - c_result_buff) >> 16;
+				//store blue even
+				eo_high <= (a_result_buff + b_result) >> 16;
+			
+				// write previous odd pixel to SRAM
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {oo_high_writeout, oo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				
+
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= VR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= VR[3];	
+				
+			
+				M1_state <= S_LO_11;
+			
+			end
+			
+			S_LO_11: begin // 3
+			
+				V_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= VR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= VR[0];
+			
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {ee_high_writeout, ee_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+			
+				M1_state <= S_LO_12;
+			
+			end
+			
+			S_LO_12: begin // 4
+			
+				SRAM_we_n <= 1;
+
+				V_prime <= (V_MAC + a_result - b_result + c_result + 128) >> 8;				
+				
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= UR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= UR[3];
+			
+
+			
+				SRAM_address <= Y_sram_address;
+				Y_sram_address <= Y_sram_address + 1;
+			
+				M1_state <= S_LO_13;
+			
+			end
+			
+			S_LO_13: begin // 5
+			
+				U_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= UR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= UR[0];
+			
+				M1_state <= S_LO_14;
+
+
+			end
+			
+			S_LO_14: begin // 6
+			
+				U_prime <= (U_MAC + a_result - b_result + c_result + 128) >> 8;			
+	
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[7:0] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_prime - 128;
+				
+				c_select <= 0;
+				c_IN1 <= 25624 ;
+				//grab data from bus instead of buffer for U
+				c_IN2 <= ((U_MAC + a_result - b_result + c_result + 128) >> 8) - 128;	
+			
+				
+				M1_state <= S_LO_15;
+
+			end
+			
+			S_LO_15: begin // 7 
+			
+				Y_data <= SRAM_read_data;
+			
+				eo_low <= ((a_result + b_result) >> 16);
+				
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_prime - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_prime - 128;
+								
+								
+				M1_state <= S_LO_16;
+
 			
 			
 			end
 			
-			S_LO_8: begin
+			S_LO_16: begin // 0
+			
+				oo_high <= (a_result_buff - a_result - c_result_buff) >> 16;
+				oo_low <= (a_result_buff + b_result) >> 16;
+				
+				
+				
+				//////////////////////// check buffer position
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[15:8] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_data_buff[15:8] - 128;
+
+			
+				c_select <= 0;
+				c_IN1 <= 25624;
+				c_IN2 <= U_data_buff[15:8] - 128;	
+				
+			
+				VR[0]	<= VR[0];
+				VR[1] <= VR[0];
+				VR[2] <= VR[1];
+				VR[3] <= VR[2];
+				VR[4] <= VR[3];
+				VR[5] <= VR[4];
 			
 			
+				M1_state <= S_LO_17;
+		
+			end
+			
+			S_LO_17: begin // 1
+			
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {eo_high_writeout, eo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+	
+
+			
+				M1_state <= S_LO_18;
+
 			
 			end
 			
-			S_LO_9: begin
+			S_LO_18: begin // 2
+				
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {oo_high_writeout, oo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
 			
-			
-			
-			end
-			
-			S_LO_10: begin
-			
-			
-			
-			end
-			
-			S_LO_11: begin
-			
-			
-			
-			end
-			
-			S_LO_12: begin
-			
-			
-			
-			end
-			
-			S_LO_13: begin
-			
-			
-			
-			end
-			
-			S_LO_14: begin
-			
-			
-			
-			end
-			
-			S_LO_15: begin
-			
-			
-			
-			end
-			
-			S_LO_16: begin
-			
-			
-			
-			end
-			
-			S_LO_17: begin
-			
-			
-			
-			end
-			
-			S_LO_18: begin
-			
-			
-			
+				M1_state <= S_LO_19;
+
 			end
 			
 			S_LO_19: begin
 			
 			
-			
+				sim_done <= 1;
+
 			end
 			
 			S_LO_20: begin
@@ -1121,12 +1444,7 @@ always @(posedge Clock_50 or negedge Resetn) begin
 			
 			
 			end
-			
-			S_LO_0: begin
-			
-			
-			
-			end
+
 			
 			
 									
