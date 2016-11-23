@@ -57,15 +57,20 @@ typedef enum logic [6:0] {
 	S_LO_21,
 	S_LO_22,
 	S_LO_23,
-	S_LO_24
+	S_LO_24,
+	S_LO_25,
+	S_LO_26,
+	S_LO_27
 	
 } M1_state_type;
 
 // This defines the states
-typedef enum logic [1:0] {
+typedef enum logic [2:0] {
 	S_IDLE,
 	S_ENABLE_UART_RX,
-	S_WAIT_UART_RX
+	S_WAIT_UART_RX,
+	S_M1,
+	S_M1_leave
 } top_state_type;
 
 typedef enum logic [1:0] {

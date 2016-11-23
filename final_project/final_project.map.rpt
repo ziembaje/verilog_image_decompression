@@ -1,6 +1,6 @@
 Analysis & Synthesis report for final_project
-Tue Nov 22 18:15:18 2016
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Wed Nov 23 13:15:46 2016
+Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
 ---------------------
@@ -15,11 +15,11 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |final_project|UART_SRAM_interface:UART_unit|UART_SRAM_state
- 11. State Machine - |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state
- 12. State Machine - |final_project|VGA_SRAM_interface:VGA_unit|VGA_SRAM_state
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
+ 10. State Machine - |final_project|top_state
+ 11. State Machine - |final_project|UART_SRAM_interface:UART_unit|UART_SRAM_state
+ 12. State Machine - |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state
+ 13. State Machine - |final_project|VGA_SRAM_interface:VGA_unit|VGA_SRAM_state
+ 14. Registers Removed During Synthesis
  15. General Register Statistics
  16. Inverted Register Statistics
  17. Multiplexer Restructuring Statistics (Restructuring Performed)
@@ -45,7 +45,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2013 Altera Corporation
+Copyright (C) 1991-2012 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -61,24 +61,24 @@ applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                         ;
-+------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov 22 18:15:18 2016           ;
-; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
-; Revision Name                      ; final_project                                   ;
-; Top-level Entity Name              ; final_project                                   ;
-; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 2,145                                           ;
-;     Total combinational functions  ; 1,787                                           ;
-;     Dedicated logic registers      ; 934                                             ;
-; Total registers                    ; 934                                             ;
-; Total pins                         ; 164                                             ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 12                                              ;
-; Total PLLs                         ; 1                                               ;
-+------------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Nov 23 13:15:46 2016          ;
+; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
+; Revision Name                      ; final_project                                  ;
+; Top-level Entity Name              ; final_project                                  ;
+; Family                             ; Cyclone II                                     ;
+; Total logic elements               ; 2,311                                          ;
+;     Total combinational functions  ; 2,113                                          ;
+;     Dedicated logic registers      ; 955                                            ;
+; Total registers                    ; 955                                            ;
+; Total pins                         ; 164                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 12                                             ;
+; Total PLLs                         ; 1                                              ;
++------------------------------------+------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -159,7 +159,6 @@ applicable agreement for further details.
 ; SDC constraint protection                                                  ; Off                ; Off                ;
 ; Synthesis Effort                                                           ; Auto               ; Auto               ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
 ; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
 ; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
 ; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
@@ -167,48 +166,54 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 4      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                   ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
-; convert_hex_to_seven_segment.v   ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/convert_hex_to_seven_segment.v ;         ;
-; UART_SRAM_interface.v            ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/UART_SRAM_interface.v          ;         ;
-; VGA_SRAM_interface.v             ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/VGA_SRAM_interface.v           ;         ;
-; Clock_100_PLL.v                  ; yes             ; User Wizard-Generated File   ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/Clock_100_PLL.v                ;         ;
-; final_project.v                  ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/final_project.v                ;         ;
-; SRAM_Controller.v                ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/SRAM_Controller.v              ;         ;
-; VGA_Controller.v                 ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/VGA_Controller.v               ;         ;
-; PB_Controller.v                  ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/PB_Controller.v                ;         ;
-; UART_Receive_Controller.v        ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/UART_Receive_Controller.v      ;         ;
-; VGA_Param.h                      ; yes             ; User Unspecified File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/VGA_Param.h                    ;         ;
-; define_state.h                   ; yes             ; User Unspecified File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/define_state.h                 ;         ;
-; Milestone_1.v                    ; yes             ; User Verilog HDL File        ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/Milestone_1.v                  ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf                                   ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                               ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc                              ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc                            ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc                            ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                                 ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc                              ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc                                 ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                                 ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                                 ;         ;
-; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/db/mult_l8t.tdf                ;         ;
-; db/mult_r8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/db/mult_r8t.tdf                ;         ;
-; db/mult_n8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/db/mult_n8t.tdf                ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; convert_hex_to_seven_segment.v   ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/convert_hex_to_seven_segment.v ;         ;
+; UART_SRAM_interface.v            ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/UART_SRAM_interface.v          ;         ;
+; VGA_SRAM_interface.v             ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_SRAM_interface.v           ;         ;
+; Clock_100_PLL.v                  ; yes             ; User Wizard-Generated File   ; /home/ECE/ziembaje/Desktop/final_project/Clock_100_PLL.v                ;         ;
+; final_project.v                  ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/final_project.v                ;         ;
+; SRAM_Controller.v                ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/SRAM_Controller.v              ;         ;
+; VGA_Controller.v                 ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_Controller.v               ;         ;
+; PB_Controller.v                  ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/PB_Controller.v                ;         ;
+; UART_Receive_Controller.v        ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/UART_Receive_Controller.v      ;         ;
+; VGA_Param.h                      ; yes             ; User Unspecified File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_Param.h                    ;         ;
+; define_state.h                   ; yes             ; User Unspecified File        ; /home/ECE/ziembaje/Desktop/final_project/define_state.h                 ;         ;
+; Milestone_1.v                    ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/Milestone_1.v                  ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/altpll.tdf           ;         ;
+; aglobal120.inc                   ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/aglobal120.inc       ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/stratix_pll.inc      ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/stratixii_pll.inc    ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/cycloneii_pll.inc    ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_mult.tdf         ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_add_sub.inc      ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/multcore.inc         ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/bypassff.inc         ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/altshift.inc         ;         ;
+; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_l8t.tdf                ;         ;
+; db/mult_r8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_r8t.tdf                ;         ;
+; db/mult_n8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_n8t.tdf                ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------+
@@ -216,20 +221,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 2,145      ;
+; Estimated Total logic elements              ; 2,311      ;
 ;                                             ;            ;
-; Total combinational functions               ; 1787       ;
+; Total combinational functions               ; 2113       ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 826        ;
-;     -- 3 input functions                    ; 550        ;
-;     -- <=2 input functions                  ; 411        ;
+;     -- 4 input functions                    ; 1108       ;
+;     -- 3 input functions                    ; 606        ;
+;     -- <=2 input functions                  ; 399        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 1088       ;
-;     -- arithmetic mode                      ; 699        ;
+;     -- normal mode                          ; 1441       ;
+;     -- arithmetic mode                      ; 672        ;
 ;                                             ;            ;
-; Total registers                             ; 934        ;
-;     -- Dedicated logic registers            ; 934        ;
+; Total registers                             ; 955        ;
+;     -- Dedicated logic registers            ; 955        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 164        ;
@@ -238,9 +243,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; CLOCK_50_I ;
-; Maximum fan-out                             ; 936        ;
-; Total fan-out                               ; 9720       ;
-; Average fan-out                             ; 3.35       ;
+; Maximum fan-out                             ; 957        ;
+; Total fan-out                               ; 11083      ;
+; Average fan-out                             ; 3.42       ;
 +---------------------------------------------+------------+
 
 
@@ -249,30 +254,30 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                               ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------+--------------+
-; |final_project                           ; 1787 (119)        ; 934 (31)     ; 0           ; 12           ; 0       ; 6         ; 164  ; 0            ; |final_project                                                                                    ; work         ;
-;    |Milestone_1:M1_unit|                 ; 1220 (1154)       ; 593 (593)    ; 0           ; 12           ; 0       ; 6         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit                                                                ; work         ;
-;       |lpm_mult:Mult0|                   ; 22 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0                                                 ; work         ;
-;          |mult_r8t:auto_generated|       ; 22 (22)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated                         ; work         ;
-;       |lpm_mult:Mult1|                   ; 22 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1                                                 ; work         ;
-;          |mult_l8t:auto_generated|       ; 22 (22)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated                         ; work         ;
-;       |lpm_mult:Mult2|                   ; 22 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult2                                                 ; work         ;
-;          |mult_n8t:auto_generated|       ; 22 (22)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated                         ; work         ;
-;    |PB_Controller:PB_unit|               ; 31 (31)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|PB_Controller:PB_unit                                                              ; work         ;
-;    |SRAM_Controller:SRAM_unit|           ; 6 (6)             ; 53 (53)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit                                                          ; work         ;
-;       |Clock_100_PLL:Clock_100_PLL_inst| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst                         ; work         ;
-;          |altpll:altpll_component|       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component ; work         ;
-;    |UART_SRAM_interface:UART_unit|       ; 129 (77)          ; 79 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|UART_SRAM_interface:UART_unit                                                      ; work         ;
-;       |UART_Receive_Controller:UART_RX|  ; 52 (52)           ; 37 (37)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX                      ; work         ;
-;    |VGA_SRAM_interface:VGA_unit|         ; 230 (148)         ; 148 (95)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|VGA_SRAM_interface:VGA_unit                                                        ; work         ;
-;       |VGA_Controller:VGA_unit|          ; 82 (82)           ; 53 (53)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit                                ; work         ;
-;    |convert_hex_to_seven_segment:unit0|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit0                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit1|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit1                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit2|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit2                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit3|  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit3                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit4|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit4                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit5|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit5                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit6|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit6                                                 ; work         ;
-;    |convert_hex_to_seven_segment:unit7|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit7                                                 ; work         ;
+; |final_project                           ; 2113 (104)        ; 955 (33)     ; 0           ; 12           ; 0       ; 6         ; 164  ; 0            ; |final_project                                                                                    ;              ;
+;    |Milestone_1:M1_unit|                 ; 1558 (1516)       ; 612 (612)    ; 0           ; 12           ; 0       ; 6         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit                                                                ;              ;
+;       |lpm_mult:Mult0|                   ; 14 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0                                                 ;              ;
+;          |mult_r8t:auto_generated|       ; 14 (14)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated                         ;              ;
+;       |lpm_mult:Mult1|                   ; 14 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1                                                 ;              ;
+;          |mult_l8t:auto_generated|       ; 14 (14)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated                         ;              ;
+;       |lpm_mult:Mult2|                   ; 14 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult2                                                 ;              ;
+;          |mult_n8t:auto_generated|       ; 14 (14)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated                         ;              ;
+;    |PB_Controller:PB_unit|               ; 31 (31)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|PB_Controller:PB_unit                                                              ;              ;
+;    |SRAM_Controller:SRAM_unit|           ; 6 (6)             ; 53 (53)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit                                                          ;              ;
+;       |Clock_100_PLL:Clock_100_PLL_inst| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst                         ;              ;
+;          |altpll:altpll_component|       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component ;              ;
+;    |UART_SRAM_interface:UART_unit|       ; 130 (77)          ; 79 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|UART_SRAM_interface:UART_unit                                                      ;              ;
+;       |UART_Receive_Controller:UART_RX|  ; 53 (53)           ; 37 (37)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX                      ;              ;
+;    |VGA_SRAM_interface:VGA_unit|         ; 232 (151)         ; 148 (95)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|VGA_SRAM_interface:VGA_unit                                                        ;              ;
+;       |VGA_Controller:VGA_unit|          ; 81 (81)           ; 53 (53)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit                                ;              ;
+;    |convert_hex_to_seven_segment:unit0|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit0                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit1|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit1                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit2|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit2                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit3|  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit3                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit4|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit4                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit5|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit5                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit6|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit6                                                 ;              ;
+;    |convert_hex_to_seven_segment:unit7|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final_project|convert_hex_to_seven_segment:unit7                                                 ;              ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -295,13 +300,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                       ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+---------------------------------------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                           ; IP Include File                                                                 ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+---------------------------------------------------------------------------------+
-; Altera ; ALTPLL       ; N/A     ; N/A          ; N/A          ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst ; C:/Users/jack/Desktop/verilog_image_decompression/final_project/Clock_100_PLL.v ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+---------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+----------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                           ; IP Include File                                          ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+----------------------------------------------------------+
+; Altera ; ALTPLL       ; N/A     ; N/A          ; N/A          ; |final_project|SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst ; /home/ECE/ziembaje/Desktop/final_project/Clock_100_PLL.v ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+----------------------------------------------------------+
+
+
+Encoding Type:  User-Encoded
++------------------------------------------------------------------------+
+; State Machine - |final_project|top_state                               ;
++----------------------------+--------------+--------------+-------------+
+; Name                       ; top_state~11 ; top_state~10 ; top_state~9 ;
++----------------------------+--------------+--------------+-------------+
+; top_state.S_IDLE           ; 0            ; 0            ; 0           ;
+; top_state.S_ENABLE_UART_RX ; 0            ; 0            ; 1           ;
+; top_state.S_WAIT_UART_RX   ; 0            ; 1            ; 0           ;
+; top_state.S_M1             ; 0            ; 1            ; 1           ;
+; top_state.S_M1_leave       ; 1            ; 0            ; 0           ;
++----------------------------+--------------+--------------+-------------+
 
 
 Encoding Type:  User-Encoded
@@ -365,7 +384,6 @@ Encoding Type:  User-Encoded
 ; Milestone_1:M1_unit|c_select                    ; Stuck at GND due to stuck port data_in              ;
 ; Milestone_1:M1_unit|U_MAC[40..63]               ; Lost fanout                                         ;
 ; Milestone_1:M1_unit|V_MAC[16..63]               ; Lost fanout                                         ;
-; Milestone_1:M1_unit|M1_state[6]                 ; Merged with Milestone_1:M1_unit|M1_state[5]         ;
 ; Milestone_1:M1_unit|a_IN1[6,8,13,16]            ; Merged with Milestone_1:M1_unit|a_IN1[11]           ;
 ; Milestone_1:M1_unit|b_IN1[11,12,15,16]          ; Merged with Milestone_1:M1_unit|a_IN1[11]           ;
 ; Milestone_1:M1_unit|a_IN1[14,15]                ; Merged with Milestone_1:M1_unit|a_IN1[12]           ;
@@ -376,38 +394,17 @@ Encoding Type:  User-Encoded
 ; Milestone_1:M1_unit|b_IN2[8,9,11..31]           ; Merged with Milestone_1:M1_unit|b_IN2[10]           ;
 ; Milestone_1:M1_unit|c_IN1[13,14]                ; Merged with Milestone_1:M1_unit|c_IN1[10]           ;
 ; Milestone_1:M1_unit|c_IN1[7]                    ; Merged with Milestone_1:M1_unit|c_IN1[1]            ;
+; Milestone_1:M1_unit|U_MAC[34..39]               ; Merged with Milestone_1:M1_unit|U_MAC[33]           ;
 ; VGA_SRAM_interface:VGA_unit|VGA_blue[1]         ; Merged with VGA_SRAM_interface:VGA_unit|VGA_blue[0] ;
 ; VGA_SRAM_interface:VGA_unit|VGA_green[0,1]      ; Merged with VGA_SRAM_interface:VGA_unit|VGA_blue[0] ;
 ; VGA_SRAM_interface:VGA_unit|VGA_red[0,1]        ; Merged with VGA_SRAM_interface:VGA_unit|VGA_blue[0] ;
 ; Milestone_1:M1_unit|a_IN1[4]                    ; Merged with Milestone_1:M1_unit|a_IN1[2]            ;
 ; Milestone_1:M1_unit|b_IN1[5]                    ; Merged with Milestone_1:M1_unit|b_IN1[2]            ;
 ; Milestone_1:M1_unit|c_IN1[2]                    ; Merged with Milestone_1:M1_unit|c_IN1[0]            ;
-; Milestone_1:M1_unit|write_address[0]            ; Merged with Milestone_1:M1_unit|pixel_row_count[0]  ;
-; Milestone_1:M1_unit|write_address[1]            ; Merged with Milestone_1:M1_unit|pixel_row_count[1]  ;
-; Milestone_1:M1_unit|M1_state[5]                 ; Stuck at GND due to stuck port data_in              ;
-; Milestone_1:M1_unit|write_address[2]            ; Merged with Milestone_1:M1_unit|pixel_row_count[2]  ;
-; Milestone_1:M1_unit|write_address[3]            ; Merged with Milestone_1:M1_unit|pixel_row_count[3]  ;
-; Milestone_1:M1_unit|pixel_row_count[4]          ; Merged with Milestone_1:M1_unit|write_address[4]    ;
-; Milestone_1:M1_unit|write_address[5]            ; Merged with Milestone_1:M1_unit|pixel_row_count[5]  ;
-; Milestone_1:M1_unit|write_address[6]            ; Merged with Milestone_1:M1_unit|pixel_row_count[6]  ;
-; Milestone_1:M1_unit|write_address[7]            ; Merged with Milestone_1:M1_unit|pixel_row_count[7]  ;
-; Milestone_1:M1_unit|write_address[8]            ; Merged with Milestone_1:M1_unit|pixel_row_count[8]  ;
-; Total Number of Removed Registers = 219         ;                                                     ;
+; Milestone_1:M1_unit|c_IN2[29,30]                ; Merged with Milestone_1:M1_unit|c_IN2[31]           ;
+; Milestone_1:M1_unit|M1_state[6]                 ; Stuck at GND due to stuck port data_in              ;
+; Total Number of Removed Registers = 217         ;                                                     ;
 +-------------------------------------------------+-----------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                               ;
-+-------------------------------+---------------------------+---------------------------------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register                        ;
-+-------------------------------+---------------------------+---------------------------------------------------------------+
-; Milestone_1:M1_unit|a_IN1[31] ; Stuck at GND              ; Milestone_1:M1_unit|U_MAC[58], Milestone_1:M1_unit|V_MAC[63], ;
-;                               ; due to stuck port data_in ; Milestone_1:M1_unit|V_MAC[62], Milestone_1:M1_unit|V_MAC[61], ;
-;                               ;                           ; Milestone_1:M1_unit|V_MAC[60], Milestone_1:M1_unit|V_MAC[59], ;
-;                               ;                           ; Milestone_1:M1_unit|V_MAC[58]                                 ;
-; Milestone_1:M1_unit|b_IN1[31] ; Stuck at GND              ; Milestone_1:M1_unit|U_MAC[63], Milestone_1:M1_unit|U_MAC[62], ;
-;                               ; due to stuck port data_in ; Milestone_1:M1_unit|U_MAC[61], Milestone_1:M1_unit|U_MAC[60]  ;
-+-------------------------------+---------------------------+---------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -415,12 +412,12 @@ Encoding Type:  User-Encoded
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 934   ;
-; Number of registers using Synchronous Clear  ; 82    ;
-; Number of registers using Synchronous Load   ; 34    ;
-; Number of registers using Asynchronous Clear ; 918   ;
+; Total registers                              ; 955   ;
+; Number of registers using Synchronous Clear  ; 146   ;
+; Number of registers using Synchronous Load   ; 20    ;
+; Number of registers using Asynchronous Clear ; 939   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 784   ;
+; Number of registers using Clock Enable       ; 782   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -444,65 +441,76 @@ Encoding Type:  User-Encoded
 ; Milestone_1:M1_unit|U_sram_address[15]                              ; 2       ;
 ; Milestone_1:M1_unit|V_sram_address[15]                              ; 2       ;
 ; Milestone_1:M1_unit|write_address[17]                               ; 2       ;
-; Milestone_1:M1_unit|SRAM_we_n                                       ; 2       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[9]                         ; 3       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[10]                        ; 3       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[11]                        ; 3       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[12]                        ; 3       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[13]                        ; 3       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[17]                        ; 3       ;
 ; UART_SRAM_interface:UART_unit|SRAM_we_n                             ; 3       ;
+; Milestone_1:M1_unit|SRAM_we_n                                       ; 2       ;
+; VGA_enable                                                          ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_WE_N_O                               ; 17      ;
 ; SRAM_Controller:SRAM_unit|SRAM_CE_N_O                               ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Empty ; 13      ;
 ; PB_Controller:PB_unit|clock_1kHz_buf                                ; 1       ;
 ; PB_Controller:PB_unit|clock_1kHz                                    ; 3       ;
-; Total number of inverted registers = 21                             ;         ;
+; Total number of inverted registers = 28                             ;         ;
 +---------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |final_project|SRAM_Controller:SRAM_unit|SRAM_ADDRESS_O[3]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[10]                            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[0]                             ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|V_data_buff[12]                                          ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|V_data[11]                                               ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|U_data_buff[7]                                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|U_data[11]                                               ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|new_line_count[0]                              ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[7] ;
-; 5:1                ; 14 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|U_sram_address[7]                                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[2][1]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[5][7]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[1][1]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[4][0]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[3][3]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[2][0]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[5][6]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[1][4]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[4][4]                                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[3][3]                                                 ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0] ;
-; 6:1                ; 14 bits   ; 56 LEs        ; 0 LEs                ; 56 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|V_sram_address[16]                                       ;
-; 7:1                ; 24 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_green[3]                                     ;
-; 7:1                ; 18 bits   ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|SRAM_address[3]                                ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[1]  ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|UR[0][6]                                                 ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|VR[0][5]                                                 ;
-; 9:1                ; 18 bits   ; 108 LEs       ; 36 LEs               ; 72 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|SRAM_address[5]                                          ;
-; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; Yes        ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[3] ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |final_project|Milestone_1:M1_unit|SRAM_write_data[4]                                       ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |final_project|Milestone_1:M1_unit|SRAM_write_data[10]                                      ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[1]                                  ;
-; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[3]                                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|U_sram_address[15]                                       ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|V_sram_address[13]                                       ;
-; 21:1               ; 7 bits    ; 98 LEs        ; 42 LEs               ; 56 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|c_IN2[1]                                                 ;
-; 25:1               ; 7 bits    ; 112 LEs       ; 42 LEs               ; 70 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|a_IN2[4]                                                 ;
-; 25:1               ; 7 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; Yes        ; |final_project|Milestone_1:M1_unit|b_IN2[0]                                                 ;
-; 24:1               ; 24 bits   ; 384 LEs       ; 96 LEs               ; 288 LEs                ; Yes        ; |final_project|Milestone_1:M1_unit|c_IN2[23]                                                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_SRAM_state                                   ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |final_project|SRAM_address[11]                                                             ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                                                                  ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |final_project|SRAM_Controller:SRAM_unit|SRAM_ADDRESS_O[3]                                  ;                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[15]                            ;                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[6]                             ;                            ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|new_line_count[0]                              ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[3] ;                            ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|U_sram_address[11]                                       ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data_buff[3]                                           ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data[5]                                                ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data_buff[12]                                          ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data[14]                                               ;                            ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0] ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[1][1]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[4][2]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[5][7]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[1][3]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[4][7]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[5][6]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[3][6]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[3][6]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[2][4]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[2][0]                                                 ;                            ;
+; 65:1               ; 16 bits   ; 688 LEs       ; 16 LEs               ; 672 LEs                ; |final_project|Milestone_1:M1_unit|pixel_row_count[14]                                      ;                            ;
+; 7:1                ; 18 bits   ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|SRAM_address[6]                                ;                            ;
+; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[4]                                        ;                            ;
+; 8:1                ; 24 bits   ; 120 LEs       ; 72 LEs               ; 48 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_blue[9]                                      ;                            ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[0]  ;                            ;
+; 9:1                ; 18 bits   ; 108 LEs       ; 36 LEs               ; 72 LEs                 ; |final_project|Milestone_1:M1_unit|SRAM_address[3]                                          ;                            ;
+; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8] ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; |final_project|Milestone_1:M1_unit|VR[0][5]                                                 ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; |final_project|Milestone_1:M1_unit|UR[0][5]                                                 ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[7]                                       ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[11]                                      ;                            ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[0]                                  ;                            ;
+; 12:1               ; 10 bits   ; 80 LEs        ; 20 LEs               ; 60 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[4]                                  ;                            ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; |final_project|Milestone_1:M1_unit|U_sram_address[12]                                       ;                            ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[14]                                       ;                            ;
+; 12:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[10]                                 ;                            ;
+; 30:1               ; 7 bits    ; 140 LEs       ; 49 LEs               ; 91 LEs                 ; |final_project|Milestone_1:M1_unit|c_IN2[0]                                                 ;                            ;
+; 34:1               ; 7 bits    ; 154 LEs       ; 49 LEs               ; 105 LEs                ; |final_project|Milestone_1:M1_unit|a_IN2[6]                                                 ;                            ;
+; 27:1               ; 22 bits   ; 396 LEs       ; 110 LEs              ; 286 LEs                ; |final_project|Milestone_1:M1_unit|c_IN2[10]                                                ;                            ;
+; 38:1               ; 7 bits    ; 175 LEs       ; 63 LEs               ; 112 LEs                ; |final_project|Milestone_1:M1_unit|b_IN2[5]                                                 ;                            ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; |final_project|SRAM_address[10]                                                             ;                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_SRAM_state                                   ;                            ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; |final_project|Selector3                                                                    ;                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; |final_project|Selector2                                                                    ;                            ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0      ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -1089,7 +1097,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
-; sim_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; M1_state ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1102,14 +1110,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-------------------------------------------------------------+
 
 
-+---------------------------------------------------------+
-; Port Connectivity Checks: "VGA_SRAM_interface:VGA_unit" ;
-+-------------------+-------+----------+------------------+
-; Port              ; Type  ; Severity ; Details          ;
-+-------------------+-------+----------+------------------+
-; VGA_enable        ; Input ; Info     ; Stuck at VCC     ;
-; SRAM_base_address ; Input ; Info     ; Stuck at GND     ;
-+-------------------+-------+----------+------------------+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_SRAM_interface:VGA_unit"     ;
++---------------------------+-------+----------+--------------+
+; Port                      ; Type  ; Severity ; Details      ;
++---------------------------+-------+----------+--------------+
+; SRAM_base_address[13..9]  ; Input ; Info     ; Stuck at VCC ;
+; SRAM_base_address[16..14] ; Input ; Info     ; Stuck at GND ;
+; SRAM_base_address[8..0]   ; Input ; Info     ; Stuck at GND ;
+; SRAM_base_address[17]     ; Input ; Info     ; Stuck at VCC ;
++---------------------------+-------+----------+--------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -1126,7 +1136,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:15     ;
+; Top            ; 00:00:13     ;
 +----------------+--------------+
 
 
@@ -1134,38 +1144,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Nov 22 18:14:58 2016
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
+    Info: Processing started: Wed Nov 23 13:15:29 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final_project -c final_project
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file convert_hex_to_seven_segment.v
     Info (12023): Found entity 1: convert_hex_to_seven_segment
-Info (12021): Found 1 design units, including 1 entities, in source file uart_sram_interface.v
+Info (12021): Found 1 design units, including 1 entities, in source file UART_SRAM_interface.v
     Info (12023): Found entity 1: UART_SRAM_interface
-Info (12021): Found 1 design units, including 1 entities, in source file vga_sram_interface.v
+Info (12021): Found 1 design units, including 1 entities, in source file VGA_SRAM_interface.v
     Info (12023): Found entity 1: VGA_SRAM_interface
-Info (12021): Found 1 design units, including 1 entities, in source file clock_100_pll.v
+Info (12021): Found 1 design units, including 1 entities, in source file Clock_100_PLL.v
     Info (12023): Found entity 1: Clock_100_PLL
 Info (12021): Found 1 design units, including 1 entities, in source file final_project.v
     Info (12023): Found entity 1: final_project
-Info (12021): Found 1 design units, including 1 entities, in source file sram_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file SRAM_Controller.v
     Info (12023): Found entity 1: SRAM_Controller
-Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file VGA_Controller.v
     Info (12023): Found entity 1: VGA_Controller
-Info (12021): Found 1 design units, including 1 entities, in source file pb_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file PB_Controller.v
     Info (12023): Found entity 1: PB_Controller
-Info (12021): Found 1 design units, including 1 entities, in source file uart_receive_controller.v
+Info (12021): Found 1 design units, including 1 entities, in source file UART_Receive_Controller.v
     Info (12023): Found entity 1: UART_Receive_Controller
-Info (12021): Found 1 design units, including 1 entities, in source file tb_sram_emulator.v
+Info (12021): Found 1 design units, including 1 entities, in source file tb_SRAM_Emulator.v
     Info (12023): Found entity 1: tb_SRAM_Emulator
 Info (12021): Found 1 design units, including 1 entities, in source file tb_final_project.v
     Info (12023): Found entity 1: tb_project_v2
-Info (12021): Found 1 design units, including 1 entities, in source file milestone_1.v
+Info (12021): Found 1 design units, including 1 entities, in source file Milestone_1.v
     Info (12023): Found entity 1: Milestone_1
 Info (12127): Elaborating entity "final_project" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at final_project.v(195): inferring latch(es) for variable "VGA_enable", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "VGA_enable" at final_project.v(195)
 Info (12128): Elaborating entity "PB_Controller" for hierarchy "PB_Controller:PB_unit"
 Info (12128): Elaborating entity "VGA_SRAM_interface" for hierarchy "VGA_SRAM_interface:VGA_unit"
 Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit"
@@ -1233,67 +1241,108 @@ Info (12133): Instantiated megafunction "SRAM_Controller:SRAM_unit|Clock_100_PLL
     Info (12134): Parameter "port_sclkout1" = "PORT_UNUSED"
     Info (12134): Parameter "valid_lock_multiplier" = "1"
 Info (12128): Elaborating entity "Milestone_1" for hierarchy "Milestone_1:M1_unit"
-Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(21): object "PIXEL_ROW_END" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(35): object "ee_buff" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(36): object "eo_buff" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(37): object "oo_buff" assigned a value but never read
-Warning (10858): Verilog HDL warning at Milestone_1.v(82): object a_IN3 used but never assigned
-Warning (10858): Verilog HDL warning at Milestone_1.v(83): object a_IN4 used but never assigned
-Warning (10858): Verilog HDL warning at Milestone_1.v(87): object b_IN3 used but never assigned
-Warning (10858): Verilog HDL warning at Milestone_1.v(88): object b_IN4 used but never assigned
-Warning (10858): Verilog HDL warning at Milestone_1.v(92): object c_IN3 used but never assigned
-Warning (10858): Verilog HDL warning at Milestone_1.v(93): object c_IN4 used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(96): object "b_result_buff" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(314): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(316): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(317): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(342): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(345): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(348): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(380): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(455): truncated value with size 64 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(498): truncated value with size 64 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(511): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(564): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(566): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(567): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(585): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(586): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(590): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(641): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(648): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(650): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(668): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(669): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(699): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(701): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(706): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(708): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(764): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(766): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(774): truncated value with size 64 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(780): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(835): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(838): truncated value with size 64 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(861): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(871): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(873): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(874): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(914): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(915): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(954): truncated value with size 64 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(959): truncated value with size 32 to match size of target (18)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(961): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(974): truncated value with size 64 to match size of target (32)
-Warning (10230): Verilog HDL assignment warning at Milestone_1.v(975): truncated value with size 64 to match size of target (32)
-Warning (10240): Verilog HDL Always Construct warning at Milestone_1.v(143): inferring latch(es) for variable "sim_done", which holds its previous value in one or more paths through the always construct
-Warning (10030): Net "a_IN3" at Milestone_1.v(82) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "a_IN4" at Milestone_1.v(83) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "b_IN3" at Milestone_1.v(87) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "b_IN4" at Milestone_1.v(88) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "c_IN3" at Milestone_1.v(92) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "c_IN4" at Milestone_1.v(93) has no driver or initial value, using a default initial value '0'
-Info (10041): Inferred latch for "sim_done" at Milestone_1.v(143)
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(21): object "vga_enable" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(22): object "PIXEL_ROW_END" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(37): object "ee_buff" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(38): object "eo_buff" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(39): object "oo_buff" assigned a value but never read
+Warning (10858): Verilog HDL warning at Milestone_1.v(84): object a_IN3 used but never assigned
+Warning (10858): Verilog HDL warning at Milestone_1.v(85): object a_IN4 used but never assigned
+Warning (10858): Verilog HDL warning at Milestone_1.v(89): object b_IN3 used but never assigned
+Warning (10858): Verilog HDL warning at Milestone_1.v(90): object b_IN4 used but never assigned
+Warning (10858): Verilog HDL warning at Milestone_1.v(94): object c_IN3 used but never assigned
+Warning (10858): Verilog HDL warning at Milestone_1.v(95): object c_IN4 used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at Milestone_1.v(98): object "b_result_buff" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(326): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(354): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(357): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(392): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(467): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(510): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(523): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(576): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(597): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(598): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(602): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(651): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(656): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(658): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(707): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(709): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(714): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(716): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(772): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(774): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(782): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(788): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(843): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(846): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(869): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(879): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(922): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(923): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(962): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(967): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(969): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(992): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(994): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(999): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1001): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1042): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1044): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1054): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1071): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1101): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1114): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1123): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1145): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1146): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1179): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1184): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1186): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1214): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1216): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1221): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1223): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1261): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1263): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1273): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1290): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1319): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1332): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1343): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1365): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1366): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1399): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1404): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1406): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1434): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1436): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1441): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1443): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1483): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1485): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1494): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1536): truncated value with size 64 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1549): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1559): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1579): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1580): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1588): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1593): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1595): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1603): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1605): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1610): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1612): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1622): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Milestone_1.v(1634): truncated value with size 32 to match size of target (16)
+Warning (10030): Net "a_IN3" at Milestone_1.v(84) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "a_IN4" at Milestone_1.v(85) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "b_IN3" at Milestone_1.v(89) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "b_IN4" at Milestone_1.v(90) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "c_IN3" at Milestone_1.v(94) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "c_IN4" at Milestone_1.v(95) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "convert_hex_to_seven_segment" for hierarchy "convert_hex_to_seven_segment:unit7"
 Info (278001): Inferred 3 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Milestone_1:M1_unit|Mult1"
@@ -1338,17 +1387,17 @@ Info (12133): Instantiated megafunction "Milestone_1:M1_unit|lpm_mult:Mult2" wit
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_n8t.tdf
     Info (12023): Found entity 1: mult_n8t
-Info (13014): Ignored 182 buffer(s)
-    Info (13019): Ignored 182 SOFT buffer(s)
+Info (13014): Ignored 126 buffer(s)
+    Info (13019): Ignored 126 SOFT buffer(s)
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SEVEN_SEGMENT_N_O[3][1]" is stuck at GND
-    Warning (13410): Pin "LED_GREEN_O[7]" is stuck at VCC
+    Warning (13410): Pin "LED_GREEN_O[8]" is stuck at GND
     Warning (13410): Pin "VGA_SYNC_O" is stuck at GND
     Warning (13410): Pin "UART_TX_O" is stuck at VCC
 Info (17049): 72 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/jack/Desktop/verilog_image_decompression/final_project/final_project.map.smsg
+Info (144001): Generated suppressed messages file /home/ECE/ziembaje/Desktop/final_project/final_project.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 19 input pin(s) that do not drive logic
@@ -1371,23 +1420,23 @@ Warning (21074): Design contains 19 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH_I[14]"
     Warning (15610): No output dependent on input pin "SWITCH_I[15]"
     Warning (15610): No output dependent on input pin "SWITCH_I[16]"
-Info (21057): Implemented 2445 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2614 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 124 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 2268 logic cells
+    Info (21061): Implemented 2437 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 12 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 523 megabytes
-    Info: Processing ended: Tue Nov 22 18:15:18 2016
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 127 warnings
+    Info: Peak virtual memory: 373 megabytes
+    Info: Processing ended: Wed Nov 23 13:15:46 2016
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/jack/Desktop/verilog_image_decompression/final_project/final_project.map.smsg.
+The suppressed messages can be found in /home/ECE/ziembaje/Desktop/final_project/final_project.map.smsg.
 
 

@@ -15,10 +15,12 @@ module Milestone_1 (
    output logic   [15:0]   SRAM_write_data,
    output logic            SRAM_we_n,
 	output logic 				sim_done,
-	output M1_state_type M1_state
-);
-
+	output M1_state_type	   M1_state
+	);
+	
+logic vga_enable;
 logic [15:0] PIXEL_ROW_END;
+logic [15:0] pixel_col_count;
 
 logic data_req_flag;
 logic UV_byte_flag;
@@ -67,13 +69,13 @@ logic [15:0] U_data_buff;
 logic [7:0] UR[5:0]; 
 logic [7:0] VR[5:0];
 
-logic [63:0] a_result;
+logic [31:0] a_result;
 logic [31:0] a_op1;
 logic [31:0] a_op2;
-logic [63:0] b_result;
+logic [31:0] b_result;
 logic [31:0] b_op1;
 logic [31:0] b_op2;
-logic [63:0] c_result;
+logic [31:0] c_result;
 logic [31:0] c_op1;
 logic [31:0] c_op2;
 
@@ -99,6 +101,7 @@ logic [31:0] c_result_buff;
 logic a_select;
 logic b_select;
 logic c_select;
+
 
 //M1_state_type M1_state;
 
@@ -144,6 +147,8 @@ always @(posedge Clock_50 or negedge Resetn) begin
 	if (~Resetn) begin
 	
 		pixel_row_count <= 0;
+		pixel_col_count <= 0;
+		
 		PIXEL_ROW_END <= 320;
 		
 		M1_state <= S_WAIT_FOR_PREVIOUS;
@@ -214,11 +219,17 @@ always @(posedge Clock_50 or negedge Resetn) begin
 	//	VR <= 0;
 	//	UR <= 0;
 		
+		vga_enable <= 0;
+		
 	end else begin
 		case(M1_state)
 			S_WAIT_FOR_PREVIOUS: begin
-				if(Initialize == 1)
+				vga_enable <= 1;
+				if(Initialize == 1) begin
 					M1_state <= S_LEAD_IN_START_1;
+					vga_enable <= 0;
+				end
+					
 			end
 			
 			// ****************** Lead In Begin ****************** \\
@@ -227,6 +238,7 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				Y_sram_address <= Y_sram_address + 1'b1;
 				SRAM_we_n <= 1'b1;
 				M1_state <= S_2;
+				pixel_row_count <= 0;
 			end
 			
 			S_2: begin	// request V0, receive null
@@ -880,7 +892,7 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				data_req_flag <= ~data_req_flag;
 				
 				
-				if(pixel_row_count < 313) begin
+				if(pixel_row_count < 468) begin
 					
 					M1_state <= S_LOOP_0;
 					
@@ -919,12 +931,12 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				
 				b_select <= 0;
 				b_IN1 <= 104595;
-				b_IN2 <= V_data_buff[15:8] - 128;
+				b_IN2 <= V_data_buff[7:0] - 128;
 
 			
 				c_select <= 0;
 				c_IN1 <= 25624;
-				c_IN2 <= U_data_buff[15:8] - 128;	
+				c_IN2 <= U_data_buff[7:0] - 128;	
 				
 			
 				VR[0]	<= VR[0];
@@ -963,11 +975,11 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				
 				a_select <= 0;
 				a_IN1 <= 53281;
-				a_IN2 <= V_data_buff[15:8] - 128;
+				a_IN2 <= V_data_buff[7:0] - 128;
 				
 				b_select <= 0;
 				b_IN1 <= 132251;
-				b_IN2 <= U_data_buff[15:8] - 128;
+				b_IN2 <= U_data_buff[7:0] - 128;
 				
 				M1_state <= S_LO_2;
 				
@@ -1142,12 +1154,12 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				
 				b_select <= 0;
 				b_IN1 <= 104595;
-				b_IN2 <= V_data_buff[15:8] - 128;
+				b_IN2 <= V_data[15:8] - 128;
 
 			
 				c_select <= 0;
 				c_IN1 <= 25624;
-				c_IN2 <= U_data_buff[15:8] - 128;	
+				c_IN2 <= U_data[15:8] - 128;	
 				
 			
 				VR[0]	<= VR[0];
@@ -1178,11 +1190,11 @@ always @(posedge Clock_50 or negedge Resetn) begin
 					
 				a_select <= 0;
 				a_IN1 <= 53281;
-				a_IN2 <= V_data_buff[15:8] - 128;
+				a_IN2 <= V_data[15:8] - 128;
 				
 				b_select <= 0;
 				b_IN1 <= 132251;
-				b_IN2 <= U_data_buff[15:8] - 128;
+				b_IN2 <= U_data[15:8] - 128;
 				
 			
 				UR[0]	<= UR[0];
@@ -1362,18 +1374,18 @@ always @(posedge Clock_50 or negedge Resetn) begin
 				
 				b_select <= 0;
 				b_IN1 <= 104595;
-				b_IN2 <= V_data_buff[15:8] - 128;
+				b_IN2 <= V_data[7:0] - 128;
 
 			
 				c_select <= 0;
 				c_IN1 <= 25624;
-				c_IN2 <= U_data_buff[15:8] - 128;	
+				c_IN2 <= U_data[7:0] - 128;	
 				
 			
 				VR[0]	<= VR[0];
 				VR[1] <= VR[0];
-				VR[2] <= VR[1];
-				VR[3] <= VR[2];
+				VR[2] <= VR[0];
+				VR[3] <= VR[0];
 				VR[4] <= VR[3];
 				VR[5] <= VR[4];
 			
@@ -1383,15 +1395,34 @@ always @(posedge Clock_50 or negedge Resetn) begin
 			end
 			
 			S_LO_17: begin // 1
+				
+				ee_high <= ((a_result + b_result) >> 16);	
 			
+				// write previos EO values to SRAM
 				SRAM_we_n <= 0;
 				SRAM_address <= write_address;
 				write_address <= write_address + 1;
 				SRAM_write_data <= {eo_high_writeout, eo_low_writeout};
 				pixel_row_count <= pixel_row_count + 1;
-	
-
-			
+				
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+				
+			a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_data[7:0] - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_data[7:0] - 128;
+				
+				UR[0]	<= UR[0];
+				UR[1] <= UR[0];
+				UR[2] <= UR[0];
+				UR[3] <= UR[0];
+				UR[4] <= UR[3];
+				UR[5] <= UR[4];
+				
 				M1_state <= S_LO_18;
 
 			
@@ -1399,53 +1430,235 @@ always @(posedge Clock_50 or negedge Resetn) begin
 			
 			S_LO_18: begin // 2
 				
+					//store green even
+				ee_low <= (a_result_buff - a_result - c_result_buff) >> 16;
+				//store blue even
+				eo_high <= (a_result_buff + b_result) >> 16;
+			
+				// write previous odd pixel to SRAM
+				SRAM_we_n <= 0;
 				SRAM_address <= write_address;
 				write_address <= write_address + 1;
 				SRAM_write_data <= {oo_high_writeout, oo_low_writeout};
 				pixel_row_count <= pixel_row_count + 1;
-			
+				
+
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= VR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= VR[3];		
+				
+				
 				M1_state <= S_LO_19;
 
 			end
 			
-			S_LO_19: begin
+			S_LO_19: begin // 3
+				//sim_done <= 1;
+				
+				V_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= VR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= VR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= VR[0];
+				
 			
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {ee_high_writeout, ee_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				M1_state <= S_LO_20;
+				
+			end
 			
-				sim_done <= 1;
+			S_LO_20: begin // 4
+			
+				SRAM_we_n <= 1;
+
+				V_prime <= (V_MAC + a_result - b_result + c_result + 128) >> 8;				
+				
+				a_select <= 0;
+				a_IN1 <= 21;
+				a_IN2 <= UR[5];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[4];
+				
+				c_select <= 0;
+				c_IN1 <= 159 ;
+				c_IN2 <= UR[3];
+				
+				
+				M1_state <= S_LO_21;
+			
+			end
+			
+			S_LO_21: begin // 5
+			
+				U_MAC <= a_result - b_result + c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 159;
+				a_IN2 <= UR[2];
+				
+				b_select <= 0;
+				b_IN1 <= 52;
+				b_IN2 <= UR[1];
+				
+				c_select <= 0;
+				c_IN1 <= 21;
+				c_IN2 <= UR[0];
+				
+				
+				M1_state <= S_LO_22;
 
 			end
 			
-			S_LO_20: begin
+			S_LO_22: begin // 6
 			
-			
-			
-			end
-			
-			S_LO_21: begin
-			
-			
-			
-			end
-			
-			S_LO_22: begin
-			
-			
-			
-			end
-			
-			S_LO_23: begin
-			
-			
+				U_prime <= (U_MAC + a_result - b_result + c_result + 128) >> 8;			
+	
+				a_select <= 0;
+				a_IN1 <= 76284;
+				a_IN2 <= Y_data[7:0] - 16;
+				
+				b_select <= 0;
+				b_IN1 <= 104595;
+				b_IN2 <= V_prime - 128;
+				
+				c_select <= 0;
+				c_IN1 <= 25624 ;
+				//grab data from bus instead of buffer for U
+				c_IN2 <= ((U_MAC + a_result - b_result + c_result + 128) >> 8) - 128;	
+				
+				
+				M1_state <= S_LO_23;
 			
 			end
 			
-			S_LO_24: begin
+			S_LO_23: begin // 7
 			
 			
-			
-			end
+				eo_low <= ((a_result + b_result) >> 16);
+				
+				a_result_buff <= a_result;
+				c_result_buff <= c_result;
+				
+				a_select <= 0;
+				a_IN1 <= 53281;
+				a_IN2 <= V_prime - 128;
+				
+				b_select <= 0;
+				b_IN1 <= 132251;
+				b_IN2 <= U_prime - 128;
+				
+				
+				M1_state <= S_LO_24;
 
+			end
 			
+			
+			S_LO_24: begin // 0
+				oo_high <= (a_result_buff - a_result - c_result_buff) >> 16;
+				oo_low <= (a_result_buff + b_result) >> 16;
+				
+				M1_state <= S_LO_25;
+				
+			end
+			
+			S_LO_25: begin // 1
+				
+				ee_high <= ((a_result + b_result) >> 16);	
+			
+				// write previos EO values to SRAM
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {eo_high_writeout, eo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				
+				
+				M1_state <= S_LO_26;
+			end
+			
+			S_LO_26: begin // 
+				
+				ee_low <= (a_result_buff - a_result - c_result_buff) >> 16;
+				//store blue even
+				eo_high <= (a_result_buff + b_result) >> 16;
+			
+				// write previous odd pixel to SRAM
+				SRAM_we_n <= 0;
+				SRAM_address <= write_address;
+				write_address <= write_address + 1;
+				SRAM_write_data <= {oo_high_writeout, oo_low_writeout};
+				pixel_row_count <= pixel_row_count + 1;
+				
+				
+				M1_state <= S_LO_27;
+			end
+			
+			S_LO_27: begin // 
+			
+				SRAM_we_n <= 1;
+				
+			V_sram_address <= V_sram_address - 1;
+				//U_sram_address <= U_sram_address - 1;
+				
+				if (pixel_col_count == 239) begin
+				
+					vga_enable <= 1;
+					sim_done <= 1;
+					M1_state <= S_WAIT_FOR_PREVIOUS;
+
+					
+				end else begin
+				
+					pixel_col_count <= pixel_col_count + 1;
+					M1_state <= S_LEAD_IN_START_1;
+
+				
+				end
+				
+				VR[0]	<= 0;
+				VR[1] <= 0;
+				VR[2] <= 0;
+				VR[3] <= 0;
+				VR[4] <= 0;
+				VR[5] <= 0;
+				
+				UR[0]	<= 0;
+				UR[1] <= 0;
+				UR[2] <= 0;
+				UR[3] <= 0;
+				UR[4] <= 0;
+				UR[5] <= 0;
+				
+				Y_data <= 0;
+				U_data <= 0;
+				V_data <= 0;
+				
+				U_data_buff <= 0;
+				V_data_buff <= 0;
+
+			end
 			
 									
 			//default: M1_state <= S_LEADIN_IDLE;

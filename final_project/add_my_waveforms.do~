@@ -47,9 +47,13 @@ add wave uut/M1_unit/UV_byte_flag
 
 add wave -hexadecimal uut/done
 
+add wave -hexadecimal uut/M1_unit/U_sram_address
+add wave -hexadecimal uut/M1_unit/V_sram_address
 
 
 
 
 
 add wave -unsigned uut/UART_timer
+
+

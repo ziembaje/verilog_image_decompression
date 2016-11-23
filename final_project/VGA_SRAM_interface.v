@@ -75,7 +75,7 @@ always_ff @ (posedge Clock or negedge Resetn) begin
 		VGA_green <= 10'd0;
 		VGA_blue <= 10'd0;
 		
-		SRAM_address <= 18'd0;
+		SRAM_address <= 18'd146944;
 		
 		VGA_sram_data[2] <= 16'd0;
 		VGA_sram_data[1] <= 16'd0;
@@ -84,7 +84,7 @@ always_ff @ (posedge Clock or negedge Resetn) begin
 		if (~VGA_enable) begin
 			VGA_red <= 10'd0;
  			VGA_green <= 10'd0;
-	   		VGA_blue <= 10'd0;								
+	   	VGA_blue <= 10'd0;								
 		end else begin
 			case (VGA_SRAM_state)
 			S_VS_WAIT_NEW_PIXEL_ROW: begin

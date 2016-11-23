@@ -1,4 +1,12 @@
 
+State Machine - |final_project|top_state
+Name top_state~11 top_state~10 top_state~9 
+top_state.S_IDLE 0 0 0 
+top_state.S_ENABLE_UART_RX 0 0 1 
+top_state.S_WAIT_UART_RX 0 1 0 
+top_state.S_M1 0 1 1 
+top_state.S_M1_leave 1 0 0 
+
 State Machine - |final_project|UART_SRAM_interface:UART_unit|UART_SRAM_state
 Name UART_SRAM_state~13 UART_SRAM_state~12 UART_SRAM_state~11 
 UART_SRAM_state.S_US_IDLE 0 0 0 
