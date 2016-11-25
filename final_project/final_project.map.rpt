@@ -1,5 +1,5 @@
 Analysis & Synthesis report for final_project
-Wed Nov 23 13:15:46 2016
+Wed Nov 23 23:43:16 2016
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
@@ -23,22 +23,30 @@ Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Versi
  15. General Register Statistics
  16. Inverted Register Statistics
  17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Parameter Settings for User Entity Instance: VGA_SRAM_interface:VGA_unit
- 19. Parameter Settings for User Entity Instance: VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit
- 20. Parameter Settings for User Entity Instance: SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component
- 21. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult1
- 22. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult0
- 23. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult2
- 24. altpll Parameter Settings by Entity Instance
- 25. lpm_mult Parameter Settings by Entity Instance
- 26. Port Connectivity Checks: "convert_hex_to_seven_segment:unit3"
- 27. Port Connectivity Checks: "Milestone_1:M1_unit"
- 28. Port Connectivity Checks: "UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX"
- 29. Port Connectivity Checks: "VGA_SRAM_interface:VGA_unit"
- 30. Port Connectivity Checks: "PB_Controller:PB_unit"
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
- 33. Analysis & Synthesis Suppressed Messages
+ 18. Source assignments for Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated
+ 19. Source assignments for Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated
+ 20. Parameter Settings for User Entity Instance: VGA_SRAM_interface:VGA_unit
+ 21. Parameter Settings for User Entity Instance: VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit
+ 22. Parameter Settings for User Entity Instance: SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component
+ 23. Parameter Settings for User Entity Instance: Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component
+ 25. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult1
+ 26. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult0
+ 27. Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult2
+ 28. altpll Parameter Settings by Entity Instance
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. lpm_mult Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "convert_hex_to_seven_segment:unit3"
+ 32. Port Connectivity Checks: "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0"
+ 33. Port Connectivity Checks: "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1"
+ 34. Port Connectivity Checks: "Milestone_2:M2_unit"
+ 35. Port Connectivity Checks: "Milestone_1:M1_unit"
+ 36. Port Connectivity Checks: "UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX"
+ 37. Port Connectivity Checks: "VGA_SRAM_interface:VGA_unit"
+ 38. Port Connectivity Checks: "PB_Controller:PB_unit"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,15 +72,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 23 13:15:46 2016          ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 23 23:43:16 2016          ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
 ; Revision Name                      ; final_project                                  ;
 ; Top-level Entity Name              ; final_project                                  ;
 ; Family                             ; Cyclone II                                     ;
-; Total logic elements               ; 2,311                                          ;
-;     Total combinational functions  ; 2,113                                          ;
-;     Dedicated logic registers      ; 955                                            ;
-; Total registers                    ; 955                                            ;
+; Total logic elements               ; 2,309                                          ;
+;     Total combinational functions  ; 2,111                                          ;
+;     Dedicated logic registers      ; 954                                            ;
+; Total registers                    ; 954                                            ;
 ; Total pins                         ; 164                                            ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -171,49 +179,64 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 3           ;
+; Maximum allowed            ; 3           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;   0.0%      ;
+;     2-3 processors         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
-; convert_hex_to_seven_segment.v   ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/convert_hex_to_seven_segment.v ;         ;
-; UART_SRAM_interface.v            ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/UART_SRAM_interface.v          ;         ;
-; VGA_SRAM_interface.v             ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_SRAM_interface.v           ;         ;
-; Clock_100_PLL.v                  ; yes             ; User Wizard-Generated File   ; /home/ECE/ziembaje/Desktop/final_project/Clock_100_PLL.v                ;         ;
-; final_project.v                  ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/final_project.v                ;         ;
-; SRAM_Controller.v                ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/SRAM_Controller.v              ;         ;
-; VGA_Controller.v                 ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_Controller.v               ;         ;
-; PB_Controller.v                  ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/PB_Controller.v                ;         ;
-; UART_Receive_Controller.v        ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/UART_Receive_Controller.v      ;         ;
-; VGA_Param.h                      ; yes             ; User Unspecified File        ; /home/ECE/ziembaje/Desktop/final_project/VGA_Param.h                    ;         ;
-; define_state.h                   ; yes             ; User Unspecified File        ; /home/ECE/ziembaje/Desktop/final_project/define_state.h                 ;         ;
-; Milestone_1.v                    ; yes             ; User Verilog HDL File        ; /home/ECE/ziembaje/Desktop/final_project/Milestone_1.v                  ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/altpll.tdf           ;         ;
-; aglobal120.inc                   ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/aglobal120.inc       ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/stratix_pll.inc      ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/stratixii_pll.inc    ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/cycloneii_pll.inc    ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_mult.tdf         ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_add_sub.inc      ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/multcore.inc         ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/bypassff.inc         ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; /tools/altera/12.0/quartus/libraries/megafunctions/altshift.inc         ;         ;
-; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_l8t.tdf                ;         ;
-; db/mult_r8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_r8t.tdf                ;         ;
-; db/mult_n8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/ECE/ziembaje/Desktop/final_project/db/mult_n8t.tdf                ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------+---------+
+; Milestone_2.v                    ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/Milestone_2.v                   ;         ;
+; convert_hex_to_seven_segment.v   ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/convert_hex_to_seven_segment.v  ;         ;
+; UART_SRAM_interface.v            ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/UART_SRAM_interface.v           ;         ;
+; VGA_SRAM_interface.v             ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/VGA_SRAM_interface.v            ;         ;
+; Clock_100_PLL.v                  ; yes             ; User Wizard-Generated File             ; /home/ECE/ziembaje/Desktop/final_project/Clock_100_PLL.v                 ;         ;
+; final_project.v                  ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/final_project.v                 ;         ;
+; SRAM_Controller.v                ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/SRAM_Controller.v               ;         ;
+; VGA_Controller.v                 ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/VGA_Controller.v                ;         ;
+; PB_Controller.v                  ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/PB_Controller.v                 ;         ;
+; UART_Receive_Controller.v        ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/UART_Receive_Controller.v       ;         ;
+; VGA_Param.h                      ; yes             ; User Unspecified File                  ; /home/ECE/ziembaje/Desktop/final_project/VGA_Param.h                     ;         ;
+; define_state.h                   ; yes             ; User Unspecified File                  ; /home/ECE/ziembaje/Desktop/final_project/define_state.h                  ;         ;
+; Milestone_1.v                    ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/Milestone_1.v                   ;         ;
+; dual_port_RAM0.v                 ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/dual_port_RAM0.v                ;         ;
+; dual_port_RAM1.v                 ; yes             ; User Verilog HDL File                  ; /home/ECE/ziembaje/Desktop/final_project/dual_port_RAM1.v                ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal120.inc                   ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/aglobal120.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_uq92.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ECE/ziembaje/Desktop/final_project/db/altsyncram_uq92.tdf          ;         ;
+; dual_port_RAM1.hex               ; yes             ; Auto-Found Memory Initialization File  ; /home/ECE/ziembaje/Desktop/final_project/dual_port_RAM1.hex              ;         ;
+; db/altsyncram_tq92.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/ECE/ziembaje/Desktop/final_project/db/altsyncram_tq92.tdf          ;         ;
+; dual_port_RAM0.hex               ; yes             ; Auto-Found Memory Initialization File  ; /home/ECE/ziembaje/Desktop/final_project/dual_port_RAM0.hex              ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                           ; /tools/altera/12.0/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_l8t.tdf                  ; yes             ; Auto-Generated Megafunction            ; /home/ECE/ziembaje/Desktop/final_project/db/mult_l8t.tdf                 ;         ;
+; db/mult_r8t.tdf                  ; yes             ; Auto-Generated Megafunction            ; /home/ECE/ziembaje/Desktop/final_project/db/mult_r8t.tdf                 ;         ;
+; db/mult_n8t.tdf                  ; yes             ; Auto-Generated Megafunction            ; /home/ECE/ziembaje/Desktop/final_project/db/mult_n8t.tdf                 ;         ;
++----------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------+
@@ -221,20 +244,20 @@ applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 2,311      ;
+; Estimated Total logic elements              ; 2,309      ;
 ;                                             ;            ;
-; Total combinational functions               ; 2113       ;
+; Total combinational functions               ; 2111       ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 1108       ;
-;     -- 3 input functions                    ; 606        ;
-;     -- <=2 input functions                  ; 399        ;
+;     -- 4 input functions                    ; 1097       ;
+;     -- 3 input functions                    ; 617        ;
+;     -- <=2 input functions                  ; 397        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 1441       ;
+;     -- normal mode                          ; 1439       ;
 ;     -- arithmetic mode                      ; 672        ;
 ;                                             ;            ;
-; Total registers                             ; 955        ;
-;     -- Dedicated logic registers            ; 955        ;
+; Total registers                             ; 954        ;
+;     -- Dedicated logic registers            ; 954        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 164        ;
@@ -243,9 +266,9 @@ applicable agreement for further details.
 ;     -- PLLs                                 ; 1          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; CLOCK_50_I ;
-; Maximum fan-out                             ; 957        ;
-; Total fan-out                               ; 11083      ;
-; Average fan-out                             ; 3.42       ;
+; Maximum fan-out                             ; 956        ;
+; Total fan-out                               ; 11065      ;
+; Average fan-out                             ; 3.41       ;
 +---------------------------------------------+------------+
 
 
@@ -254,8 +277,8 @@ applicable agreement for further details.
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                               ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------+--------------+
-; |final_project                           ; 2113 (104)        ; 955 (33)     ; 0           ; 12           ; 0       ; 6         ; 164  ; 0            ; |final_project                                                                                    ;              ;
-;    |Milestone_1:M1_unit|                 ; 1558 (1516)       ; 612 (612)    ; 0           ; 12           ; 0       ; 6         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit                                                                ;              ;
+; |final_project                           ; 2111 (102)        ; 954 (33)     ; 0           ; 12           ; 0       ; 6         ; 164  ; 0            ; |final_project                                                                                    ;              ;
+;    |Milestone_1:M1_unit|                 ; 1558 (1516)       ; 611 (611)    ; 0           ; 12           ; 0       ; 6         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit                                                                ;              ;
 ;       |lpm_mult:Mult0|                   ; 14 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0                                                 ;              ;
 ;          |mult_r8t:auto_generated|       ; 14 (14)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated                         ;              ;
 ;       |lpm_mult:Mult1|                   ; 14 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1                                                 ;              ;
@@ -310,17 +333,18 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 
 
 Encoding Type:  User-Encoded
-+------------------------------------------------------------------------+
-; State Machine - |final_project|top_state                               ;
-+----------------------------+--------------+--------------+-------------+
-; Name                       ; top_state~11 ; top_state~10 ; top_state~9 ;
-+----------------------------+--------------+--------------+-------------+
-; top_state.S_IDLE           ; 0            ; 0            ; 0           ;
-; top_state.S_ENABLE_UART_RX ; 0            ; 0            ; 1           ;
-; top_state.S_WAIT_UART_RX   ; 0            ; 1            ; 0           ;
-; top_state.S_M1             ; 0            ; 1            ; 1           ;
-; top_state.S_M1_leave       ; 1            ; 0            ; 0           ;
-+----------------------------+--------------+--------------+-------------+
++-------------------------------------------------------------------------+
+; State Machine - |final_project|top_state                                ;
++----------------------------+--------------+--------------+--------------+
+; Name                       ; top_state~12 ; top_state~11 ; top_state~10 ;
++----------------------------+--------------+--------------+--------------+
+; top_state.S_IDLE           ; 0            ; 0            ; 0            ;
+; top_state.S_ENABLE_UART_RX ; 0            ; 0            ; 1            ;
+; top_state.S_WAIT_UART_RX   ; 0            ; 1            ; 0            ;
+; top_state.S_M1             ; 0            ; 1            ; 1            ;
+; top_state.S_M2             ; 1            ; 0            ; 1            ;
+; top_state.S_M2_leave       ; 1            ; 1            ; 0            ;
++----------------------------+--------------+--------------+--------------+
 
 
 Encoding Type:  User-Encoded
@@ -403,7 +427,8 @@ Encoding Type:  User-Encoded
 ; Milestone_1:M1_unit|c_IN1[2]                    ; Merged with Milestone_1:M1_unit|c_IN1[0]            ;
 ; Milestone_1:M1_unit|c_IN2[29,30]                ; Merged with Milestone_1:M1_unit|c_IN2[31]           ;
 ; Milestone_1:M1_unit|M1_state[6]                 ; Stuck at GND due to stuck port data_in              ;
-; Total Number of Removed Registers = 217         ;                                                     ;
+; top_state~13                                    ; Lost fanout                                         ;
+; Total Number of Removed Registers = 218         ;                                                     ;
 +-------------------------------------------------+-----------------------------------------------------+
 
 
@@ -412,10 +437,10 @@ Encoding Type:  User-Encoded
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 955   ;
+; Total registers                              ; 954   ;
 ; Number of registers using Synchronous Clear  ; 146   ;
 ; Number of registers using Synchronous Load   ; 20    ;
-; Number of registers using Asynchronous Clear ; 939   ;
+; Number of registers using Asynchronous Clear ; 938   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 782   ;
 ; Number of registers using Preset             ; 0     ;
@@ -447,8 +472,8 @@ Encoding Type:  User-Encoded
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[12]                        ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[13]                        ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[17]                        ; 3       ;
-; UART_SRAM_interface:UART_unit|SRAM_we_n                             ; 3       ;
 ; Milestone_1:M1_unit|SRAM_we_n                                       ; 2       ;
+; UART_SRAM_interface:UART_unit|SRAM_we_n                             ; 3       ;
 ; VGA_enable                                                          ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_WE_N_O                               ; 17      ;
 ; SRAM_Controller:SRAM_unit|SRAM_CE_N_O                               ; 2       ;
@@ -464,53 +489,70 @@ Encoding Type:  User-Encoded
 +--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                                                                  ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |final_project|SRAM_Controller:SRAM_unit|SRAM_ADDRESS_O[3]                                  ;                            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[15]                            ;                            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[6]                             ;                            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |final_project|SRAM_Controller:SRAM_unit|SRAM_ADDRESS_O[1]                                  ;                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[12]                            ;                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|SRAM_write_data[3]                             ;                            ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; |final_project|UART_SRAM_interface:UART_unit|new_line_count[0]                              ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[3] ;                            ;
-; 5:1                ; 14 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|U_sram_address[11]                                       ;                            ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data_buff[3]                                           ;                            ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data[5]                                                ;                            ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data_buff[12]                                          ;                            ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data[14]                                               ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[7] ;                            ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|U_sram_address[8]                                        ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data_buff[2]                                           ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|V_data[2]                                                ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data_buff[0]                                           ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; |final_project|Milestone_1:M1_unit|U_data[15]                                               ;                            ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0] ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[1][1]                                                 ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[4][2]                                                 ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[5][7]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[1][2]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[4][7]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[5][2]                                                 ;                            ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[1][3]                                                 ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[4][7]                                                 ;                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[5][6]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[4][4]                                                 ;                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[5][5]                                                 ;                            ;
 ; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[3][6]                                                 ;                            ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[3][6]                                                 ;                            ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[2][4]                                                 ;                            ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[2][0]                                                 ;                            ;
-; 65:1               ; 16 bits   ; 688 LEs       ; 16 LEs               ; 672 LEs                ; |final_project|Milestone_1:M1_unit|pixel_row_count[14]                                      ;                            ;
-; 7:1                ; 18 bits   ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|SRAM_address[6]                                ;                            ;
-; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[4]                                        ;                            ;
-; 8:1                ; 24 bits   ; 120 LEs       ; 72 LEs               ; 48 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_blue[9]                                      ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[3][0]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|VR[2][1]                                                 ;                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; |final_project|Milestone_1:M1_unit|UR[2][2]                                                 ;                            ;
+; 65:1               ; 16 bits   ; 688 LEs       ; 16 LEs               ; 672 LEs                ; |final_project|Milestone_1:M1_unit|pixel_row_count[12]                                      ;                            ;
+; 7:1                ; 18 bits   ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|SRAM_address[0]                                ;                            ;
+; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[0]                                        ;                            ;
+; 8:1                ; 24 bits   ; 120 LEs       ; 72 LEs               ; 48 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_red[9]                                       ;                            ;
 ; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[0]  ;                            ;
-; 9:1                ; 18 bits   ; 108 LEs       ; 36 LEs               ; 72 LEs                 ; |final_project|Milestone_1:M1_unit|SRAM_address[3]                                          ;                            ;
-; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8] ;                            ;
+; 9:1                ; 18 bits   ; 108 LEs       ; 36 LEs               ; 72 LEs                 ; |final_project|Milestone_1:M1_unit|SRAM_address[13]                                         ;                            ;
+; 10:1               ; 10 bits   ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4] ;                            ;
 ; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; |final_project|Milestone_1:M1_unit|VR[0][5]                                                 ;                            ;
 ; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; |final_project|Milestone_1:M1_unit|UR[0][5]                                                 ;                            ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[7]                                       ;                            ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[11]                                      ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[6]                                       ;                            ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |final_project|Milestone_1:M1_unit|SRAM_write_data[14]                                      ;                            ;
 ; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[0]                                  ;                            ;
-; 12:1               ; 10 bits   ; 80 LEs        ; 20 LEs               ; 60 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[4]                                  ;                            ;
+; 12:1               ; 10 bits   ; 80 LEs        ; 20 LEs               ; 60 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[14]                                 ;                            ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; |final_project|Milestone_1:M1_unit|U_sram_address[12]                                       ;                            ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[14]                                       ;                            ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; |final_project|Milestone_1:M1_unit|V_sram_address[13]                                       ;                            ;
 ; 12:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; |final_project|VGA_SRAM_interface:VGA_unit|SRAM_address[10]                                 ;                            ;
-; 30:1               ; 7 bits    ; 140 LEs       ; 49 LEs               ; 91 LEs                 ; |final_project|Milestone_1:M1_unit|c_IN2[0]                                                 ;                            ;
-; 34:1               ; 7 bits    ; 154 LEs       ; 49 LEs               ; 105 LEs                ; |final_project|Milestone_1:M1_unit|a_IN2[6]                                                 ;                            ;
-; 27:1               ; 22 bits   ; 396 LEs       ; 110 LEs              ; 286 LEs                ; |final_project|Milestone_1:M1_unit|c_IN2[10]                                                ;                            ;
-; 38:1               ; 7 bits    ; 175 LEs       ; 63 LEs               ; 112 LEs                ; |final_project|Milestone_1:M1_unit|b_IN2[5]                                                 ;                            ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; |final_project|SRAM_address[10]                                                             ;                            ;
+; 30:1               ; 7 bits    ; 140 LEs       ; 49 LEs               ; 91 LEs                 ; |final_project|Milestone_1:M1_unit|c_IN2[5]                                                 ;                            ;
+; 34:1               ; 7 bits    ; 154 LEs       ; 49 LEs               ; 105 LEs                ; |final_project|Milestone_1:M1_unit|a_IN2[4]                                                 ;                            ;
+; 27:1               ; 22 bits   ; 396 LEs       ; 110 LEs              ; 286 LEs                ; |final_project|Milestone_1:M1_unit|c_IN2[27]                                                ;                            ;
+; 38:1               ; 7 bits    ; 175 LEs       ; 63 LEs               ; 112 LEs                ; |final_project|Milestone_1:M1_unit|b_IN2[1]                                                 ;                            ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; |final_project|SRAM_address[12]                                                             ;                            ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |final_project|VGA_SRAM_interface:VGA_unit|VGA_SRAM_state                                   ;                            ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; |final_project|Selector3                                                                    ;                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; |final_project|Selector2                                                                    ;                            ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0      ;                            ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; |final_project|Selector3                                                                    ;                            ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; |final_project|UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector3      ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+---------------------------------------------------------------------------------------------+----------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                             ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                              ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                             ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                              ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -919,6 +961,128 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                    ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                 ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                                                                 ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                          ;
+; WIDTHAD_A                          ; 7                    ; Signed Integer                                                          ;
+; NUMWORDS_A                         ; 128                  ; Signed Integer                                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_B                            ; 32                   ; Signed Integer                                                          ;
+; WIDTHAD_B                          ; 7                    ; Signed Integer                                                          ;
+; NUMWORDS_B                         ; 128                  ; Signed Integer                                                          ;
+; INDATA_REG_B                       ; CLOCK0               ; Untyped                                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0               ; Untyped                                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                 ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; INIT_FILE                          ; dual_port_RAM1.hex   ; Untyped                                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_uq92      ; Untyped                                                                 ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                    ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                 ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                                                                 ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                          ;
+; WIDTHAD_A                          ; 7                    ; Signed Integer                                                          ;
+; NUMWORDS_A                         ; 128                  ; Signed Integer                                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_B                            ; 32                   ; Signed Integer                                                          ;
+; WIDTHAD_B                          ; 7                    ; Signed Integer                                                          ;
+; NUMWORDS_B                         ; 128                  ; Signed Integer                                                          ;
+; INDATA_REG_B                       ; CLOCK0               ; Untyped                                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0               ; Untyped                                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                 ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; INIT_FILE                          ; dual_port_RAM0.hex   ; Untyped                                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_tq92      ; Untyped                                                                 ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: Milestone_1:M1_unit|lpm_mult:Mult1 ;
 +------------------------------------------------+------------+-----------------------+
@@ -1041,6 +1205,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                   ;
++-------------------------------------------+----------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                  ;
++-------------------------------------------+----------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                      ;
+; Entity Instance                           ; Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                                                        ;
+;     -- WIDTH_A                            ; 32                                                                                     ;
+;     -- NUMWORDS_A                         ; 128                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                           ;
+;     -- WIDTH_B                            ; 32                                                                                     ;
+;     -- NUMWORDS_B                         ; 128                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                              ;
+; Entity Instance                           ; Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                                                        ;
+;     -- WIDTH_A                            ; 32                                                                                     ;
+;     -- NUMWORDS_A                         ; 128                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                           ;
+;     -- WIDTH_B                            ; 32                                                                                     ;
+;     -- NUMWORDS_B                         ; 128                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                              ;
++-------------------------------------------+----------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------+
 ; lpm_mult Parameter Settings by Entity Instance                             ;
 +---------------------------------------+------------------------------------+
@@ -1092,12 +1287,53 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+---------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0"                               ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; data_a ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wren_a ; Input  ; Info     ; Stuck at GND                                                                        ;
+; q_b    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1"                                      ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; data_a        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data_b[7..0]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data_b[31..8] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wren_a        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wren_b        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; q_b           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Milestone_2:M2_unit"                                                                                                 ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                  ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; READ_ADDRESS_O   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; WRITE_ADDRESS_O  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; READ_DATA_A_O    ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; READ_DATA_B_O    ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; WRITE_DATA_B_O   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; WRITE_ENABLE_B_O ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; M2_state         ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Milestone_1:M1_unit"                                                                    ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; M1_state ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sim_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1146,9 +1382,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Nov 23 13:15:29 2016
+    Info: Processing started: Wed Nov 23 23:42:59 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final_project -c final_project
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 3 of the 3 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file Milestone_2.v
+    Info (12023): Found entity 1: Milestone_2
 Info (12021): Found 1 design units, including 1 entities, in source file convert_hex_to_seven_segment.v
     Info (12023): Found entity 1: convert_hex_to_seven_segment
 Info (12021): Found 1 design units, including 1 entities, in source file UART_SRAM_interface.v
@@ -1173,7 +1411,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file tb_fina
     Info (12023): Found entity 1: tb_project_v2
 Info (12021): Found 1 design units, including 1 entities, in source file Milestone_1.v
     Info (12023): Found entity 1: Milestone_1
+Info (12021): Found 1 design units, including 1 entities, in source file dual_port_RAM0.v
+    Info (12023): Found entity 1: dual_port_RAM0
+Info (12021): Found 1 design units, including 1 entities, in source file dual_port_RAM1.v
+    Info (12023): Found entity 1: dual_port_RAM1
 Info (12127): Elaborating entity "final_project" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at final_project.v(242): all case item expressions in this case statement are onehot
 Info (12128): Elaborating entity "PB_Controller" for hierarchy "PB_Controller:PB_unit"
 Info (12128): Elaborating entity "VGA_SRAM_interface" for hierarchy "VGA_SRAM_interface:VGA_unit"
 Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit"
@@ -1343,7 +1586,161 @@ Warning (10030): Net "b_IN3" at Milestone_1.v(89) has no driver or initial value
 Warning (10030): Net "b_IN4" at Milestone_1.v(90) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "c_IN3" at Milestone_1.v(94) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "c_IN4" at Milestone_1.v(95) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "Milestone_2" for hierarchy "Milestone_2:M2_unit"
+Warning (10034): Output port "READ_ADDRESS_O" at Milestone_2.v(18) has no driver
+Warning (10034): Output port "WRITE_ADDRESS_O" at Milestone_2.v(19) has no driver
+Warning (10034): Output port "READ_DATA_A_O" at Milestone_2.v(20) has no driver
+Warning (10034): Output port "READ_DATA_B_O" at Milestone_2.v(21) has no driver
+Warning (10034): Output port "WRITE_DATA_B_O" at Milestone_2.v(22) has no driver
+Warning (10034): Output port "WRITE_ENABLE_B_O" at Milestone_2.v(23) has no driver
+Warning (10034): Output port "M2_state" at Milestone_2.v(28) has no driver
+Warning (10034): Output port "sim_done" at Milestone_2.v(25) has no driver
+Info (12128): Elaborating entity "dual_port_RAM1" for hierarchy "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "init_file" = "dual_port_RAM1.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "128"
+    Info (12134): Parameter "numwords_b" = "128"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "7"
+    Info (12134): Parameter "widthad_b" = "7"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_uq92.tdf
+    Info (12023): Found entity 1: altsyncram_uq92
+Info (12128): Elaborating entity "altsyncram_uq92" for hierarchy "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated"
+Info (12128): Elaborating entity "dual_port_RAM0" for hierarchy "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "init_file" = "dual_port_RAM0.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "128"
+    Info (12134): Parameter "numwords_b" = "128"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "7"
+    Info (12134): Parameter "widthad_b" = "7"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_tq92.tdf
+    Info (12023): Found entity 1: altsyncram_tq92
+Info (12128): Elaborating entity "altsyncram_tq92" for hierarchy "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated"
 Info (12128): Elaborating entity "convert_hex_to_seven_segment" for hierarchy "convert_hex_to_seven_segment:unit7"
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[6]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[5]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[4]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[3]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[2]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[1]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|read_address[0]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[6]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[5]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[4]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[3]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[2]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[1]" is missing source, defaulting to GND
+    Warning (12110): Net "Milestone_2:M2_unit|write_address[0]" is missing source, defaulting to GND
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component|altsyncram_tq92:auto_generated|q_a[31]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component|altsyncram_uq92:auto_generated|q_a[31]"
 Info (278001): Inferred 3 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Milestone_1:M1_unit|Mult1"
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Milestone_1:M1_unit|Mult0"
@@ -1387,6 +1784,7 @@ Info (12133): Instantiated megafunction "Milestone_1:M1_unit|lpm_mult:Mult2" wit
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_n8t.tdf
     Info (12023): Found entity 1: mult_n8t
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 126 buffer(s)
     Info (13019): Ignored 126 SOFT buffer(s)
 Info (13000): Registers with preset signals will power-up high
@@ -1396,7 +1794,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LED_GREEN_O[8]" is stuck at GND
     Warning (13410): Pin "VGA_SYNC_O" is stuck at GND
     Warning (13410): Pin "UART_TX_O" is stuck at VCC
-Info (17049): 72 registers lost all their fanouts during netlist optimizations.
+Info (17049): 73 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/ECE/ziembaje/Desktop/final_project/final_project.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1420,16 +1818,16 @@ Warning (21074): Design contains 19 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH_I[14]"
     Warning (15610): No output dependent on input pin "SWITCH_I[15]"
     Warning (15610): No output dependent on input pin "SWITCH_I[16]"
-Info (21057): Implemented 2614 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2610 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 124 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 2437 logic cells
+    Info (21061): Implemented 2433 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 12 DSP elements
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 127 warnings
-    Info: Peak virtual memory: 373 megabytes
-    Info: Processing ended: Wed Nov 23 13:15:46 2016
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 217 warnings
+    Info: Peak virtual memory: 372 megabytes
+    Info: Processing ended: Wed Nov 23 23:43:16 2016
     Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:17
 

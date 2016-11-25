@@ -1,5 +1,5 @@
 Fitter report for final_project
-Wed Nov 23 13:16:12 2016
+Wed Nov 23 23:43:36 2016
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
@@ -68,17 +68,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Nov 23 13:16:12 2016          ;
+; Fitter Status                      ; Successful - Wed Nov 23 23:43:35 2016          ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
 ; Revision Name                      ; final_project                                  ;
 ; Top-level Entity Name              ; final_project                                  ;
 ; Family                             ; Cyclone II                                     ;
 ; Device                             ; EP2C35F672C6                                   ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 2,199 / 33,216 ( 7 % )                         ;
-;     Total combinational functions  ; 2,114 / 33,216 ( 6 % )                         ;
-;     Dedicated logic registers      ; 943 / 33,216 ( 3 % )                           ;
-; Total registers                    ; 943                                            ;
+; Total logic elements               ; 2,195 / 33,216 ( 7 % )                         ;
+;     Total combinational functions  ; 2,112 / 33,216 ( 6 % )                         ;
+;     Dedicated logic registers      ; 942 / 33,216 ( 3 % )                           ;
+; Total registers                    ; 942                                            ;
 ; Total pins                         ; 164 / 475 ( 35 % )                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                            ;
@@ -142,15 +142,15 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 3           ;
+; Maximum allowed            ; 3           ;
 ;                            ;             ;
-; Average used               ; 2.33        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.96        ;
+; Maximum used               ; 3           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;  16.7%      ;
+;     2-3 processors         ;  23.5%      ;
 +----------------------------+-------------+
 
 
@@ -370,8 +370,8 @@ applicable agreement for further details.
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 3239 ( 0.00 % )    ;
-;     -- Achieved     ; 0 / 3239 ( 0.00 % )    ;
+;     -- Requested    ; 0 / 3236 ( 0.00 % )    ;
+;     -- Achieved     ; 0 / 3236 ( 0.00 % )    ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -394,7 +394,7 @@ applicable agreement for further details.
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 3234    ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 3231    ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 5       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -410,26 +410,26 @@ The pin-out file can be found in /home/ECE/ziembaje/Desktop/final_project/final_
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Total logic elements                        ; 2,199 / 33,216 ( 7 % )          ;
-;     -- Combinational with no register       ; 1256                            ;
-;     -- Register only                        ; 85                              ;
-;     -- Combinational with a register        ; 858                             ;
+; Total logic elements                        ; 2,195 / 33,216 ( 7 % )          ;
+;     -- Combinational with no register       ; 1253                            ;
+;     -- Register only                        ; 83                              ;
+;     -- Combinational with a register        ; 859                             ;
 ;                                             ;                                 ;
 ; Logic element usage by number of LUT inputs ;                                 ;
-;     -- 4 input functions                    ; 1108                            ;
-;     -- 3 input functions                    ; 606                             ;
-;     -- <=2 input functions                  ; 400                             ;
-;     -- Register only                        ; 85                              ;
+;     -- 4 input functions                    ; 1097                            ;
+;     -- 3 input functions                    ; 617                             ;
+;     -- <=2 input functions                  ; 398                             ;
+;     -- Register only                        ; 83                              ;
 ;                                             ;                                 ;
 ; Logic elements by mode                      ;                                 ;
-;     -- normal mode                          ; 1442                            ;
+;     -- normal mode                          ; 1440                            ;
 ;     -- arithmetic mode                      ; 672                             ;
 ;                                             ;                                 ;
-; Total registers*                            ; 943 / 34,593 ( 3 % )            ;
-;     -- Dedicated logic registers            ; 943 / 33,216 ( 3 % )            ;
+; Total registers*                            ; 942 / 34,593 ( 3 % )            ;
+;     -- Dedicated logic registers            ; 942 / 33,216 ( 3 % )            ;
 ;     -- I/O registers                        ; 0 / 1,377 ( 0 % )               ;
 ;                                             ;                                 ;
-; Total LABs:  partially or completely used   ; 161 / 2,076 ( 8 % )             ;
+; Total LABs:  partially or completely used   ; 160 / 2,076 ( 8 % )             ;
 ; User inserted logic elements                ; 0                               ;
 ; Virtual pins                                ; 0                               ;
 ; I/O pins                                    ; 164 / 475 ( 35 % )              ;
@@ -448,10 +448,10 @@ The pin-out file can be found in /home/ECE/ziembaje/Desktop/final_project/final_
 ; Average interconnect usage (total/H/V)      ; 3% / 3% / 3%                    ;
 ; Peak interconnect usage (total/H/V)         ; 20% / 20% / 19%                 ;
 ; Maximum fan-out node                        ; CLOCK_50_I~clkctrl              ;
-; Maximum fan-out                             ; 948                             ;
+; Maximum fan-out                             ; 947                             ;
 ; Highest non-global fan-out signal           ; Milestone_1:M1_unit|M1_state[1] ;
 ; Highest non-global fan-out                  ; 290                             ;
-; Total fan-out                               ; 11104                           ;
+; Total fan-out                               ; 11086                           ;
 ; Average fan-out                             ; 3.37                            ;
 +---------------------------------------------+---------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -465,26 +465,26 @@ The pin-out file can be found in /home/ECE/ziembaje/Desktop/final_project/final_
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 2199 / 33216 ( 7 % ) ; 0 / 33216 ( 0 % )              ;
-;     -- Combinational with no register       ; 1256                 ; 0                              ;
-;     -- Register only                        ; 85                   ; 0                              ;
-;     -- Combinational with a register        ; 858                  ; 0                              ;
+; Total logic elements                        ; 2195 / 33216 ( 7 % ) ; 0 / 33216 ( 0 % )              ;
+;     -- Combinational with no register       ; 1253                 ; 0                              ;
+;     -- Register only                        ; 83                   ; 0                              ;
+;     -- Combinational with a register        ; 859                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 1108                 ; 0                              ;
-;     -- 3 input functions                    ; 606                  ; 0                              ;
-;     -- <=2 input functions                  ; 400                  ; 0                              ;
-;     -- Register only                        ; 85                   ; 0                              ;
+;     -- 4 input functions                    ; 1097                 ; 0                              ;
+;     -- 3 input functions                    ; 617                  ; 0                              ;
+;     -- <=2 input functions                  ; 398                  ; 0                              ;
+;     -- Register only                        ; 83                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 1442                 ; 0                              ;
+;     -- normal mode                          ; 1440                 ; 0                              ;
 ;     -- arithmetic mode                      ; 672                  ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 943                  ; 0                              ;
-;     -- Dedicated logic registers            ; 943 / 33216 ( 3 % )  ; 0 / 33216 ( 0 % )              ;
+; Total registers                             ; 942                  ; 0                              ;
+;     -- Dedicated logic registers            ; 942 / 33216 ( 3 % )  ; 0 / 33216 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 161 / 2076 ( 8 % )   ; 0 / 2076 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 160 / 2076 ( 8 % )   ; 0 / 2076 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
 ; I/O pins                                    ; 164                  ; 0                              ;
@@ -501,8 +501,8 @@ The pin-out file can be found in /home/ECE/ziembaje/Desktop/final_project/final_
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 11405                ; 6                              ;
-;     -- Registered Connections               ; 3656                 ; 0                              ;
+;     -- Total Connections                    ; 11387                ; 6                              ;
+;     -- Registered Connections               ; 3621                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 5                              ;
@@ -557,7 +557,7 @@ The pin-out file can be found in /home/ECE/ziembaje/Desktop/final_project/final_
 ; SWITCH_I[7]      ; C13   ; 3        ; 31           ; 36           ; 2           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SWITCH_I[8]      ; B13   ; 4        ; 31           ; 36           ; 0           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SWITCH_I[9]      ; A13   ; 4        ; 31           ; 36           ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; UART_RX_I        ; C25   ; 5        ; 65           ; 32           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; UART_RX_I        ; C25   ; 5        ; 65           ; 32           ; 2           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +------------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -1498,8 +1498,8 @@ Note: User assignments will override these defaults. The user specified values a
 +------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node               ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                               ; Library Name ;
 +------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------------------------------------------------+--------------+
-; |final_project                           ; 2199 (73)   ; 943 (33)                  ; 0 (0)         ; 0           ; 0    ; 12           ; 0       ; 6         ; 164  ; 0            ; 1256 (40)    ; 85 (0)            ; 858 (64)         ; |final_project                                                                                    ;              ;
-;    |Milestone_1:M1_unit|                 ; 1595 (1553) ; 600 (600)                 ; 0 (0)         ; 0           ; 0    ; 12           ; 0       ; 6         ; 0    ; 0            ; 987 (973)    ; 37 (37)           ; 571 (543)        ; |final_project|Milestone_1:M1_unit                                                                ;              ;
+; |final_project                           ; 2195 (85)   ; 942 (33)                  ; 0 (0)         ; 0           ; 0    ; 12           ; 0       ; 6         ; 164  ; 0            ; 1253 (38)    ; 83 (0)            ; 859 (64)         ; |final_project                                                                                    ;              ;
+;    |Milestone_1:M1_unit|                 ; 1593 (1551) ; 599 (599)                 ; 0 (0)         ; 0           ; 0    ; 12           ; 0       ; 6         ; 0    ; 0            ; 986 (972)    ; 35 (35)           ; 572 (544)        ; |final_project|Milestone_1:M1_unit                                                                ;              ;
 ;       |lpm_mult:Mult0|                   ; 14 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 4            ; 0       ; 2         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 14 (0)           ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0                                                 ;              ;
 ;          |mult_r8t:auto_generated|       ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 4            ; 0       ; 2         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 14 (14)          ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated                         ;              ;
 ;       |lpm_mult:Mult1|                   ; 14 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 4            ; 0       ; 2         ; 0    ; 0            ; 14 (0)       ; 0 (0)             ; 0 (0)            ; |final_project|Milestone_1:M1_unit|lpm_mult:Mult1                                                 ;              ;
@@ -1708,7 +1708,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_DATA_IO[1]                                                                               ;                   ;         ;
 ;      - SRAM_Controller:SRAM_unit|SRAM_read_data[1]                                            ; 1                 ; 6       ;
 ; SRAM_DATA_IO[2]                                                                               ;                   ;         ;
-;      - SRAM_Controller:SRAM_unit|SRAM_read_data[2]                                            ; 1                 ; 6       ;
+;      - SRAM_Controller:SRAM_unit|SRAM_read_data[2]                                            ; 0                 ; 6       ;
 ; SRAM_DATA_IO[3]                                                                               ;                   ;         ;
 ;      - SRAM_Controller:SRAM_unit|SRAM_read_data[3]                                            ; 0                 ; 6       ;
 ; SRAM_DATA_IO[4]                                                                               ;                   ;         ;
@@ -1724,17 +1724,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_DATA_IO[9]                                                                               ;                   ;         ;
 ;      - SRAM_Controller:SRAM_unit|SRAM_read_data[9]                                            ; 0                 ; 6       ;
 ; SRAM_DATA_IO[10]                                                                              ;                   ;         ;
-;      - SRAM_Controller:SRAM_unit|SRAM_read_data[10]                                           ; 1                 ; 6       ;
+;      - SRAM_Controller:SRAM_unit|SRAM_read_data[10]                                           ; 0                 ; 6       ;
 ; SRAM_DATA_IO[11]                                                                              ;                   ;         ;
 ;      - SRAM_Controller:SRAM_unit|SRAM_read_data[11]                                           ; 1                 ; 6       ;
 ; SRAM_DATA_IO[12]                                                                              ;                   ;         ;
-;      - SRAM_Controller:SRAM_unit|SRAM_read_data[12]                                           ; 1                 ; 6       ;
+;      - SRAM_Controller:SRAM_unit|SRAM_read_data[12]                                           ; 0                 ; 6       ;
 ; SRAM_DATA_IO[13]                                                                              ;                   ;         ;
 ;      - SRAM_Controller:SRAM_unit|SRAM_read_data[13]                                           ; 0                 ; 6       ;
 ; SRAM_DATA_IO[14]                                                                              ;                   ;         ;
-;      - SRAM_Controller:SRAM_unit|SRAM_read_data[14]                                           ; 1                 ; 6       ;
+;      - SRAM_Controller:SRAM_unit|SRAM_read_data[14]                                           ; 0                 ; 6       ;
 ; SRAM_DATA_IO[15]                                                                              ;                   ;         ;
-;      - SRAM_Controller:SRAM_unit|SRAM_read_data[15]                                           ; 0                 ; 6       ;
+;      - SRAM_Controller:SRAM_unit|SRAM_read_data[15]                                           ; 1                 ; 6       ;
 ; PUSH_BUTTON_I[1]                                                                              ;                   ;         ;
 ; PUSH_BUTTON_I[2]                                                                              ;                   ;         ;
 ; PUSH_BUTTON_I[3]                                                                              ;                   ;         ;
@@ -1813,11 +1813,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component|pll ; 1                 ; 6       ;
 ; CLOCK_50_I                                                                                    ;                   ;         ;
 ; UART_RX_I                                                                                     ;                   ;         ;
-;      - Selector3~0                                                                            ; 0                 ; 6       ;
-;      - UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data_in               ; 0                 ; 6       ;
+;      - Selector6~0                                                                            ; 1                 ; 6       ;
+;      - top_state.S_IDLE~0                                                                     ; 1                 ; 6       ;
+;      - UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data_in               ; 1                 ; 6       ;
 ; SWITCH_I[0]                                                                                   ;                   ;         ;
 ; PUSH_BUTTON_I[0]                                                                              ;                   ;         ;
-;      - PB_Controller:PB_unit|debounce_shift_reg[0][0]~0                                       ; 1                 ; 6       ;
+;      - PB_Controller:PB_unit|debounce_shift_reg[0][0]~0                                       ; 0                 ; 6       ;
 +-----------------------------------------------------------------------------------------------+-------------------+---------+
 
 
@@ -1826,88 +1827,88 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                                                     ; Location           ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50_I                                                                               ; PIN_N2             ; 948     ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; CLOCK_50_I                                                                               ; PIN_N2             ; 947     ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
 ; CLOCK_50_I                                                                               ; PIN_N2             ; 4       ; Clock         ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|Equal1~20                                                            ; LCCOMB_X31_Y18_N4  ; 69      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|SRAM_address[3]~41                                                   ; LCCOMB_X35_Y17_N10 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|SRAM_write_data[0]~23                                                ; LCCOMB_X25_Y6_N6   ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|Selector6~9                                                          ; LCCOMB_X28_Y15_N22 ; 15      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[0][5]~27                                                          ; LCCOMB_X30_Y17_N6  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[1][3]~29                                                          ; LCCOMB_X33_Y14_N20 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[2][0]~31                                                          ; LCCOMB_X33_Y14_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[3][6]~32                                                          ; LCCOMB_X34_Y14_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[4][7]~28                                                          ; LCCOMB_X40_Y18_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|UR[5][6]~30                                                          ; LCCOMB_X34_Y14_N4  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|U_data[14]~0                                                         ; LCCOMB_X34_Y14_N16 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|U_data_buff[12]~1                                                    ; LCCOMB_X34_Y14_N2  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|U_sram_address[11]~63                                                ; LCCOMB_X27_Y10_N30 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[0][5]~25                                                          ; LCCOMB_X30_Y17_N10 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[1][1]~27                                                          ; LCCOMB_X29_Y14_N30 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[2][4]~29                                                          ; LCCOMB_X29_Y14_N18 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[3][6]~30                                                          ; LCCOMB_X29_Y14_N20 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[4][2]~26                                                          ; LCCOMB_X29_Y16_N6  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|VR[5][7]~28                                                          ; LCCOMB_X29_Y14_N0  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|V_data[5]~1                                                          ; LCCOMB_X28_Y15_N12 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|V_data_buff[3]~1                                                     ; LCCOMB_X28_Y15_N26 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|V_sram_address[4]~31                                                 ; LCCOMB_X28_Y11_N4  ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr17~12                                                          ; LCCOMB_X34_Y11_N22 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr18                                                             ; LCCOMB_X29_Y12_N20 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr55~3                                                           ; LCCOMB_X35_Y13_N12 ; 65      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr73                                                             ; LCCOMB_X37_Y14_N26 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr76~4                                                           ; LCCOMB_X29_Y12_N8  ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr80~2                                                           ; LCCOMB_X32_Y13_N22 ; 16      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr81~8                                                           ; LCCOMB_X33_Y13_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr82~8                                                           ; LCCOMB_X35_Y15_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr83~7                                                           ; LCCOMB_X37_Y18_N30 ; 34      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr84~7                                                           ; LCCOMB_X41_Y16_N2  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr86~7                                                           ; LCCOMB_X30_Y15_N6  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|WideOr87~8                                                           ; LCCOMB_X30_Y15_N18 ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|a_IN2[6]~13                                                          ; LCCOMB_X27_Y18_N20 ; 14      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|c_IN2[0]~14                                                          ; LCCOMB_X40_Y18_N4  ; 7       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|c_IN2[10]~23                                                         ; LCCOMB_X40_Y17_N30 ; 11      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|pixel_row_count[14]~36                                               ; LCCOMB_X35_Y13_N20 ; 16      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; Milestone_1:M1_unit|pixel_row_count[14]~41                                               ; LCCOMB_X35_Y13_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; PB_Controller:PB_unit|LessThan0~3                                                        ; LCCOMB_X40_Y12_N18 ; 16      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; PB_Controller:PB_unit|always3~0                                                          ; LCCOMB_X25_Y13_N28 ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|Equal1~20                                                            ; LCCOMB_X31_Y15_N4  ; 67      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|SRAM_address[13]~41                                                  ; LCCOMB_X25_Y14_N18 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|SRAM_write_data[0]~23                                                ; LCCOMB_X28_Y9_N22  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|Selector6~4                                                          ; LCCOMB_X27_Y16_N22 ; 17      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[0][5]~27                                                          ; LCCOMB_X30_Y11_N12 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[1][3]~29                                                          ; LCCOMB_X32_Y15_N0  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[2][2]~31                                                          ; LCCOMB_X32_Y15_N12 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[3][0]~32                                                          ; LCCOMB_X32_Y15_N22 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[4][4]~28                                                          ; LCCOMB_X40_Y14_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|UR[5][5]~30                                                          ; LCCOMB_X32_Y15_N18 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|U_data[15]~0                                                         ; LCCOMB_X30_Y14_N28 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|U_data_buff[0]~1                                                     ; LCCOMB_X27_Y13_N6  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|U_sram_address[8]~63                                                 ; LCCOMB_X27_Y14_N6  ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[0][5]~25                                                          ; LCCOMB_X27_Y14_N18 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[1][2]~27                                                          ; LCCOMB_X29_Y13_N24 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[2][1]~29                                                          ; LCCOMB_X29_Y13_N4  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[3][6]~30                                                          ; LCCOMB_X29_Y13_N14 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[4][7]~26                                                          ; LCCOMB_X29_Y13_N6  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|VR[5][2]~28                                                          ; LCCOMB_X29_Y13_N10 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|V_data[2]~1                                                          ; LCCOMB_X29_Y16_N6  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|V_data_buff[2]~1                                                     ; LCCOMB_X27_Y14_N4  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|V_sram_address[0]~31                                                 ; LCCOMB_X24_Y11_N8  ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr17~12                                                          ; LCCOMB_X35_Y11_N30 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr18                                                             ; LCCOMB_X28_Y12_N10 ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr55~3                                                           ; LCCOMB_X30_Y14_N30 ; 65      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr73                                                             ; LCCOMB_X29_Y11_N2  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr76~4                                                           ; LCCOMB_X35_Y12_N0  ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr80~2                                                           ; LCCOMB_X30_Y10_N26 ; 16      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr81~8                                                           ; LCCOMB_X30_Y14_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr82~8                                                           ; LCCOMB_X37_Y12_N30 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr83~7                                                           ; LCCOMB_X34_Y16_N30 ; 34      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr84~7                                                           ; LCCOMB_X36_Y17_N2  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr86~7                                                           ; LCCOMB_X31_Y14_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|WideOr87~8                                                           ; LCCOMB_X31_Y14_N18 ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|a_IN2[4]~13                                                          ; LCCOMB_X29_Y12_N24 ; 14      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|c_IN2[27]~23                                                         ; LCCOMB_X38_Y13_N6  ; 11      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|c_IN2[5]~14                                                          ; LCCOMB_X40_Y14_N20 ; 7       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|pixel_row_count[12]~36                                               ; LCCOMB_X29_Y11_N30 ; 16      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; Milestone_1:M1_unit|pixel_row_count[12]~41                                               ; LCCOMB_X29_Y11_N0  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; PB_Controller:PB_unit|LessThan0~3                                                        ; LCCOMB_X40_Y9_N14  ; 16      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; PB_Controller:PB_unit|always3~0                                                          ; LCCOMB_X40_Y9_N16  ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
 ; SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component|_clk0 ; PLL_1              ; 1       ; Clock         ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; SRAM_Controller:SRAM_unit|SRAM_WE_N_O                                                    ; LCFF_X25_Y6_N9     ; 17      ; Output enable ; no     ; --                   ; --               ; --                        ;
-; SRAM_address~29                                                                          ; LCCOMB_X23_Y8_N14  ; 4       ; Sync. load    ; no     ; --                   ; --               ; --                        ;
+; SRAM_Controller:SRAM_unit|SRAM_WE_N_O                                                    ; LCFF_X28_Y9_N1     ; 17      ; Output enable ; no     ; --                   ; --               ; --                        ;
+; SRAM_address~1                                                                           ; LCCOMB_X29_Y9_N30  ; 27      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
 ; SWITCH_I[17]                                                                             ; PIN_V2             ; 56      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|SRAM_address[6]~2                                          ; LCCOMB_X23_Y7_N6   ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|SRAM_write_data[15]~9                                      ; LCCOMB_X22_Y7_N22  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|SRAM_write_data[6]~1                                       ; LCCOMB_X22_Y7_N20  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~7           ; LCCOMB_X22_Y5_N28  ; 4       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state.S_RXC_STOP_BIT~0 ; LCCOMB_X24_Y5_N18  ; 4       ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[7]~0               ; LCCOMB_X24_Y5_N6   ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8]~12          ; LCCOMB_X22_Y5_N4   ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8]~14          ; LCCOMB_X22_Y5_N24  ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[3]~0           ; LCCOMB_X22_Y5_N6   ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_SRAM_interface:UART_unit|new_line_count[0]~4                                        ; LCCOMB_X24_Y6_N18  ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; UART_rx_initialize                                                                       ; LCFF_X25_Y11_N23   ; 38      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|SRAM_address[1]~4                                            ; LCCOMB_X19_Y24_N6  ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|SRAM_address[4]~5                                            ; LCCOMB_X21_Y24_N8  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan0~2                          ; LCCOMB_X21_Y28_N6  ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan2~2                          ; LCCOMB_X18_Y28_N26 ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|counter_enable                       ; LCFF_X20_Y29_N7    ; 43      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_V_SYNC~3                        ; LCCOMB_X20_Y32_N0  ; 11      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_blue[9]~4                                                ; LCCOMB_X20_Y25_N6  ; 24      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_sram_data[0][8]~3                                        ; LCCOMB_X21_Y24_N22 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_sram_data[1][0]~4                                        ; LCCOMB_X21_Y24_N2  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; VGA_SRAM_interface:VGA_unit|VGA_sram_data[2][8]~2                                        ; LCCOMB_X21_Y24_N28 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; always0~9                                                                                ; LCCOMB_X25_Y6_N4   ; 26      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; resetn                                                                                   ; LCCOMB_X25_Y6_N22  ; 880     ; Async. clear  ; yes    ; Global Clock         ; GCLK13           ; --                        ;
+; UART_SRAM_interface:UART_unit|SRAM_address[0]~2                                          ; LCCOMB_X25_Y9_N2   ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|SRAM_write_data[12]~9                                      ; LCCOMB_X21_Y9_N30  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|SRAM_write_data[3]~1                                       ; LCCOMB_X21_Y9_N20  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~7           ; LCCOMB_X21_Y8_N12  ; 4       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state.S_RXC_STOP_BIT~0 ; LCCOMB_X22_Y9_N10  ; 4       ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[7]~0               ; LCCOMB_X22_Y9_N30  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4]~12          ; LCCOMB_X21_Y8_N4   ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4]~14          ; LCCOMB_X21_Y8_N16  ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[7]~0           ; LCCOMB_X21_Y8_N22  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_SRAM_interface:UART_unit|new_line_count[0]~4                                        ; LCCOMB_X23_Y9_N18  ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; UART_rx_initialize                                                                       ; LCFF_X29_Y9_N9     ; 38      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[1]~4                                            ; LCCOMB_X22_Y20_N10 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[4]~5                                            ; LCCOMB_X22_Y20_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan0~2                          ; LCCOMB_X17_Y21_N6  ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan2~2                          ; LCCOMB_X20_Y20_N14 ; 10      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|counter_enable                       ; LCFF_X19_Y20_N3    ; 43      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_V_SYNC~3                        ; LCCOMB_X19_Y20_N4  ; 11      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_red[9]~4                                                 ; LCCOMB_X19_Y23_N6  ; 24      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_sram_data[0][8]~3                                        ; LCCOMB_X18_Y22_N20 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_sram_data[1][0]~4                                        ; LCCOMB_X18_Y22_N14 ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; VGA_SRAM_interface:VGA_unit|VGA_sram_data[2][8]~2                                        ; LCCOMB_X19_Y22_N6  ; 16      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; always0~7                                                                                ; LCCOMB_X28_Y9_N20  ; 26      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; resetn                                                                                   ; LCCOMB_X28_Y9_N6   ; 879     ; Async. clear  ; yes    ; Global Clock         ; GCLK13           ; --                        ;
 +------------------------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                                                                                                  ;
-+------------------------------------------------------------------------------------------+-------------------+---------+----------------------+------------------+---------------------------+
-; Name                                                                                     ; Location          ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------------------------------------------------------------------------------+-------------------+---------+----------------------+------------------+---------------------------+
-; CLOCK_50_I                                                                               ; PIN_N2            ; 948     ; Global Clock         ; GCLK2            ; --                        ;
-; SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component|_clk0 ; PLL_1             ; 1       ; Global Clock         ; GCLK3            ; --                        ;
-; resetn                                                                                   ; LCCOMB_X25_Y6_N22 ; 880     ; Global Clock         ; GCLK13           ; --                        ;
-+------------------------------------------------------------------------------------------+-------------------+---------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                                                                 ;
++------------------------------------------------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
+; Name                                                                                     ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------------------------------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
+; CLOCK_50_I                                                                               ; PIN_N2           ; 947     ; Global Clock         ; GCLK2            ; --                        ;
+; SRAM_Controller:SRAM_unit|Clock_100_PLL:Clock_100_PLL_inst|altpll:altpll_component|_clk0 ; PLL_1            ; 1       ; Global Clock         ; GCLK3            ; --                        ;
+; resetn                                                                                   ; LCCOMB_X28_Y9_N6 ; 879     ; Global Clock         ; GCLK13           ; --                        ;
++------------------------------------------------------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -1917,54 +1918,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------------------------+---------+
 ; Milestone_1:M1_unit|M1_state[1]                                                               ; 290     ;
 ; Milestone_1:M1_unit|M1_state[2]                                                               ; 242     ;
-; Milestone_1:M1_unit|M1_state[0]                                                               ; 180     ;
+; Milestone_1:M1_unit|M1_state[0]                                                               ; 181     ;
+; Milestone_1:M1_unit|M1_state[3]                                                               ; 155     ;
 ; Milestone_1:M1_unit|M1_state[5]                                                               ; 155     ;
-; Milestone_1:M1_unit|M1_state[3]                                                               ; 153     ;
-; Milestone_1:M1_unit|M1_state[4]                                                               ; 131     ;
-; Milestone_1:M1_unit|Equal1~13                                                                 ; 99      ;
-; Milestone_1:M1_unit|Equal1~20                                                                 ; 69      ;
+; Milestone_1:M1_unit|M1_state[4]                                                               ; 132     ;
+; Milestone_1:M1_unit|Equal1~13                                                                 ; 98      ;
+; Milestone_1:M1_unit|Equal1~20                                                                 ; 67      ;
 ; Milestone_1:M1_unit|WideOr55~3                                                                ; 65      ;
 ; SWITCH_I[17]                                                                                  ; 56      ;
-; top_state~10                                                                                  ; 55      ;
-; top_state~9                                                                                   ; 55      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|counter_enable                            ; 43      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~14                                                 ; 39      ;
 ; UART_rx_initialize                                                                            ; 38      ;
+; top_state~10                                                                                  ; 36      ;
 ; Milestone_1:M1_unit|WideOr83~7                                                                ; 34      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~17                                                 ; 33      ;
 ; Milestone_1:M1_unit|WideOr87~8                                                                ; 32      ;
 ; Milestone_1:M1_unit|WideOr76~4                                                                ; 32      ;
-; Milestone_1:M1_unit|SRAM_address[3]~33                                                        ; 28      ;
+; top_state~11                                                                                  ; 32      ;
+; Milestone_1:M1_unit|SRAM_address[13]~33                                                       ; 28      ;
 ; VGA_SRAM_interface:VGA_unit|always0~11                                                        ; 27      ;
-; Milestone_1:M1_unit|SRAM_address[3]~35                                                        ; 27      ;
-; always0~9                                                                                     ; 26      ;
+; Milestone_1:M1_unit|SRAM_address[13]~35                                                       ; 27      ;
+; SRAM_address~1                                                                                ; 27      ;
+; always0~7                                                                                     ; 26      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_R~1                                  ; 25      ;
-; VGA_SRAM_interface:VGA_unit|VGA_blue[9]~4                                                     ; 24      ;
-; VGA_SRAM_interface:VGA_unit|VGA_red~1                                                         ; 24      ;
+; VGA_SRAM_interface:VGA_unit|VGA_red[9]~4                                                      ; 24      ;
+; VGA_SRAM_interface:VGA_unit|VGA_red~2                                                         ; 24      ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state~9                     ; 24      ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state~8                     ; 24      ;
-; Milestone_1:M1_unit|c_IN2[10]~16                                                              ; 23      ;
-; Milestone_1:M1_unit|c_IN2[10]~19                                                              ; 22      ;
+; Milestone_1:M1_unit|c_IN2[27]~16                                                              ; 23      ;
+; Milestone_1:M1_unit|c_IN2[27]~19                                                              ; 22      ;
 ; Milestone_1:M1_unit|Selector352~2                                                             ; 22      ;
 ; Milestone_1:M1_unit|UR~22                                                                     ; 22      ;
-; Milestone_1:M1_unit|a_IN2[6]~11                                                               ; 21      ;
-; Milestone_1:M1_unit|a_IN2[6]~7                                                                ; 21      ;
+; Milestone_1:M1_unit|a_IN2[4]~11                                                               ; 21      ;
+; Milestone_1:M1_unit|a_IN2[4]~7                                                                ; 21      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state.S_VS_WAIT_NEW_PIXEL_ROW~0                          ; 21      ;
 ; UART_SRAM_interface:UART_unit|LessThan1~5                                                     ; 20      ;
 ; UART_SRAM_interface:UART_unit|UART_SRAM_state.S_US_WRITE_SECOND_BYTE~0                        ; 20      ;
-; Milestone_1:M1_unit|WideNor0~1                                                                ; 20      ;
 ; Milestone_1:M1_unit|Selector245~0                                                             ; 19      ;
+; Milestone_1:M1_unit|WideNor0~1                                                                ; 19      ;
 ; Milestone_1:M1_unit|data_req_flag                                                             ; 19      ;
-; Milestone_1:M1_unit|SRAM_address[3]~41                                                        ; 18      ;
+; Milestone_1:M1_unit|SRAM_address[13]~41                                                       ; 18      ;
 ; Milestone_1:M1_unit|WideOr17~12                                                               ; 18      ;
-; Milestone_1:M1_unit|U_sram_address[11]~63                                                     ; 18      ;
+; Milestone_1:M1_unit|U_sram_address[8]~63                                                      ; 18      ;
 ; Milestone_1:M1_unit|WideOr18                                                                  ; 18      ;
 ; Milestone_1:M1_unit|b_IN2[10]~_Duplicate_14                                                   ; 18      ;
 ; Milestone_1:M1_unit|WideOr79~1                                                                ; 18      ;
-; Milestone_1:M1_unit|V_sram_address[4]~31                                                      ; 18      ;
-; UART_SRAM_interface:UART_unit|SRAM_address[6]~2                                               ; 18      ;
+; Milestone_1:M1_unit|V_sram_address[0]~31                                                      ; 18      ;
+; UART_SRAM_interface:UART_unit|SRAM_address[0]~2                                               ; 18      ;
 ; Milestone_1:M1_unit|UV_byte_flag                                                              ; 17      ;
 ; Milestone_1:M1_unit|WideOr79~0                                                                ; 17      ;
+; Milestone_1:M1_unit|Selector6~4                                                               ; 17      ;
 ; VGA_SRAM_interface:VGA_unit|Equal1~1                                                          ; 17      ;
 ; SRAM_Controller:SRAM_unit|SRAM_WE_N_O                                                         ; 17      ;
 ; Milestone_1:M1_unit|WideOr23~9                                                                ; 16      ;
@@ -1975,23 +1978,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_SRAM_interface:VGA_unit|VGA_sram_data[1][0]~4                                             ; 16      ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[4]~5                                                 ; 16      ;
 ; Milestone_1:M1_unit|WideOr24~3                                                                ; 16      ;
-; Milestone_1:M1_unit|U_data_buff[12]~1                                                         ; 16      ;
-; Milestone_1:M1_unit|V_data[5]~1                                                               ; 16      ;
-; Milestone_1:M1_unit|U_data[14]~0                                                              ; 16      ;
-; Milestone_1:M1_unit|V_data_buff[3]~1                                                          ; 16      ;
+; Milestone_1:M1_unit|U_data_buff[0]~1                                                          ; 16      ;
+; Milestone_1:M1_unit|V_data[2]~1                                                               ; 16      ;
+; Milestone_1:M1_unit|U_data[15]~0                                                              ; 16      ;
+; Milestone_1:M1_unit|V_data_buff[2]~1                                                          ; 16      ;
 ; Milestone_1:M1_unit|a_IN2[10]~_Duplicate_14                                                   ; 16      ;
 ; PB_Controller:PB_unit|LessThan0~3                                                             ; 16      ;
 ; Milestone_1:M1_unit|SRAM_write_data[0]~23                                                     ; 16      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_sram_data[0][8]~3                                             ; 16      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_sram_data[2][8]~2                                             ; 16      ;
-; Milestone_1:M1_unit|pixel_row_count[14]~41                                                    ; 16      ;
-; Milestone_1:M1_unit|pixel_row_count[14]~36                                                    ; 16      ;
-; Milestone_1:M1_unit|Equal1~5                                                                  ; 16      ;
+; Milestone_1:M1_unit|pixel_row_count[12]~41                                                    ; 16      ;
+; Milestone_1:M1_unit|pixel_row_count[12]~36                                                    ; 16      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[15]                                                  ; 16      ;
-; Milestone_1:M1_unit|Selector6~9                                                               ; 15      ;
 ; Milestone_1:M1_unit|Selector276~68                                                            ; 15      ;
 ; Milestone_1:M1_unit|Selector320~10                                                            ; 15      ;
 ; Milestone_1:M1_unit|Equal1~8                                                                  ; 15      ;
+; Milestone_1:M1_unit|Equal1~5                                                                  ; 15      ;
 ; VGA_enable                                                                                    ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[14]                                                  ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[13]                                                  ; 15      ;
@@ -2000,22 +2002,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[10]                                                  ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[9]                                                   ; 15      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[8]                                                   ; 15      ;
-; Milestone_1:M1_unit|c_IN2[0]~7                                                                ; 14      ;
-; Milestone_1:M1_unit|a_IN2[6]~23                                                               ; 14      ;
-; Milestone_1:M1_unit|a_IN2[6]~13                                                               ; 14      ;
-; Milestone_1:M1_unit|b_IN2[5]~16                                                               ; 14      ;
-; Milestone_1:M1_unit|b_IN2[5]~5                                                                ; 14      ;
+; Milestone_1:M1_unit|c_IN2[5]~7                                                                ; 14      ;
+; Milestone_1:M1_unit|a_IN2[4]~23                                                               ; 14      ;
+; Milestone_1:M1_unit|a_IN2[4]~13                                                               ; 14      ;
+; Milestone_1:M1_unit|b_IN2[1]~16                                                               ; 14      ;
+; Milestone_1:M1_unit|b_IN2[1]~5                                                                ; 14      ;
 ; Milestone_1:M1_unit|V_prime[7]                                                                ; 14      ;
 ; Milestone_1:M1_unit|Selector244~0                                                             ; 13      ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Empty                           ; 13      ;
 ; Milestone_1:M1_unit|Equal1~17                                                                 ; 13      ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Empty                           ; 13      ;
 ; ~GND                                                                                          ; 12      ;
 ; Milestone_1:M1_unit|VR[0][5]~32                                                               ; 12      ;
 ; Milestone_1:M1_unit|UR[0][5]~33                                                               ; 12      ;
 ; Milestone_1:M1_unit|UR[0][5]~25                                                               ; 12      ;
 ; Milestone_1:M1_unit|VR[0][5]~20                                                               ; 12      ;
 ; Milestone_1:M1_unit|U_prime[7]                                                                ; 12      ;
-; Milestone_1:M1_unit|b_IN2[5]~0                                                                ; 12      ;
+; Milestone_1:M1_unit|b_IN2[1]~0                                                                ; 12      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~15                                                 ; 12      ;
 ; Milestone_1:M1_unit|Equal1~10                                                                 ; 12      ;
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[7]                                                   ; 12      ;
@@ -2028,24 +2030,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_Controller:SRAM_unit|SRAM_read_data[0]                                                   ; 12      ;
 ; UART_SRAM_interface:UART_unit|UART_SRAM_state~13                                              ; 12      ;
 ; UART_SRAM_interface:UART_unit|UART_SRAM_state~12                                              ; 12      ;
-; Milestone_1:M1_unit|c_IN2[10]~23                                                              ; 11      ;
-; Milestone_1:M1_unit|c_IN2[0]~5                                                                ; 11      ;
-; Milestone_1:M1_unit|c_IN2[0]~4                                                                ; 11      ;
-; Milestone_1:M1_unit|c_IN2[0]~3                                                                ; 11      ;
-; Milestone_1:M1_unit|a_IN2[6]~27                                                               ; 11      ;
-; Milestone_1:M1_unit|b_IN2[5]~10                                                               ; 11      ;
-; Milestone_1:M1_unit|b_IN2[5]~2                                                                ; 11      ;
+; Milestone_1:M1_unit|c_IN2[27]~23                                                              ; 11      ;
+; Milestone_1:M1_unit|c_IN2[5]~5                                                                ; 11      ;
+; Milestone_1:M1_unit|c_IN2[5]~4                                                                ; 11      ;
+; Milestone_1:M1_unit|c_IN2[5]~3                                                                ; 11      ;
+; Milestone_1:M1_unit|a_IN2[4]~27                                                               ; 11      ;
+; Milestone_1:M1_unit|b_IN2[1]~10                                                               ; 11      ;
+; Milestone_1:M1_unit|b_IN2[1]~2                                                                ; 11      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_V_SYNC~3                             ; 11      ;
 ; UART_SRAM_interface:UART_unit|UART_SRAM_state~11                                              ; 11      ;
-; Milestone_1:M1_unit|c_IN2[0]~6                                                                ; 10      ;
-; Milestone_1:M1_unit|b_IN2[5]~15                                                               ; 10      ;
-; Milestone_1:M1_unit|b_IN2[5]~3                                                                ; 10      ;
+; Milestone_1:M1_unit|c_IN2[5]~6                                                                ; 10      ;
+; Milestone_1:M1_unit|b_IN2[1]~15                                                               ; 10      ;
+; Milestone_1:M1_unit|b_IN2[1]~3                                                                ; 10      ;
 ; PB_Controller:PB_unit|always3~0                                                               ; 10      ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8]~14               ; 10      ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[8]~12               ; 10      ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4]~14               ; 10      ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4]~12               ; 10      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan0~2                               ; 10      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan2~2                               ; 10      ;
 ; Milestone_1:M1_unit|Equal1~12                                                                 ; 10      ;
+; top_state.S_M1~0                                                                              ; 10      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|H_Cont[7]                                 ; 10      ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|H_Cont[4]                                 ; 10      ;
 ; Milestone_1:M1_unit|VR~18                                                                     ; 9       ;
@@ -2068,53 +2071,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|WideOr82~8                                                                ; 8       ;
 ; Milestone_1:M1_unit|WideOr84~7                                                                ; 8       ;
 ; Milestone_1:M1_unit|VR[3][6]~30                                                               ; 8       ;
-; Milestone_1:M1_unit|UR[3][6]~32                                                               ; 8       ;
-; Milestone_1:M1_unit|UR[2][0]~31                                                               ; 8       ;
-; Milestone_1:M1_unit|VR[2][4]~29                                                               ; 8       ;
-; Milestone_1:M1_unit|UR[5][6]~30                                                               ; 8       ;
-; Milestone_1:M1_unit|VR[5][7]~28                                                               ; 8       ;
+; Milestone_1:M1_unit|UR[3][0]~32                                                               ; 8       ;
+; Milestone_1:M1_unit|UR[2][2]~31                                                               ; 8       ;
+; Milestone_1:M1_unit|VR[2][1]~29                                                               ; 8       ;
+; Milestone_1:M1_unit|UR[5][5]~30                                                               ; 8       ;
+; Milestone_1:M1_unit|VR[5][2]~28                                                               ; 8       ;
 ; Milestone_1:M1_unit|UR[1][3]~29                                                               ; 8       ;
-; Milestone_1:M1_unit|VR[1][1]~27                                                               ; 8       ;
-; Milestone_1:M1_unit|VR[4][2]~26                                                               ; 8       ;
-; Milestone_1:M1_unit|UR[4][7]~28                                                               ; 8       ;
-; SRAM_address[15]~54                                                                           ; 8       ;
-; SRAM_address[14]~53                                                                           ; 8       ;
-; SRAM_address[13]~52                                                                           ; 8       ;
-; SRAM_address[12]~51                                                                           ; 8       ;
-; SRAM_address[11]~50                                                                           ; 8       ;
-; SRAM_address[10]~49                                                                           ; 8       ;
-; SRAM_address[9]~48                                                                            ; 8       ;
-; SRAM_address[8]~47                                                                            ; 8       ;
-; SRAM_address[7]~46                                                                            ; 8       ;
-; SRAM_address[6]~45                                                                            ; 8       ;
-; SRAM_address[5]~44                                                                            ; 8       ;
-; SRAM_address[4]~43                                                                            ; 8       ;
+; Milestone_1:M1_unit|VR[1][2]~27                                                               ; 8       ;
+; Milestone_1:M1_unit|VR[4][7]~26                                                               ; 8       ;
+; Milestone_1:M1_unit|UR[4][4]~28                                                               ; 8       ;
 ; Milestone_1:M1_unit|UR[0][5]~27                                                               ; 8       ;
 ; Milestone_1:M1_unit|VR[0][5]~25                                                               ; 8       ;
 ; Milestone_1:M1_unit|UR~24                                                                     ; 8       ;
 ; Milestone_1:M1_unit|WideOr51~3                                                                ; 8       ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[3]~0                ; 8       ;
-; UART_SRAM_interface:UART_unit|SRAM_write_data[15]~9                                           ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[11]~30                                                    ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[11]~29                                                    ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[11]~28                                                    ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[11]~27                                                    ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[11]~26                                                    ; 8       ;
-; UART_SRAM_interface:UART_unit|SRAM_write_data[6]~1                                            ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[7]~22                                                     ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[7]~21                                                     ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[7]~20                                                     ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[7]~19                                                     ; 8       ;
-; Milestone_1:M1_unit|SRAM_write_data[7]~18                                                     ; 8       ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[7]~0                ; 8       ;
+; UART_SRAM_interface:UART_unit|SRAM_write_data[12]~9                                           ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[14]~30                                                    ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[14]~29                                                    ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[14]~28                                                    ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[14]~27                                                    ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[14]~26                                                    ; 8       ;
+; UART_SRAM_interface:UART_unit|SRAM_write_data[3]~1                                            ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[6]~22                                                     ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[6]~21                                                     ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[6]~20                                                     ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[6]~19                                                     ; 8       ;
+; Milestone_1:M1_unit|SRAM_write_data[6]~18                                                     ; 8       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[7]~0                    ; 8       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data_in                      ; 8       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~16                                                 ; 8       ;
+; SRAM_address[15]~24                                                                           ; 8       ;
+; SRAM_address[14]~22                                                                           ; 8       ;
+; SRAM_address[13]~20                                                                           ; 8       ;
+; SRAM_address[12]~18                                                                           ; 8       ;
+; SRAM_address[11]~16                                                                           ; 8       ;
+; SRAM_address[10]~14                                                                           ; 8       ;
+; SRAM_address[9]~12                                                                            ; 8       ;
+; SRAM_address[8]~10                                                                            ; 8       ;
+; SRAM_address[7]~8                                                                             ; 8       ;
+; SRAM_address[6]~6                                                                             ; 8       ;
+; SRAM_address[5]~4                                                                             ; 8       ;
+; SRAM_address[4]~2                                                                             ; 8       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|H_Cont[6]                                 ; 8       ;
-; Milestone_1:M1_unit|c_IN2[0]~14                                                               ; 7       ;
-; Milestone_1:M1_unit|c_IN2[0]~8                                                                ; 7       ;
+; Milestone_1:M1_unit|c_IN2[5]~14                                                               ; 7       ;
+; Milestone_1:M1_unit|c_IN2[5]~8                                                                ; 7       ;
 ; Milestone_1:M1_unit|WideOr39~0                                                                ; 7       ;
-; Milestone_1:M1_unit|a_IN2[6]~26                                                               ; 7       ;
+; Milestone_1:M1_unit|a_IN2[4]~26                                                               ; 7       ;
 ; Milestone_1:M1_unit|U_data[15]                                                                ; 7       ;
+; Milestone_1:M1_unit|WideNor0~0                                                                ; 7       ;
 ; Milestone_1:M1_unit|Y_data[4]                                                                 ; 6       ;
 ; Milestone_1:M1_unit|Y_data[12]                                                                ; 6       ;
 ; Milestone_1:M1_unit|VR[4][7]                                                                  ; 6       ;
@@ -2124,11 +2128,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|V_data_buff[7]                                                            ; 6       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_R~2                                  ; 6       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Equal2~2                        ; 6       ;
-; top_state~11                                                                                  ; 6       ;
 ; Milestone_1:M1_unit|Equal1~19                                                                 ; 6       ;
 ; Milestone_1:M1_unit|Equal1~14                                                                 ; 6       ;
-; Milestone_1:M1_unit|WideNor0~0                                                                ; 6       ;
 ; Milestone_1:M1_unit|Equal1~4                                                                  ; 6       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[16]                                                ; 6       ;
+; top_state~12                                                                                  ; 6       ;
 ; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|w247w[15]                          ; 6       ;
 ; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|w247w[14]                          ; 6       ;
 ; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|w247w[13]                          ; 6       ;
@@ -2148,13 +2152,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|H_Cont[1]                                 ; 6       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|H_Cont[9]                                 ; 6       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|V_Cont[9]                                 ; 6       ;
-; SRAM_address[17]~56                                                                           ; 5       ;
-; SRAM_address[16]~55                                                                           ; 5       ;
 ; Milestone_1:M1_unit|WideOr69~3                                                                ; 5       ;
-; Milestone_1:M1_unit|VR[4][2]~19                                                               ; 5       ;
+; Milestone_1:M1_unit|VR[4][7]~19                                                               ; 5       ;
 ; Milestone_1:M1_unit|WideOr32~1                                                                ; 5       ;
 ; Milestone_1:M1_unit|WideOr32~0                                                                ; 5       ;
-; Milestone_1:M1_unit|UR[4][7]~23                                                               ; 5       ;
+; Milestone_1:M1_unit|UR[4][4]~23                                                               ; 5       ;
 ; Milestone_1:M1_unit|WideOr39~1                                                                ; 5       ;
 ; Milestone_1:M1_unit|VR[5][7]                                                                  ; 5       ;
 ; Milestone_1:M1_unit|Add3~1                                                                    ; 5       ;
@@ -2165,6 +2167,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|Selector296~0                                                             ; 5       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|always0~1                       ; 5       ;
 ; Milestone_1:M1_unit|Equal1~11                                                                 ; 5       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[17]                                                ; 5       ;
 ; Milestone_1:M1_unit|VR[3][7]                                                                  ; 5       ;
 ; Milestone_1:M1_unit|VR[0][7]                                                                  ; 5       ;
 ; Milestone_1:M1_unit|UR[0][7]                                                                  ; 5       ;
@@ -2265,8 +2268,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|V_data[1]                                                                 ; 4       ;
 ; Milestone_1:M1_unit|U_data[9]                                                                 ; 4       ;
 ; Milestone_1:M1_unit|V_data[8]                                                                 ; 4       ;
-; Milestone_1:M1_unit|a_IN2[6]~10                                                               ; 4       ;
-; Milestone_1:M1_unit|a_IN2[6]~9                                                                ; 4       ;
+; Milestone_1:M1_unit|a_IN2[4]~10                                                               ; 4       ;
+; Milestone_1:M1_unit|a_IN2[4]~9                                                                ; 4       ;
 ; Milestone_1:M1_unit|U_data[0]                                                                 ; 4       ;
 ; Milestone_1:M1_unit|U_data_buff[0]                                                            ; 4       ;
 ; Milestone_1:M1_unit|V_data_buff[0]                                                            ; 4       ;
@@ -2276,27 +2279,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|Selector279~0                                                             ; 4       ;
 ; Milestone_1:M1_unit|WideOr73~9                                                                ; 4       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state.S_RXC_ASSEMBLE_DATA~0 ; 4       ;
-; UART_SRAM_interface:UART_unit|new_line_count[0]                                               ; 4       ;
 ; Milestone_1:M1_unit|WideOr25~0                                                                ; 4       ;
-; Milestone_1:M1_unit|Equal0~4                                                                  ; 4       ;
-; Milestone_1:M1_unit|WideOr12~0                                                                ; 4       ;
-; top_state.S_M1~0                                                                              ; 4       ;
+; Milestone_1:M1_unit|WideOr12~4                                                                ; 4       ;
+; UART_SRAM_interface:UART_unit|new_line_count[0]                                               ; 4       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~7                ; 4       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~6                ; 4       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RXC_state.S_RXC_STOP_BIT~0      ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[6]~1                                               ; 4       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add0~1                                    ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[2]                                                 ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[3]                                                 ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[0]                                                 ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[1]                                                 ; 4       ;
 ; Milestone_1:M1_unit|Equal1~18                                                                 ; 4       ;
 ; Milestone_1:M1_unit|Equal1~16                                                                 ; 4       ;
 ; Milestone_1:M1_unit|Equal1~15                                                                 ; 4       ;
 ; Milestone_1:M1_unit|Equal1~9                                                                  ; 4       ;
 ; Milestone_1:M1_unit|Equal1~7                                                                  ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[17]                                                ; 4       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[16]                                                ; 4       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[0]~1                                               ; 4       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[0]                                                 ; 4       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[1]                                                 ; 4       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[2]                                                 ; 4       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[3]                                                 ; 4       ;
+; SRAM_address[17]~28                                                                           ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[15]                                                ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[14]                                                ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[13]                                                ; 4       ;
@@ -2308,7 +2308,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; UART_SRAM_interface:UART_unit|SRAM_address[7]                                                 ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[6]                                                 ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[5]                                                 ; 4       ;
-; SRAM_address~29                                                                               ; 4       ;
 ; UART_SRAM_interface:UART_unit|SRAM_address[4]                                                 ; 4       ;
 ; Milestone_1:M1_unit|UR[0][6]                                                                  ; 4       ;
 ; Milestone_1:M1_unit|VR[0][6]                                                                  ; 4       ;
@@ -2352,10 +2351,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|V_Cont[8]                                 ; 4       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|V_Cont[1]                                 ; 4       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|V_Cont[2]                                 ; 4       ;
+; UART_RX_I                                                                                     ; 3       ;
 ; CLOCK_50_I                                                                                    ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|Equal0~23                                                         ; 3       ;
 ; Milestone_1:M1_unit|Selector339~9                                                             ; 3       ;
-; Milestone_1:M1_unit|a_IN2[6]~28                                                               ; 3       ;
+; Milestone_1:M1_unit|a_IN2[4]~28                                                               ; 3       ;
 ; Milestone_1:M1_unit|Equal1~23                                                                 ; 3       ;
 ; Milestone_1:M1_unit|Selector337~2                                                             ; 3       ;
 ; Milestone_1:M1_unit|Selector338~0                                                             ; 3       ;
@@ -2383,8 +2383,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|WideOr87~7                                                                ; 3       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[0]~3                 ; 3       ;
 ; PB_Controller:PB_unit|clock_1kHz                                                              ; 3       ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0~3                     ; 3       ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0~0                     ; 3       ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector3~3                     ; 3       ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector3~0                     ; 3       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Add1~0                          ; 3       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[0]                   ; 3       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[2]                   ; 3       ;
@@ -2395,18 +2395,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|pixel_col_count[0]                                                        ; 3       ;
 ; Milestone_1:M1_unit|WideOr17~9                                                                ; 3       ;
 ; Milestone_1:M1_unit|WideOr18~8                                                                ; 3       ;
+; top_state.S_IDLE~0                                                                            ; 3       ;
+; always0~6                                                                                     ; 3       ;
+; Selector0~0                                                                                   ; 3       ;
+; PB_Controller:PB_unit|push_button_status[0]                                                   ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add0~2                                    ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add0~0                                    ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[2]                                                   ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[3]                                                   ; 3       ;
-; Selector3~3                                                                                   ; 3       ;
-; always0~8                                                                                     ; 3       ;
-; Selector3~0                                                                                   ; 3       ;
 ; Milestone_1:M1_unit|Selector335~1                                                             ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_V_SYNC                               ; 3       ;
 ; UART_SRAM_interface:UART_unit|SRAM_we_n                                                       ; 3       ;
-; lead_in_begin                                                                                 ; 3       ;
+; lead_in_begin_M1                                                                              ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[17]                                                  ; 3       ;
+; SRAM_address[16]~26                                                                           ; 3       ;
+; SRAM_address[16]~25                                                                           ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[16]                                                  ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[15]                                                  ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[14]                                                  ; 3       ;
@@ -2461,9 +2464,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add1~14                                   ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add1~10                                   ; 3       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|Add1~4                                    ; 3       ;
-; UART_RX_I                                                                                     ; 2       ;
-; Milestone_1:M1_unit|SRAM_address[3]~29                                                        ; 2       ;
-; Milestone_1:M1_unit|SRAM_address[3]~24                                                        ; 2       ;
+; Milestone_1:M1_unit|SRAM_address[13]~29                                                       ; 2       ;
+; Milestone_1:M1_unit|SRAM_address[13]~24                                                       ; 2       ;
 ; Milestone_1:M1_unit|WideOr87~4                                                                ; 2       ;
 ; Milestone_1:M1_unit|Selector113~2                                                             ; 2       ;
 ; Milestone_1:M1_unit|Selector121~2                                                             ; 2       ;
@@ -2485,19 +2487,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|WideOr51~4                                                                ; 2       ;
 ; Milestone_1:M1_unit|Selector249~6                                                             ; 2       ;
 ; Milestone_1:M1_unit|Selector4~8                                                               ; 2       ;
+; convert_hex_to_seven_segment:unit3|Decoder0~12                                                ; 2       ;
 ; Milestone_1:M1_unit|VR[0][5]~21                                                               ; 2       ;
 ; Milestone_1:M1_unit|Selector363~11                                                            ; 2       ;
 ; Milestone_1:M1_unit|Selector339~6                                                             ; 2       ;
 ; Milestone_1:M1_unit|Selector363~10                                                            ; 2       ;
-; Milestone_1:M1_unit|c_IN2[0]~10                                                               ; 2       ;
-; Milestone_1:M1_unit|c_IN2[0]~1                                                                ; 2       ;
+; Milestone_1:M1_unit|c_IN2[5]~10                                                               ; 2       ;
+; Milestone_1:M1_unit|c_IN2[5]~1                                                                ; 2       ;
 ; Milestone_1:M1_unit|c_IN1[4]~0                                                                ; 2       ;
 ; Milestone_1:M1_unit|Selector335~4                                                             ; 2       ;
 ; Milestone_1:M1_unit|WideOr45~0                                                                ; 2       ;
-; Milestone_1:M1_unit|U_data_buff[12]~0                                                         ; 2       ;
-; Milestone_1:M1_unit|V_data[5]~0                                                               ; 2       ;
+; Milestone_1:M1_unit|U_data_buff[0]~0                                                          ; 2       ;
+; Milestone_1:M1_unit|V_data[2]~0                                                               ; 2       ;
 ; Milestone_1:M1_unit|Selector403~0                                                             ; 2       ;
-; Milestone_1:M1_unit|V_data_buff[3]~0                                                          ; 2       ;
+; Milestone_1:M1_unit|V_data_buff[2]~0                                                          ; 2       ;
 ; Milestone_1:M1_unit|WideOr23~7                                                                ; 2       ;
 ; Milestone_1:M1_unit|c_IN1[4]~_Duplicate_1                                                     ; 2       ;
 ; Milestone_1:M1_unit|c_IN1[3]~_Duplicate_1                                                     ; 2       ;
@@ -2512,8 +2515,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|Y_data[2]                                                                 ; 2       ;
 ; Milestone_1:M1_unit|Y_data[9]                                                                 ; 2       ;
 ; Milestone_1:M1_unit|Y_data[1]                                                                 ; 2       ;
-; Milestone_1:M1_unit|a_IN2[6]~22                                                               ; 2       ;
-; Milestone_1:M1_unit|a_IN2[6]~21                                                               ; 2       ;
+; Milestone_1:M1_unit|a_IN2[4]~22                                                               ; 2       ;
+; Milestone_1:M1_unit|a_IN2[4]~21                                                               ; 2       ;
 ; Milestone_1:M1_unit|Y_data[8]                                                                 ; 2       ;
 ; Milestone_1:M1_unit|Y_data[0]                                                                 ; 2       ;
 ; Milestone_1:M1_unit|Selector252~1                                                             ; 2       ;
@@ -2564,11 +2567,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|VR[1][0]                                                                  ; 2       ;
 ; Milestone_1:M1_unit|VR[4][0]                                                                  ; 2       ;
 ; Milestone_1:M1_unit|U_prime[0]                                                                ; 2       ;
-; Milestone_1:M1_unit|b_IN2[5]~8                                                                ; 2       ;
-; Milestone_1:M1_unit|b_IN2[5]~7                                                                ; 2       ;
+; Milestone_1:M1_unit|b_IN2[1]~8                                                                ; 2       ;
+; Milestone_1:M1_unit|b_IN2[1]~7                                                                ; 2       ;
 ; Milestone_1:M1_unit|b_IN2~4                                                                   ; 2       ;
 ; Milestone_1:M1_unit|a_IN2~8                                                                   ; 2       ;
-; Milestone_1:M1_unit|a_IN2[6]~6                                                                ; 2       ;
+; Milestone_1:M1_unit|a_IN2[4]~6                                                                ; 2       ;
 ; Milestone_1:M1_unit|UR[4][0]                                                                  ; 2       ;
 ; Milestone_1:M1_unit|Selector276~6                                                             ; 2       ;
 ; Milestone_1:M1_unit|Selector276~3                                                             ; 2       ;
@@ -2619,6 +2622,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; UART_SRAM_interface:UART_unit|SRAM_write_data~3                                               ; 2       ;
 ; UART_SRAM_interface:UART_unit|SRAM_write_data~2                                               ; 2       ;
 ; UART_SRAM_interface:UART_unit|SRAM_write_data~0                                               ; 2       ;
+; PB_Controller:PB_unit|Equal0~1                                                                ; 2       ;
+; PB_Controller:PB_unit|Equal0~0                                                                ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[1]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[3]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[2]                  ; 2       ;
@@ -2626,8 +2631,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[5]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[6]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_buffer[7]                  ; 2       ;
-; PB_Controller:PB_unit|Equal0~1                                                                ; 2       ;
-; PB_Controller:PB_unit|Equal0~0                                                                ; 2       ;
+; Milestone_1:M1_unit|WideOr55~0                                                                ; 2       ;
 ; UART_SRAM_interface:UART_unit|new_line_count[0]~4                                             ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[0]                      ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[1]                      ; 2       ;
@@ -2637,19 +2641,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[5]                      ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[6]                      ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|RX_data[7]                      ; 2       ;
-; Milestone_1:M1_unit|WideOr55~0                                                                ; 2       ;
-; VGA_SRAM_interface:VGA_unit|VGA_blue~2                                                        ; 2       ;
+; VGA_SRAM_interface:VGA_unit|VGA_blue~1                                                        ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state.S_VS_FETCH_PIXEL_DATA_2~0                          ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|Equal2~0                                                          ; 2       ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector0~1                     ; 2       ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Selector3~1                     ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Equal2~3                        ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|data_count[1]                   ; 2       ;
-; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~14               ; 2       ;
-; UART_SRAM_interface:UART_unit|Selector3~1                                                     ; 2       ;
-; UART_SRAM_interface:UART_unit|Equal1~0                                                        ; 2       ;
-; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~26                                                 ; 2       ;
-; VGA_SRAM_interface:VGA_unit|Equal0~22                                                         ; 2       ;
-; VGA_SRAM_interface:VGA_unit|SRAM_address[1]~4                                                 ; 2       ;
 ; PB_Controller:PB_unit|debounce_shift_reg[0][0]                                                ; 2       ;
 ; PB_Controller:PB_unit|debounce_shift_reg[0][1]                                                ; 2       ;
 ; PB_Controller:PB_unit|debounce_shift_reg[0][2]                                                ; 2       ;
@@ -2659,9 +2656,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; PB_Controller:PB_unit|debounce_shift_reg[0][6]                                                ; 2       ;
 ; PB_Controller:PB_unit|debounce_shift_reg[0][7]                                                ; 2       ;
 ; PB_Controller:PB_unit|debounce_shift_reg[0][8]                                                ; 2       ;
+; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~26                                                 ; 2       ;
+; VGA_SRAM_interface:VGA_unit|Equal0~22                                                         ; 2       ;
+; VGA_SRAM_interface:VGA_unit|SRAM_address[1]~4                                                 ; 2       ;
 ; Milestone_1:M1_unit|Selector630~10                                                            ; 2       ;
 ; Milestone_1:M1_unit|WideOr8~0                                                                 ; 2       ;
 ; Milestone_1:M1_unit|LessThan0~4                                                               ; 2       ;
+; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Frame_error[0]~14               ; 2       ;
+; UART_SRAM_interface:UART_unit|Selector3~1                                                     ; 2       ;
+; UART_SRAM_interface:UART_unit|Equal1~0                                                        ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_blue[0]                                                       ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan6~1                               ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|LessThan6~0                               ; 2       ;
@@ -2674,30 +2677,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|WideOr18~4                                                                ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Equal2~1                        ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|Equal2~0                        ; 2       ;
-; UART_SRAM_interface:UART_unit|SRAM_address[6]~0                                               ; 2       ;
+; Selector6~2                                                                                   ; 2       ;
+; PB_Controller:PB_unit|push_button_status_buf[0]                                               ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_SRAM_state~18                                                 ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[0]                                                   ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|SRAM_address[1]                                                   ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|Equal1~0                                                          ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|always0~0                                                         ; 2       ;
-; Milestone_1:M1_unit|sim_done                                                                  ; 2       ;
-; top_state.S_ENABLE_UART_RX~0                                                                  ; 2       ;
-; Selector3~2                                                                                   ; 2       ;
-; top_state~12                                                                                  ; 2       ;
-; Selector3~1                                                                                   ; 2       ;
-; top_state.S_IDLE~0                                                                            ; 2       ;
-; PB_Controller:PB_unit|push_button_status[0]                                                   ; 2       ;
 ; Milestone_1:M1_unit|WideOr14~2                                                                ; 2       ;
 ; Milestone_1:M1_unit|WideOr14~1                                                                ; 2       ;
 ; Milestone_1:M1_unit|WideOr16~4                                                                ; 2       ;
 ; Milestone_1:M1_unit|WideOr16~1                                                                ; 2       ;
 ; Milestone_1:M1_unit|WideOr16~0                                                                ; 2       ;
+; UART_SRAM_interface:UART_unit|SRAM_address[0]~0                                               ; 2       ;
 ; SRAM_Controller:SRAM_unit|SRAM_CE_N_O                                                         ; 2       ;
 ; SRAM_Controller:SRAM_unit|SRAM_LB_N_O                                                         ; 2       ;
 ; VGA_SRAM_interface:VGA_unit|VGA_Controller:VGA_unit|oVGA_H_SYNC                               ; 2       ;
 ; SRAM_we_n~0                                                                                   ; 2       ;
 ; Milestone_1:M1_unit|SRAM_we_n                                                                 ; 2       ;
-; convert_hex_to_seven_segment:unit3|Decoder0~0                                                 ; 2       ;
+; SRAM_address[17]~27                                                                           ; 2       ;
 ; Milestone_1:M1_unit|Add18~64                                                                  ; 2       ;
 ; Milestone_1:M1_unit|Add18~30                                                                  ; 2       ;
 ; Milestone_1:M1_unit|Add18~28                                                                  ; 2       ;
@@ -2817,7 +2815,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; PB_Controller:PB_unit|clock_1kHz_div_count[11]                                                ; 2       ;
 ; PB_Controller:PB_unit|clock_1kHz_div_count[10]                                                ; 2       ;
 ; PB_Controller:PB_unit|clock_1kHz_div_count[9]                                                 ; 2       ;
-; UART_SRAM_interface:UART_unit|UART_rx_unload_data                                             ; 2       ;
 ; Milestone_1:M1_unit|V_sram_address[0]                                                         ; 2       ;
 ; Milestone_1:M1_unit|V_sram_address[1]                                                         ; 2       ;
 ; Milestone_1:M1_unit|V_sram_address[2]                                                         ; 2       ;
@@ -2863,6 +2860,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|write_address[1]                                                          ; 2       ;
 ; Milestone_1:M1_unit|write_address[2]                                                          ; 2       ;
 ; Milestone_1:M1_unit|write_address[3]                                                          ; 2       ;
+; UART_SRAM_interface:UART_unit|UART_rx_unload_data                                             ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[3]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[7]                  ; 2       ;
 ; UART_SRAM_interface:UART_unit|UART_Receive_Controller:UART_RX|clock_count[4]                  ; 2       ;
@@ -2915,6 +2913,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Milestone_1:M1_unit|Y_sram_address[6]                                                         ; 2       ;
 ; Milestone_1:M1_unit|U_sram_address[6]                                                         ; 2       ;
 ; Milestone_1:M1_unit|write_address[6]                                                          ; 2       ;
+; Milestone_1:M1_unit|V_sram_address[5]                                                         ; 2       ;
+; Milestone_1:M1_unit|Y_sram_address[5]                                                         ; 2       ;
+; Milestone_1:M1_unit|write_address[5]                                                          ; 2       ;
 +-----------------------------------------------------------------------------------------------+---------+
 
 
@@ -2940,18 +2941,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
 ; Name                                                                    ; Mode                       ; Location           ; Sign Representation ; Has Input Shift Register Chain ; Data A Input Register ; Data B Input Register ; Pipeline Register ; Output Register ;
 +-------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
-; Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y13_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y13_N0 ; Variable            ;                                ; yes                   ; yes                   ; no                ;                 ;
-; Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|w253w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y14_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y14_N0 ; Variable            ;                                ; yes                   ; no                    ; no                ;                 ;
-; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|w247w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y16_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y16_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
-; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y15_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y15_N0 ; Variable            ;                                ; yes                   ; yes                   ; no                ;                 ;
-; Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|w235w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y18_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y18_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
-; Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y17_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y17_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y16_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y16_N0 ; Variable            ;                                ; yes                   ; yes                   ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|w253w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y15_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult1|mult_l8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y15_N0 ; Variable            ;                                ; yes                   ; no                    ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|w247w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y18_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y18_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y14_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult0|mult_r8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y14_N0 ; Variable            ;                                ; yes                   ; yes                   ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|w235w[0]     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y17_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_mult1 ;                            ; DSPMULT_X39_Y17_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
+; Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_out4     ; Simple Multiplier (18-bit) ; DSPOUT_X39_Y13_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    Milestone_1:M1_unit|lpm_mult:Mult2|mult_n8t:auto_generated|mac_mult3 ;                            ; DSPMULT_X39_Y13_N0 ; Variable            ;                                ; no                    ; yes                   ; no                ;                 ;
 +-------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
 
 
@@ -2960,53 +2961,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------+------------------------+
 ; Interconnect Resource Type ; Usage                  ;
 +----------------------------+------------------------+
-; Block interconnects        ; 3,285 / 94,460 ( 3 % ) ;
-; C16 interconnects          ; 41 / 3,315 ( 1 % )     ;
-; C4 interconnects           ; 1,981 / 60,840 ( 3 % ) ;
-; Direct links               ; 549 / 94,460 ( < 1 % ) ;
+; Block interconnects        ; 3,370 / 94,460 ( 4 % ) ;
+; C16 interconnects          ; 48 / 3,315 ( 1 % )     ;
+; C4 interconnects           ; 2,136 / 60,840 ( 4 % ) ;
+; Direct links               ; 544 / 94,460 ( < 1 % ) ;
 ; Global clocks              ; 3 / 16 ( 19 % )        ;
-; Local interconnects        ; 854 / 33,216 ( 3 % )   ;
-; R24 interconnects          ; 75 / 3,091 ( 2 % )     ;
-; R4 interconnects           ; 2,470 / 81,294 ( 3 % ) ;
+; Local interconnects        ; 830 / 33,216 ( 2 % )   ;
+; R24 interconnects          ; 81 / 3,091 ( 3 % )     ;
+; R4 interconnects           ; 2,586 / 81,294 ( 3 % ) ;
 +----------------------------+------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 13.66) ; Number of LABs  (Total = 161) ;
+; Number of Logic Elements  (Average = 13.72) ; Number of LABs  (Total = 160) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 7                             ;
-; 2                                           ; 6                             ;
-; 3                                           ; 0                             ;
-; 4                                           ; 3                             ;
+; 1                                           ; 6                             ;
+; 2                                           ; 5                             ;
+; 3                                           ; 2                             ;
+; 4                                           ; 2                             ;
 ; 5                                           ; 1                             ;
-; 6                                           ; 1                             ;
-; 7                                           ; 3                             ;
+; 6                                           ; 0                             ;
+; 7                                           ; 4                             ;
 ; 8                                           ; 2                             ;
-; 9                                           ; 6                             ;
-; 10                                          ; 5                             ;
+; 9                                           ; 5                             ;
+; 10                                          ; 4                             ;
 ; 11                                          ; 1                             ;
-; 12                                          ; 0                             ;
-; 13                                          ; 0                             ;
-; 14                                          ; 3                             ;
-; 15                                          ; 5                             ;
-; 16                                          ; 118                           ;
+; 12                                          ; 2                             ;
+; 13                                          ; 2                             ;
+; 14                                          ; 4                             ;
+; 15                                          ; 6                             ;
+; 16                                          ; 114                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 2.16) ; Number of LABs  (Total = 161) ;
+; LAB-wide Signals  (Average = 2.06) ; Number of LABs  (Total = 160) ;
 +------------------------------------+-------------------------------+
-; 1 Async. clear                     ; 114                           ;
-; 1 Clock                            ; 120                           ;
-; 1 Clock enable                     ; 44                            ;
-; 1 Sync. clear                      ; 23                            ;
+; 1 Async. clear                     ; 106                           ;
+; 1 Clock                            ; 115                           ;
+; 1 Clock enable                     ; 47                            ;
+; 1 Sync. clear                      ; 18                            ;
 ; 1 Sync. load                       ; 3                             ;
-; 2 Async. clears                    ; 7                             ;
-; 2 Clock enables                    ; 35                            ;
+; 2 Async. clears                    ; 10                            ;
+; 2 Clock enables                    ; 30                            ;
 ; 2 Clocks                           ; 1                             ;
 +------------------------------------+-------------------------------+
 
@@ -3014,73 +3015,73 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 18.93) ; Number of LABs  (Total = 161) ;
+; Number of Signals Sourced  (Average = 19.02) ; Number of LABs  (Total = 160) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 3                             ;
-; 1                                            ; 4                             ;
-; 2                                            ; 4                             ;
+; 1                                            ; 3                             ;
+; 2                                            ; 5                             ;
 ; 3                                            ; 2                             ;
-; 4                                            ; 4                             ;
-; 5                                            ; 0                             ;
-; 6                                            ; 0                             ;
-; 7                                            ; 3                             ;
-; 8                                            ; 5                             ;
+; 4                                            ; 2                             ;
+; 5                                            ; 1                             ;
+; 6                                            ; 2                             ;
+; 7                                            ; 2                             ;
+; 8                                            ; 3                             ;
 ; 9                                            ; 4                             ;
 ; 10                                           ; 2                             ;
 ; 11                                           ; 1                             ;
 ; 12                                           ; 0                             ;
-; 13                                           ; 1                             ;
+; 13                                           ; 4                             ;
 ; 14                                           ; 3                             ;
-; 15                                           ; 2                             ;
-; 16                                           ; 19                            ;
-; 17                                           ; 14                            ;
-; 18                                           ; 9                             ;
-; 19                                           ; 5                             ;
-; 20                                           ; 4                             ;
-; 21                                           ; 5                             ;
-; 22                                           ; 4                             ;
-; 23                                           ; 10                            ;
+; 15                                           ; 1                             ;
+; 16                                           ; 21                            ;
+; 17                                           ; 10                            ;
+; 18                                           ; 10                            ;
+; 19                                           ; 3                             ;
+; 20                                           ; 5                             ;
+; 21                                           ; 8                             ;
+; 22                                           ; 6                             ;
+; 23                                           ; 6                             ;
 ; 24                                           ; 4                             ;
-; 25                                           ; 6                             ;
-; 26                                           ; 8                             ;
-; 27                                           ; 4                             ;
-; 28                                           ; 5                             ;
-; 29                                           ; 7                             ;
-; 30                                           ; 6                             ;
-; 31                                           ; 3                             ;
-; 32                                           ; 10                            ;
+; 25                                           ; 3                             ;
+; 26                                           ; 10                            ;
+; 27                                           ; 6                             ;
+; 28                                           ; 4                             ;
+; 29                                           ; 8                             ;
+; 30                                           ; 3                             ;
+; 31                                           ; 2                             ;
+; 32                                           ; 13                            ;
 +----------------------------------------------+-------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                          ;
 +--------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 10.66) ; Number of LABs  (Total = 161) ;
+; Number of Signals Sourced Out  (Average = 10.86) ; Number of LABs  (Total = 160) ;
 +--------------------------------------------------+-------------------------------+
 ; 0                                                ; 3                             ;
-; 1                                                ; 7                             ;
-; 2                                                ; 9                             ;
+; 1                                                ; 8                             ;
+; 2                                                ; 5                             ;
 ; 3                                                ; 3                             ;
-; 4                                                ; 5                             ;
-; 5                                                ; 6                             ;
+; 4                                                ; 6                             ;
+; 5                                                ; 5                             ;
 ; 6                                                ; 5                             ;
-; 7                                                ; 11                            ;
-; 8                                                ; 6                             ;
-; 9                                                ; 23                            ;
-; 10                                               ; 10                            ;
-; 11                                               ; 8                             ;
-; 12                                               ; 9                             ;
-; 13                                               ; 6                             ;
-; 14                                               ; 7                             ;
-; 15                                               ; 4                             ;
-; 16                                               ; 24                            ;
-; 17                                               ; 1                             ;
-; 18                                               ; 4                             ;
-; 19                                               ; 2                             ;
-; 20                                               ; 1                             ;
+; 7                                                ; 8                             ;
+; 8                                                ; 5                             ;
+; 9                                                ; 26                            ;
+; 10                                               ; 8                             ;
+; 11                                               ; 9                             ;
+; 12                                               ; 12                            ;
+; 13                                               ; 11                            ;
+; 14                                               ; 5                             ;
+; 15                                               ; 3                             ;
+; 16                                               ; 25                            ;
+; 17                                               ; 2                             ;
+; 18                                               ; 2                             ;
+; 19                                               ; 1                             ;
+; 20                                               ; 0                             ;
 ; 21                                               ; 0                             ;
 ; 22                                               ; 1                             ;
-; 23                                               ; 0                             ;
+; 23                                               ; 1                             ;
 ; 24                                               ; 0                             ;
 ; 25                                               ; 0                             ;
 ; 26                                               ; 0                             ;
@@ -3096,40 +3097,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 19.27) ; Number of LABs  (Total = 161) ;
+; Number of Distinct Inputs  (Average = 19.74) ; Number of LABs  (Total = 160) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
 ; 2                                            ; 1                             ;
-; 3                                            ; 4                             ;
-; 4                                            ; 9                             ;
-; 5                                            ; 6                             ;
-; 6                                            ; 5                             ;
-; 7                                            ; 3                             ;
+; 3                                            ; 5                             ;
+; 4                                            ; 10                            ;
+; 5                                            ; 3                             ;
+; 6                                            ; 1                             ;
+; 7                                            ; 4                             ;
 ; 8                                            ; 2                             ;
 ; 9                                            ; 1                             ;
-; 10                                           ; 3                             ;
+; 10                                           ; 4                             ;
 ; 11                                           ; 4                             ;
-; 12                                           ; 4                             ;
-; 13                                           ; 3                             ;
-; 14                                           ; 5                             ;
-; 15                                           ; 5                             ;
-; 16                                           ; 6                             ;
-; 17                                           ; 4                             ;
-; 18                                           ; 11                            ;
-; 19                                           ; 7                             ;
-; 20                                           ; 6                             ;
-; 21                                           ; 2                             ;
+; 12                                           ; 3                             ;
+; 13                                           ; 4                             ;
+; 14                                           ; 4                             ;
+; 15                                           ; 7                             ;
+; 16                                           ; 9                             ;
+; 17                                           ; 5                             ;
+; 18                                           ; 8                             ;
+; 19                                           ; 6                             ;
+; 20                                           ; 7                             ;
+; 21                                           ; 3                             ;
 ; 22                                           ; 3                             ;
-; 23                                           ; 6                             ;
-; 24                                           ; 5                             ;
-; 25                                           ; 5                             ;
-; 26                                           ; 4                             ;
-; 27                                           ; 5                             ;
-; 28                                           ; 4                             ;
-; 29                                           ; 5                             ;
-; 30                                           ; 6                             ;
-; 31                                           ; 2                             ;
+; 23                                           ; 2                             ;
+; 24                                           ; 3                             ;
+; 25                                           ; 4                             ;
+; 26                                           ; 2                             ;
+; 27                                           ; 4                             ;
+; 28                                           ; 6                             ;
+; 29                                           ; 9                             ;
+; 30                                           ; 5                             ;
+; 31                                           ; 6                             ;
 ; 32                                           ; 14                            ;
 ; 33                                           ; 4                             ;
 ; 34                                           ; 1                             ;
@@ -3174,9 +3175,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Fitter
     Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Nov 23 13:15:47 2016
+    Info: Processing started: Wed Nov 23 23:43:18 2016
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off final_project -c final_project
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 3 of the 3 processors detected
 Info (119006): Selected device EP2C35F672C6 for design "final_project"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -3219,7 +3220,7 @@ Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 2% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 17% of the available device resources in the region that extends from location X33_Y12 to location X43_Y23
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:10
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
@@ -3230,10 +3231,10 @@ Info (306005): Delay annotation completed successfully
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file /home/ECE/ziembaje/Desktop/final_project/final_project.fit.smsg
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 533 megabytes
-    Info: Processing ended: Wed Nov 23 13:16:12 2016
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Peak virtual memory: 510 megabytes
+    Info: Processing ended: Wed Nov 23 23:43:36 2016
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +----------------------------+

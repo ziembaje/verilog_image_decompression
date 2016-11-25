@@ -1,5 +1,5 @@
 Flow report for final_project
-Wed Nov 23 13:16:23 2016
+Wed Nov 23 23:43:46 2016
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Wed Nov 23 13:16:22 2016          ;
+; Flow Status                        ; Successful - Wed Nov 23 23:43:46 2016          ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Full Version ;
 ; Revision Name                      ; final_project                                  ;
 ; Top-level Entity Name              ; final_project                                  ;
 ; Family                             ; Cyclone II                                     ;
 ; Device                             ; EP2C35F672C6                                   ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 2,199 / 33,216 ( 7 % )                         ;
-;     Total combinational functions  ; 2,114 / 33,216 ( 6 % )                         ;
-;     Dedicated logic registers      ; 943 / 33,216 ( 3 % )                           ;
-; Total registers                    ; 943                                            ;
+; Total logic elements               ; 2,195 / 33,216 ( 7 % )                         ;
+;     Total combinational functions  ; 2,112 / 33,216 ( 6 % )                         ;
+;     Dedicated logic registers      ; 942 / 33,216 ( 3 % )                           ;
+; Total registers                    ; 942                                            ;
 ; Total pins                         ; 164 / 475 ( 35 % )                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                            ;
@@ -62,31 +62,33 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/23/2016 13:15:30 ;
+; Start date & time ; 11/23/2016 23:42:59 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; final_project       ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                    ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 36074251460508.147992492917418 ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --          ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                           ; --            ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                              ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                       ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; --          ; Top            ;
-; STATE_MACHINE_PROCESSING            ; User-Encoded                   ; Auto          ; --          ; --             ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS  ; Off                            ; --            ; --          ; eda_blast_fpga ;
-; VERILOG_INPUT_VERSION               ; SystemVerilog_2005             ; Verilog_2001  ; --          ; --             ;
-; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                            ; --            ; --          ; --             ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                           ;
++-------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 36074251458984.147996257906451        ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --             ;
+; STATE_MACHINE_PROCESSING            ; User-Encoded                          ; Auto          ; --          ; --             ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS  ; Off                                   ; --            ; --          ; eda_blast_fpga ;
+; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                    ; Verilog_2001  ; --          ; --             ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                   ; --            ; --          ; --             ;
++-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -95,11 +97,11 @@ applicable agreement for further details.
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; --                  ; 00:00:16                           ;
-; Fitter                    ; 00:00:25     ; 2.3                     ; --                  ; 00:00:31                           ;
+; Fitter                    ; 00:00:17     ; 2.0                     ; --                  ; 00:00:22                           ;
 ; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; --                  ; 00:00:02                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; --                  ; 00:00:03                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; --                  ; 00:00:03                           ;
 ; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; --                  ; 00:00:02                           ;
-; Total                     ; 00:00:47     ; --                      ; --                  ; 00:00:54                           ;
+; Total                     ; 00:00:40     ; --                      ; --                  ; 00:00:45                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,11 +110,11 @@ applicable agreement for further details.
 +---------------------------+------------------+---------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
 +---------------------------+------------------+---------+------------+----------------+
-; Analysis & Synthesis      ; rh-itb-AB109-04  ; Red Hat ; 5          ; x86_64         ;
-; Fitter                    ; rh-itb-AB109-04  ; Red Hat ; 5          ; x86_64         ;
-; TimeQuest Timing Analyzer ; rh-itb-AB109-04  ; Red Hat ; 5          ; x86_64         ;
-; Assembler                 ; rh-itb-AB109-04  ; Red Hat ; 5          ; x86_64         ;
-; EDA Netlist Writer        ; rh-itb-AB109-04  ; Red Hat ; 5          ; x86_64         ;
+; Analysis & Synthesis      ; rh-itb-AB109-11  ; Red Hat ; 5          ; x86_64         ;
+; Fitter                    ; rh-itb-AB109-11  ; Red Hat ; 5          ; x86_64         ;
+; TimeQuest Timing Analyzer ; rh-itb-AB109-11  ; Red Hat ; 5          ; x86_64         ;
+; Assembler                 ; rh-itb-AB109-11  ; Red Hat ; 5          ; x86_64         ;
+; EDA Netlist Writer        ; rh-itb-AB109-11  ; Red Hat ; 5          ; x86_64         ;
 +---------------------------+------------------+---------+------------+----------------+
 
 

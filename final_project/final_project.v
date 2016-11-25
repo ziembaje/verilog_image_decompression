@@ -49,14 +49,19 @@ module final_project(
 		input logic UART_RX_I,                    // UART receive signal
 		output logic UART_TX_O                // UART transmit signal
 		
-		//output logic done
+		////// M2 Additions:		
+		// all output logic done
+		
+		
+		
 );
 	
 logic resetn;
 
 top_state_type top_state;
 
-logic done;
+logic M1_done;
+logic M2_done;
 
 // For Push button
 logic [3:0] PB_pushed;
@@ -105,9 +110,12 @@ logic [17:0] V_sram_address;
 
 logic [17:0] RGB_sram_address;
 
-logic lead_in_begin;
+logic lead_in_begin_M1;
+logic lead_in_begin_M2;
 
 M1_state_type M1_current_state;
+M2_state_type M2_current_state;
+
 // Push Button unit
 PB_Controller PB_unit (
 	.Clock_50(CLOCK_50_I),
@@ -180,7 +188,7 @@ Milestone_1 M1_unit (
 	//inputs
 	.Clock_50(CLOCK_50_I),
 	.Resetn(resetn), 
-	.Initialize(lead_in_begin),
+	.Initialize(lead_in_begin_M1),
 	.SRAM_read_data(SRAM_read_data),
 	
 	//outputs
@@ -188,8 +196,23 @@ Milestone_1 M1_unit (
 	.SRAM_write_data(M1_SRAM_write_data),
 	.SRAM_we_n(M1_SRAM_we_n),
 	.M1_state(M1_current_state),
-	.sim_done(done)
+	.sim_done(M1_done)
 
+);
+
+Milestone_2 M2_unit (
+		
+		//inputs
+		.CLOCK_I(CLOCK_50_I),
+		.RESETN_I(resetn),
+		.Initialize(lead_in_begin_M2),
+		
+		//outputs
+		
+		
+		
+		
+		.sim_done(M2_done)
 );
 
 always @(posedge CLOCK_50_I or negedge resetn) begin
@@ -204,7 +227,8 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		//UART_timer <= 26'd49999990; //simulation (500000000 cycles takes to long in simulation so we just increase the counter)
 		
 		VGA_enable <= 1'b1;
-		lead_in_begin <= 0;
+		lead_in_begin_M1 <= 0;
+		lead_in_begin_M2 <= 0;
 	end else begin
 		UART_rx_initialize <= 1'b0; 
 		UART_rx_enable <= 1'b0; 
@@ -219,8 +243,14 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		S_IDLE: begin
 			VGA_enable <= 1'b1;// NOW ENABLE MILESTONE 1 ENABLE VGA  MILESTONE 1 IS COMPLETE!!!
 			//AFTER
-			/////////////////////// FOR SIMULATION //////////////////
-			//lead_in_begin <= 1; //remove when running on board
+			
+			/////////////////////// FOR M2 SIMULATION //////////////////
+			lead_in_begin_M2 <= 1; //remove when running on board
+			top_state <= S_M2; // remove when running on board
+
+			
+			/////////////////////// FOR M1 SIMULATION //////////////////
+			//lead_in_begin_M1 <= 1; //remove when running on board
 			//top_state <= S_M1; // remove when running on board
 
 			
@@ -233,6 +263,8 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 				top_state <= S_ENABLE_UART_RX;
 			end
 		end
+		
+		
 		S_ENABLE_UART_RX: begin
 			// Enable the UART receiver
 			UART_rx_enable <= 1'b1;
@@ -241,28 +273,49 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		S_WAIT_UART_RX: begin
 			//MBOBUS
 			/////////////////////// FOR SIMULATION //////////////////
-			//if ((UART_timer == 26'd49999999) || (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
-			//////////////////////////////////////////////////////
-			if ((UART_timer == 26'd49999999) && (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
-				// Timeout on UART
+			if ((UART_timer == 26'd49999999) || (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
+			/////////////////////// FOR BOARD ///////////////////////
+			//if ((UART_timer == 26'd49999999) && (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
+			/////////////////////////////////////////////////////////
+			// Timeout on UART
 				UART_rx_initialize <= 1'b1;
 				 				
 				//VGA_enable <= 1'b1;
-				/*
-				To be written to 1 once we start displaying the converted RGB pixels (they are being read from SRAM, they should not be displayed as we convert from YUV)
-				*/
-				top_state <= S_M1;
+				
+				//** To be written to 1 once we start displaying the converted RGB pixels (they are being read from SRAM, they should not be displayed as we convert from YUV)
+				
+				//top_state <= S_M1;
+				top_state <= S_M2;
 			end 
 			
 		end	
-
+		
+		
+		
+		S_M2: begin
+			lead_in_begin_M1 <= 1;
+			
+			if (M2_done == 1)
+				top_state <= S_M2_leave;
+		end
+		
+		
+		S_M2_leave: begin
+			VGA_enable <= 1;
+			lead_in_begin_M2 <= 0;
+			
+			top_state <= S_IDLE;
+		end
+		
+		
+		/****************************** Remove Start Line. 
+			// - States that start and end M1.
+			
 		S_M1: begin
+				lead_in_begin_M1 <= 1;
 				
 				
-				lead_in_begin <= 1;
-				
-				
-				if (done == 1)
+				if (M1_done == 1)
 					top_state <= S_M1_leave;
 
 		
@@ -272,9 +325,10 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 			VGA_enable <= 1;
 			top_state <= S_IDLE;
 			
-			lead_in_begin <= 0;
+			lead_in_begin_M1 <= 0;
 			
 		end
+		*/ //***********************************// Remove End Line
 		default: top_state <= S_IDLE;
 		endcase
 	end
@@ -379,6 +433,6 @@ assign
    SEVEN_SEGMENT_N_O[6] = value_7_segment[6],
    SEVEN_SEGMENT_N_O[7] = value_7_segment[7];
 
-assign LED_GREEN_O = {resetn, VGA_enable, ~SRAM_we_n, Frame_error, lead_in_begin};
+assign LED_GREEN_O = {resetn, VGA_enable, ~SRAM_we_n, Frame_error, lead_in_begin_M1};
 
 endmodule

@@ -64,13 +64,56 @@ typedef enum logic [6:0] {
 	
 } M1_state_type;
 
+
+typedef enum logic [8:0] {
+	
+	S_FETCH_1, //first two clock cycles for initial fetching of s
+	S_FETCH_2,
+	S_FETCH_3,
+	
+	S_BLOCK1_1,
+	S_BLOCK1_2,
+	S_BLOCK1_3,
+	S_BLOCK1_4,
+	S_BLOCK1_5,
+	S_BLOCK1_6,
+	S_BLOCK1_7,
+	
+	S_BLOCK2_1,
+	S_BLOCK2_2,
+	S_BLOCK2_3,
+	S_BLOCK2_4,
+	S_BLOCK2_5,
+	S_BLOCK2_6,
+	S_BLOCK2_7,
+	
+	S_BLOCK3_1,
+	S_BLOCK3_2,
+	S_BLOCK3_3,
+	S_BLOCK3_4,
+	S_BLOCK3_5,
+	S_BLOCK3_6,
+	S_BLOCK3_7,
+	
+	S_BLOCK4_1,
+	S_BLOCK4_2,
+	S_BLOCK4_3,
+	S_BLOCK4_4,
+	S_BLOCK4_5,
+	S_BLOCK4_6,
+	S_BLOCK4_7,
+	
+} M2_state_type;
+
 // This defines the states
-typedef enum logic [2:0] {
+typedef enum logic [3:0] {
 	S_IDLE,
 	S_ENABLE_UART_RX,
 	S_WAIT_UART_RX,
 	S_M1,
-	S_M1_leave
+	S_M1_leave,
+	S_M2,
+	S_M2_leave
 } top_state_type;
 
 typedef enum logic [1:0] {

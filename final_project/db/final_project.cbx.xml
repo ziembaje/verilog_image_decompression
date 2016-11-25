@@ -1,8 +1,10 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="final_project">
-		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult0" CBX_FILE_NAME="mult_r8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult1" CBX_FILE_NAME="mult_l8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_2:M2_unit|dual_port_RAM0:dual_port_RAM_inst0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_tq92.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_2:M2_unit|dual_port_RAM1:dual_port_RAM_inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_uq92.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult0" CBX_FILE_NAME="mult_r8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|final_project|Milestone_1:M1_unit|lpm_mult:Mult2" CBX_FILE_NAME="mult_n8t.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
