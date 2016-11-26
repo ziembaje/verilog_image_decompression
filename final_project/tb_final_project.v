@@ -35,13 +35,16 @@ you will get false errors, so use the original testbench instead.
 
 // file for comparison
 // to test milestone 2 independently, use the .sram_d1 file to check the output
-`define VERIFICATION_FILE_NAME "motorcycle.sram_d0"
+//`define VERIFICATION_FILE_NAME "motorcycle.sram_d0"
+
+`define VERIFICATION_FILE_NAME "motorcycle.sram_d1"
+
 
 //// for milestone 1
-`define INPUT_FILE_NAME "motorcycle.sram_d1"
+//`define INPUT_FILE_NAME "motorcycle.sram_d1"
 
 //// for milestone 2
-//`define INPUT_FILE_NAME "motorcycle.sram_d2"
+`define INPUT_FILE_NAME "motorcycle.sram_d2"
 
 //// for milestone 3 (completed project)
 //`define INPUT_FILE_NAME "motorcycle.mic10”

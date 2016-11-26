@@ -20,6 +20,10 @@ vlog -sv -svinputport=var -work rtl_work PB_Controller.v
 vlog -sv -svinputport=var -work rtl_work +define+SIMULATION SRAM_Controller.v
 vlog -sv -svinputport=var -work rtl_work tb_SRAM_Emulator.v
 vlog -sv -svinputport=var -work rtl_work Milestone_1.v
+vlog -sv -svinputport=var -work rtl_work Milestone_2.v
+vlog -sv -svinputport=var -work rtl_work dual_port_RAM1.v
+vlog -sv -svinputport=var -work rtl_work dual_port_RAM0.v
+
 vlog -sv -svinputport=var -work rtl_work +define+SIMULATION UART_Receive_Controller.v
 vlog -sv -svinputport=var -work rtl_work VGA_SRAM_interface.v
 vlog -sv -svinputport=var -work rtl_work UART_SRAM_interface.v
@@ -42,7 +46,10 @@ view wave
 
 # workaround for no block comments: call another .do file, or as many as you like
 # or just add the waveforms here like done the labs
-do add_my_waveforms.do
+
+#do add_my_waveforms_m1.do
+do add_my_waveforms_m2.do
+
 #do wave.do
 #do add_some_more_waveforms.do
 

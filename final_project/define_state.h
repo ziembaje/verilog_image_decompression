@@ -67,6 +67,8 @@ typedef enum logic [6:0] {
 
 typedef enum logic [8:0] {
 	
+	S_WAIT_FOR_BEGIN,
+	
 	S_FETCH_1, //first two clock cycles for initial fetching of s
 	S_FETCH_2,
 	S_FETCH_3,
@@ -101,7 +103,7 @@ typedef enum logic [8:0] {
 	S_BLOCK4_4,
 	S_BLOCK4_5,
 	S_BLOCK4_6,
-	S_BLOCK4_7,
+	S_BLOCK4_7
 	
 } M2_state_type;
 

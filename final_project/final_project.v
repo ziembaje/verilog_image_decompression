@@ -62,6 +62,9 @@ top_state_type top_state;
 
 logic M1_done;
 logic M2_done;
+logic done;
+
+assign done = M1_done || M2_done;
 
 // For Push button
 logic [3:0] PB_pushed;
@@ -94,6 +97,11 @@ logic [6:0] value_7_segment [7:0];
 logic [17:0] M1_SRAM_address;
 logic [15:0] M1_SRAM_write_data;
 logic M1_SRAM_we_n;
+
+logic [17:0] M2_SRAM_address;
+logic [15:0] M2_SRAM_write_data;
+logic M2_SRAM_we_n;
+
 
 // For error detection in UART
 logic [3:0] Frame_error;
@@ -206,9 +214,13 @@ Milestone_2 M2_unit (
 		.CLOCK_I(CLOCK_50_I),
 		.RESETN_I(resetn),
 		.Initialize(lead_in_begin_M2),
+		.SRAM_read_data(SRAM_read_data),
+
 		
 		//outputs
-		
+		.SRAM_address(M2_SRAM_address),
+		.SRAM_write_data(M2_SRAM_write_data),
+		.SRAM_we_n(M2_SRAM_we_n),
 		
 		
 		
@@ -229,6 +241,7 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		VGA_enable <= 1'b1;
 		lead_in_begin_M1 <= 0;
 		lead_in_begin_M2 <= 0;
+		
 	end else begin
 		UART_rx_initialize <= 1'b0; 
 		UART_rx_enable <= 1'b0; 
@@ -273,9 +286,9 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		S_WAIT_UART_RX: begin
 			//MBOBUS
 			/////////////////////// FOR SIMULATION //////////////////
-			if ((UART_timer == 26'd49999999) || (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
+			//if ((UART_timer == 26'd49999999) || (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
 			/////////////////////// FOR BOARD ///////////////////////
-			//if ((UART_timer == 26'd49999999) && (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
+			if ((UART_timer == 26'd49999999) && (UART_SRAM_address != 18'h00000)) begin//////////////////////////////////////	WE CHANGED THE && TO || FOR SIMULATION
 			/////////////////////////////////////////////////////////
 			// Timeout on UART
 				UART_rx_initialize <= 1'b1;
@@ -293,7 +306,7 @@ always @(posedge CLOCK_50_I or negedge resetn) begin
 		
 		
 		S_M2: begin
-			lead_in_begin_M1 <= 1;
+			lead_in_begin_M2 <= 1;
 			
 			if (M2_done == 1)
 				top_state <= S_M2_leave;
@@ -359,13 +372,16 @@ end*/
 //assign SRAM_write_data = M1_current_state != 0 ? M1_SRAM_write_data : UART_SRAM_write_data ;
 
 
-assign SRAM_address = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX))
-								? UART_SRAM_address : ((top_state == S_M1) ? M1_SRAM_address : VGA_SRAM_address);
+/*assign SRAM_address = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX))
+								? UART_SRAM_address : ((top_state == S_M1) ? M1_SRAM_address : VGA_SRAM_address);*/
 								
-assign SRAM_write_data = (top_state == S_M1) ? M1_SRAM_write_data : UART_SRAM_write_data;
+assign SRAM_address = ((top_state == S_ENABLE_UART_RX) | (top_state == S_WAIT_UART_RX))
+								? UART_SRAM_address : (top_state == S_M1) ? M1_SRAM_address : ((top_state == S_M2) ? M2_SRAM_address :VGA_SRAM_address);							
+								
+assign SRAM_write_data = (top_state == S_M1) ? M1_SRAM_write_data : ((top_state == S_M2) ? M2_SRAM_write_data :UART_SRAM_write_data);
 
 assign SRAM_we_n = ((top_state == S_ENABLE_UART_RX) | 
-						(top_state == S_WAIT_UART_RX)) ? UART_SRAM_we_n : ((top_state == S_M1) ? M1_SRAM_we_n : 1'b1);
+						(top_state == S_WAIT_UART_RX)) ? UART_SRAM_we_n : (top_state == S_M1) ? M1_SRAM_we_n : ((top_state == S_M2) ? M2_SRAM_we_n : 1'b1);
 
 /*always_comb begin
 	
